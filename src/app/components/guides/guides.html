@@ -1,0 +1,169 @@
+<div class="app-layout">
+ 
+  <app-sidebar></app-sidebar>
+
+  <main class="main-content">
+    <header class="main-header">
+      <button class="menu-toggle-btn" type="button">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Guías de Cultivo</h1>
+    </header>
+
+ 
+    <div class="guides-toolbar">
+      <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Buscar guías por nombre o categoría..."
+          [(ngModel)]="searchTerm"
+        />
+      </div>
+
+      <div class="filters-wrapper">
+        <button
+          class="filter-btn"
+          [class.active]="currentFilter === 'all'"
+          (click)="setFilter('all')"
+        >
+          Todas
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="currentFilter === 'favoritos'"
+          (click)="setFilter('favoritos')"
+        >
+          <i class="fas fa-bookmark"></i>
+          Mis Favoritos
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="currentFilter === 'interior'"
+          (click)="setFilter('interior')"
+        >
+          Plantas de Interior
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="currentFilter === 'acuaticas'"
+          (click)="setFilter('acuaticas')"
+        >
+          Plantas Acuáticas
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="currentFilter === 'enfermedades'"
+          (click)="setFilter('enfermedades')"
+        >
+          Enfermedades y Plagas
+        </button>
+      </div>
+    </div>
+
+
+    <section id="guides-container">
+      <ng-container *ngIf="filteredCategoryRows.length; else noResults">
+        <div
+          class="guide-category-row"
+          *ngFor="let row of filteredCategoryRows"
+        >
+          <div class="category-header">
+            <h2>{{ row.title }}</h2>
+            <p>{{ row.subtitle }}</p>
+          </div>
+
+          <div class="guides-carousel-wrapper">
+            <button
+              type="button"
+              class="carousel-btn prev"
+              (click)="scrollCarousel(carousel, 'prev')"
+            >
+              &lt;
+            </button>
+
+            <div class="guides-carousel" #carousel>
+              <div class="guides-track">
+                <div class="guide-card" *ngFor="let guide of row.guides">
+                  <div
+                    class="guide-card-image"
+                    [style.background-image]="'url(' + guide.image + ')'"
+                  >
+                    <button
+                      type="button"
+                      class="favorite-btn"
+                      [class.is-favorite]="guide.favorite"
+                      (click)="toggleFavorite(guide, $event)"
+                      title="Guardar en favoritos"
+                    >
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+
+                  <div class="guide-card-content">
+                    <h3>{{ guide.title }}</h3>
+                    <p>{{ guide.description }}</p>
+
+                    <div class="guide-card-footer">
+                      <a href="#" (click)="openModal(guide, $event)">
+                        Leer más
+                        <i class="fas fa-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="carousel-btn next"
+              (click)="scrollCarousel(carousel, 'next')"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </section>
+
+    <ng-template #noResults>
+      <div id="no-results-message" class="no-results-message">
+        <i class="fas fa-sad-tear"></i>
+        <h3>No se encontraron resultados</h3>
+        <p>Intenta con otra búsqueda o cambia los filtros.</p>
+      </div>
+    </ng-template>
+  </main>
+</div>
+
+
+<div
+  id="guide-modal"
+  class="modal"
+  [class.active]="isModalOpen"
+  (click)="closeModal()"
+>
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-modal-btn" type="button" (click)="closeModal()">
+      &times;
+    </button>
+
+    <img
+      *ngIf="selectedGuide"
+      id="modal-image"
+      [src]="selectedGuide.image"
+      [alt]="selectedGuide.title"
+    />
+
+    <div class="modal-text-content" *ngIf="selectedGuide">
+      <h2 id="modal-title">{{ selectedGuide.title }}</h2>
+      <p id="modal-description">{{ selectedGuide.fullContent }}</p>
+    </div>
+  </div>
+</div>

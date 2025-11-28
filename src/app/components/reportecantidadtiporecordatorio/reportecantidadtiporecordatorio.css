@@ -1,0 +1,95 @@
+
+
+.container {
+  /* Establece el layout principal, ocupa todo el ancho */
+  width: 95%;
+  padding: 20px;
+  box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+  margin-left: 5%; /* ← Crea espacio a la izquierda */
+}
+
+.grafico1 {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px 30px 28px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0 20px -50px; /* ← Cambiado: arriba 20px, derecha 0, abajo 20px, izquierda -50px */
+  max-width: 900px;
+  font-weight: 700 !important;
+  margin-right: 20px;
+  position: relative; /* ← Agregado para mejor control */
+  left: 40px; /* ← Mueve todo el elemento a la izquierda */
+}
+
+.grafico1 h2 {
+  font-size: 1.8rem;
+  font-weight: 700 !important; /* 🔥 ahora sí será negrita real */
+  color: #388e3c;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* ========================================= */
+/* Contenedor del Chart (Gráfico) */
+/* ========================================= */
+
+.chart-container {
+  /* Asegura que el canvas se mantenga centrado y con un buen aspecto */
+  width: 100%; 
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center;
+  min-height: 400px; /* Altura mínima para gráficos vacíos/cargando */
+}
+
+.chart-container canvas {
+  width: 450px !important;
+  height: 400px !important;
+}
+
+/* ========================================= */
+/* Estilos para "No hay datos" */
+/* ========================================= */
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  border: 1px dashed #bdbdbd; /* Borde punteado para indicar un espacio vacío */
+  border-radius: 8px;
+  background-color: #f7f7f7; /* Fondo ligeramente gris */
+  min-height: 250px; /* Altura adecuada para el mensaje */
+}
+
+.no-data-icon {
+  font-size: 48px;
+  color: #757575; /* Icono gris */
+  margin-bottom: 10px;
+}
+
+.no-data-message {
+  font-size: 1.2rem;
+  color: #757575;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ========================================= */
+/* Medias Queries (Responsividad) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .grafico1 {
+    padding: 20px 15px; /* Reducir el padding en móviles */
+    margin: 10px auto;
+  }
+  
+  .grafico1 h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}

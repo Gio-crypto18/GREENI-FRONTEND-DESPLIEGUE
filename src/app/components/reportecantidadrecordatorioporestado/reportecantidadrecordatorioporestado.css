@@ -1,0 +1,155 @@
+.report-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL BLANCO - ESTIRADO A LA DERECHA */
+.report-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0 20px 30px;  /* ← CAMBIADO: Sin margen derecho, auto izquierdo */
+  max-width: 950px; /* ← AUMENTADO: Más ancho máximo */
+  width: 98%; /* ← AÑADIDO: Ocupa casi todo el ancho disponible */
+  font-weight: 700 !important;
+  /* margin-right: 20px; ← ELIMINADO: Ya no necesita margen derecho fijo */
+}
+
+/* HEADER */
+.back-row {
+  margin-bottom: 25px;
+}
+
+.report-title {
+  font-size: 1.8rem;
+  font-weight: 700 !important;
+  color: #388e3c;
+  margin-bottom: 0;
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 10px;
+  text-align: center;
+  
+}
+
+/* CONTENIDO DEL GRÁFICO */
+.chart-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CONTENEDOR DEL GRÁFICO */
+.chart-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  margin-bottom: 20px;
+}
+
+.chart-wrapper canvas {
+  width: 500px !important; /* ← AUMENTADO: Gráfico más ancho */
+  height: 400px !important;
+}
+
+/* TARJETA DE LEYENDA */
+.legend-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* ← AUMENTADO: Leyenda más ancha */
+}
+
+.legend-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #388e3c;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 1px solid #e0f2f1;
+  padding-bottom: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 0;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.legend-label {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.legend-value {
+  font-weight: 600;
+  color: #388e3c;
+}
+
+/* SIN DATOS */
+.no-data-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  border: 1px dashed #bdbdbd;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  min-height: 250px;
+}
+
+.no-data-icon {
+  font-size: 48px;
+  color: #757575;
+  margin-bottom: 10px;
+}
+
+.no-data-text {
+  font-size: 1.2rem;
+  color: #757575;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .report-card {
+    padding: 20px 15px;
+    margin: 10px auto; /* ← Centrado en móviles */
+    width: 95%; /* ← Ancho ajustado para móviles */
+    max-width: none; /* ← Sin límite máximo en móviles */
+  }
+  
+  .report-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .chart-wrapper canvas {
+    width: 100% !important;
+    max-width: 400px !important; /* ← Aumentado en móviles */
+    height: 350px !important;
+  }
+
+  .legend-card {
+    padding: 15px;
+    max-width: 100%; /* ← Ancho completo en móviles */
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container">
+  <mat-toolbar class="custom-toolbar">
+    <button 
+      mat-button 
+      class="btn-rojo" 
+      aria-label="Example icon-button with menu icon"
+      [matMenuTriggerFor]="menuDevice">
+      <mat-icon>menu</mat-icon>APIS
+    </button>
+  </mat-toolbar>
+  
+  <mat-menu #menuDevice="matMenu">
+    <button mat-menu-item routerLink="/weather">🌤️ API CLIMA</button>
+    <button mat-menu-item routerLink="/chatbot">🤖 API chatbot</button>
+    <button mat-menu-item routerLink="/apidiagnostico">🩺 API Diagnositco</button>
+    <button mat-menu-item routerLink="/rol">📋 Listar Roles</button>
+    <button mat-menu-item routerLink="/rol/agregar">➕ Registrar Rol</button>
+    <button mat-menu-item routerLink="/guia">📋 Listar Guias</button>
+    <button mat-menu-item routerLink="/guia/agregar">➕ Registrar Guias</button>
+    <button mat-menu-item routerLink="/especie">📋 Listar Especies</button>
+    <button mat-menu-item routerLink="/especie/agregar">➕ Registrar Especies</button>
+    <button mat-menu-item routerLink="/tipointeraccion">📋 Listar Tipo Interaccion</button>
+    <button mat-menu-item routerLink="/tipointeraccion/agregar">➕ Registrar Tipo Interaccion</button>
+    <button mat-menu-item routerLink="/diagnostico">📋 Listar Diagnostico</button>
+    <button mat-menu-item routerLink="/diagnostico/agregar">➕ Registrar Diagnosticon</button>
+     <button mat-menu-item routerLink="/estadorecordatorio">📋 Listar Estado Recordatorio</button>
+    <button mat-menu-item routerLink="/estadorecordatorio/agregar">➕ Registrar Estado Recordatorio</button>
+  </mat-menu>
+</div>

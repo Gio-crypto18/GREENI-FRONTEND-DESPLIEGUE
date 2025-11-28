@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="grafico1">
+    <h2>Cantidad de tipos de recordatorios </h2>
+    @if(hasData==true){
+    <div style="text-align: center" class="chart-container">
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [type]="barChartType"
+      >
+      </canvas>
+    </div>
+    } @if(hasData==false){
+    <div class="no-data">
+      <mat-icon class="no-data-icon">info_outline</mat-icon>
+      <p class="no-data-message">No hay datos disponibles para mostrar.</p>
+    </div>
+    }
+  </div>
+</div>

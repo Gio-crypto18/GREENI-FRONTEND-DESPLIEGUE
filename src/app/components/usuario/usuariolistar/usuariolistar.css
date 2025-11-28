@@ -1,0 +1,148 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  /* El padding que baja el contenido */
+  padding: 6rem 1rem 2rem; 
+  background-color: #fef9e0; /* Fondo beige */
+
+  /* Variables de tu tema */
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-hover: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+}
+
+.user-list-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+/* Tarjeta blanca principal */
+.list-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.5rem 1rem;
+  border: 1px solid var(--borde-suave);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Encabezado (Flecha + Título) */
+.list-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Flecha | Título | Espaciador */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.list-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  text-align: center; /* Título centrado */
+  margin: 0;
+}
+
+/* Espaciador para centrar el título correctamente */
+.header-spacer {
+  width: 40px;
+  height: 40px;
+}
+
+/* Contenedor de la tabla para scroll horizontal en móviles */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Encabezados de la tabla */
+.user-table th.mat-header-cell {
+  background-color: #ffffff;
+  color: var(--texto-principal);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--borde-suave);
+}
+
+/* Celdas de la tabla */
+.user-table td.mat-cell {
+  font-size: 0.93rem;
+  color: var(--texto-principal);
+  border-bottom: 1px solid #edf2f7;
+}
+
+.user-table tr.mat-row:hover {
+  background-color: #f7fafc; /* Hover suave */
+}
+
+/* Utilidad para centrar celdas de acción */
+.center-cell {
+  text-align: center;
+}
+
+/* Botón Editar (Verde Claro) */
+.btn-edit {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  color: #66bb6a; 
+}
+
+/* Botón Eliminar (Verde Oscuro) */
+.btn-delete {
+  /* Tono de verde oscuro (Ejemplo: Deep Green) */
+  color: #388e3c; 
+}
+
+/* Paginador */
+mat-paginator {
+  background-color: transparent; /* Fondo transparente */
+  margin-top: 0.8rem;
+  border-top: 1px solid var(--borde-suave);
+  padding-top: 0.4rem;
+}
+
+/* --- Media Queries (Responsive) --- */
+@media (max-width: 768px) {
+  :host {
+    padding-inline: 0.5rem;
+  }
+
+  .list-title {
+    font-size: 1.8rem;
+  }
+
+  .list-card {
+    padding: 1.2rem 0.9rem 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-table th.mat-header-cell,
+  .user-table td.mat-cell {
+    font-size: 0.8rem;
+    padding-inline: 0.4rem;
+  }
+
+  .list-title {
+    font-size: 1.5rem;
+  }
+}
+/* Busca la regla de tu contenedor principal */
+.diag-list-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  
+  /*
+   * 🔥 AÑADE ESTA LÍNEA 🔥
+   * Cambia "5rem" para subir o bajar el formulario.
+   */
+  margin-top: 5rem; 
+}

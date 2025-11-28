@@ -1,0 +1,155 @@
+:host {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Layout general */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Tarjeta de publicación */
+.publicar-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  min-width: 400px;
+  padding: 40px 36px 30px 36px;
+}
+
+.publicar-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.publicar-card header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* Info usuario */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.user-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info span {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.user-info small {
+  color: #555;
+  font-size: 12px;
+}
+
+/* Textarea */
+.publicar-textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  font-size: 17px;
+  min-height: 120px;
+  outline: none;
+  margin-bottom: 18px;
+  background: #fafaf8;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+/* Preview multimedia */
+.image-preview {
+  width: 100%;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  text-align: center;
+  padding: 32px 0;
+  cursor: pointer;
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 18px;
+  background: #fafaf8;
+  transition: border-color 0.2s;
+}
+
+.image-preview:hover {
+  border-color: #005014;
+}
+
+.image-preview img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Iconos de opciones */
+.add-options {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+
+.add-options i {
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+  margin: 0 10px;
+}
+
+/* Botón publicar */
+.publicar-button {
+  width: 100%;
+  background: #005014;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.publicar-button:hover {
+  background: #003d29;
+}

@@ -1,0 +1,125 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grafico1 {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0 20px 15px;
+  max-width: 100%;
+  width: 100%;
+  font-weight: 700 !important;
+  position: relative;
+  top: -5px;
+}
+
+.grafico1 h2 {
+  font-size: 1.8rem;
+  font-weight: 700 !important;
+  color: #388e3c;
+  margin-bottom: -20px; 
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* ========================================= */
+/* Contenedor del Chart (Gráfico) - REDUCIDO */
+/* ========================================= */
+
+.chart-container {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px; /* ← REDUCIDO: de 400px a 350px */
+  height: 350px; /* ← AÑADIDO: Altura fija reducida */
+}
+
+.chart-container canvas {
+  width: 400px !important; /* ← REDUCIDO: de 450px a 400px */
+  height: 350px !important; /* ← REDUCIDO: de 400px a 350px */
+  max-width: 400px !important;
+  max-height: 350px !important;
+  min-width: 380px !important;
+  min-height: 330px !important;
+}
+
+/* ========================================= */
+/* Estilos para "No hay datos" - REDUCIDO */
+/* ========================================= */
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px; /* ← REDUCIDO: de 40px a 30px */
+  border: 1px dashed #bdbdbd;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  min-height: 220px; /* ← REDUCIDO: de 250px a 220px */
+  height: 220px; /* ← AÑADIDO: Altura fija reducida */
+}
+
+.no-data-icon {
+  font-size: 40px; /* ← REDUCIDO: de 48px a 40px */
+  color: #757575;
+  margin-bottom: 8px; /* ← REDUCIDO: de 10px a 8px */
+}
+
+.no-data-message {
+  font-size: 1.1rem; /* ← REDUCIDO: de 1.2rem a 1.1rem */
+  color: #757575;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ========================================= */
+/* Medias Queries (Responsividad) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .grafico1 {
+    padding: 20px 15px;
+    margin: 15px 0 15px 10px;
+    top: -5px;
+  }
+  
+  .grafico1 h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .chart-container {
+    min-height: 300px; /* ← REDUCIDO en móviles */
+    height: 300px;
+  }
+
+  .chart-container canvas {
+    width: 100% !important;
+    max-width: 350px !important; /* ← REDUCIDO en móviles */
+    height: 300px !important; /* ← REDUCIDO en móviles */
+    max-height: 300px !important;
+    min-width: 320px !important; /* ← REDUCIDO en móviles */
+    min-height: 280px !important; /* ← REDUCIDO en móviles */
+  }
+
+  .no-data {
+    min-height: 200px; /* ← REDUCIDO en móviles */
+    height: 200px;
+    padding: 25px 15px; /* ← REDUCIDO en móviles */
+  }
+
+  .no-data-icon {
+    font-size: 36px; /* ← REDUCIDO en móviles */
+  }
+
+  .no-data-message {
+    font-size: 1rem; /* ← REDUCIDO en móviles */
+  }
+}

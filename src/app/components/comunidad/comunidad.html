@@ -1,0 +1,167 @@
+<div class="app-layout">
+  <div class="main-content">
+    <div class="green-bar">
+      <h1>Comunidad</h1>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar publicaciones..." (input)="onSearch($event)" />
+        <i class="fas fa-search"></i>
+      </div>
+
+      <div class="header-actions">
+        <a routerLink="/app/message" class="green-button">
+          <i class="fas fa-comment"></i> Mensajes
+        </a>
+        <a routerLink="/app/public" class="green-button"> <i class="fas fa-plus"></i> Publicar </a>
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content-section">
+        <section class="content-area">
+          <h2>Para ti</h2>
+          <div class="stories-container">
+            @for (story of stories; track story.id) {
+            <div class="story-card" (click)="openStory(story)">
+              <h3>{{ story.content }}</h3>
+            </div>
+            }
+            <div class="story-card">
+              <a href="https://www.serpar.gob.pe/arborizacion/" target="_blank" class="ver-mas-link"
+                >Ver más</a
+              >
+            </div>
+          </div>
+        </section>
+
+        @for (post of filteredPosts; track post.id) {
+        <section class="content-area">
+          <div class="post">
+            <div class="post-header">
+              <div class="user-info-container">
+                <img [src]="post.avatar" [alt]="post.userName" class="avatar" />
+                <div class="user-info">
+                  <strong>{{ post.userName }}</strong>
+                  <small>{{ post.date }}</small>
+                </div>
+              </div>
+              <i class="fas fa-ellipsis-h post-options" (click)="showPostOptions(post)"></i>
+            </div>
+
+            <p>{{ post.content }}</p>
+
+            <div class="post-actions">
+              <button
+                class="action-button like-button"
+                [class.liked]="post.liked"
+                (click)="toggleLike(post)"
+              >
+                <i [class]="post.liked ? 'fas fa-heart' : 'far fa-heart'"></i>
+              </button>
+
+              <button
+                class="action-button save-button"
+                [class.saved]="post.saved"
+                (click)="toggleSave(post)"
+              >
+                <i [class]="post.saved ? 'fas fa-bookmark' : 'far fa-bookmark'"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        }
+      </div>
+
+      <div class="side-section">
+        <section class="content-area">
+          <h2>Tendencias</h2>
+          <ul class="trend-list">
+            @for (trend of trends; track trend.id) {
+            <li>
+              <span (click)="searchTrend(trend.tag)">{{ trend.tag }}</span>
+              <i class="fas fa-ellipsis-h trend-options" (click)="showTrendOptions(trend)"></i>
+            </li>
+            }
+          </ul>
+        </section>
+
+        <section class="content-area">
+          <h2>Recomendaciones de amigos</h2>
+          @for (friend of recommendedFriends; track friend.id) {
+          <div class="friend-recommendation">
+            <div class="friend-info">
+              <img [src]="friend.avatar" [alt]="friend.name" class="avatar" />
+              <p>{{ friend.name }}</p>
+            </div>
+            <button (click)="followFriend(friend)">Seguir</button>
+          </div>
+          }
+        </section>
+
+        <section class="content-area">
+          <div class="share">
+            <p>Comparte con tus amigos tus plantas</p>
+            <div id="share-image-preview" class="image-preview">
+              @if (selectedImage) {
+              <img [src]="selectedImage" alt="Foto compartida" class="preview-image" />
+              }
+            </div>
+
+            <input
+              type="file"
+              id="share-file-input"
+              accept="image/*"
+              style="display: none"
+              (change)="onFileSelected($event)"
+            />
+            <button id="share-upload-btn" (click)="triggerFileInput()">Subir foto</button>
+          </div>
+
+          <div
+            class="interaction-buttons"
+            style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0"
+          >
+            <h3 style="margin-bottom: 15px; color: #2e7d32; font-size: 16px">
+              <i class="fas fa-handshake"></i> Gestión de Interacciones
+            </h3>
+
+            <div class="buttons-container" style="display: flex; flex-direction: column; gap: 10px">
+              <!-- Listar Interacción (Admin, PlantLover) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/interaccion/listar']"
+        *ngIf="isAdmin() || isPlantLover()">
+  <i class="fas fa-list"></i>
+  Listar Interacción
+</button>
+
+<!-- Agregar Interacción (Admin, PlantLover) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/interaccion/agregar']"
+        *ngIf="isAdmin() || isPlantLover()">
+  <i class="fas fa-plus"></i>
+  Agregar Interacción
+</button>
+
+<!-- Listar Tipos de Interacción (Solo Admin) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/tipointeraccion/listar']"
+        *ngIf="isAdmin()">
+  <i class="fas fa-list"></i>
+  Listar Tipos de Interacción
+</button>
+
+<!-- Agregar Tipo de Interacción (Solo Admin) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/tipointeraccion/agregar']"
+        *ngIf="isAdmin()">
+  <i class="fas fa-plus"></i>
+  Agregar Tipo de Interacción
+</button>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

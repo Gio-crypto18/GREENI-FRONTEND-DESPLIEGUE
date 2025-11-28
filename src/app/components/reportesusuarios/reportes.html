@@ -1,0 +1,48 @@
+<div class="reportes-container">
+  
+  <!-- HEADER PRINCIPAL -->
+  <div class="reportes-header">
+    <h1 class="reportes-main-title">Usuario</h1>
+    <p class="reportes-subtitle">Análisis y estadísticas del usuario</p>
+  </div>
+
+<div class="botonera-derecha">
+  <button mat-raised-button color="warn" [routerLink]="['/app/reportes']">
+    <mat-icon>exit_to_app</mat-icon>
+    Salir
+  </button>
+</div>
+
+<div class="botonera-derecha">
+  <button mat-raised-button color="primary" [routerLink]="['/app/usuario/listar']">
+    <mat-icon>list</mat-icon>
+    Listar usuarios
+  </button>
+
+<!-- 
+<button mat-raised-button color="primary" [routerLink]="['/app/usuario/agregar']">
+    <mat-icon>person_add</mat-icon>
+    Registrar Usuarios
+</button>
+-->
+
+  <button mat-raised-button color="primary" [routerLink]="['/app/rol/listar']">
+    <mat-icon>list</mat-icon>
+    Listar rol
+  </button>
+
+  <button mat-raised-button color="primary" [routerLink]="['/app/rol/agregar']">
+    <mat-icon>person_add</mat-icon>
+    Registrar roles
+  </button>
+</div>
+
+    
+  <!-- GRID DE REPORTES -->
+  <div class="grid-reportes">
+    <app-giovanni-reporte></app-giovanni-reporte>
+    <app-giovanni-reporte2></app-giovanni-reporte2>
+
+  </div>
+
+</div>

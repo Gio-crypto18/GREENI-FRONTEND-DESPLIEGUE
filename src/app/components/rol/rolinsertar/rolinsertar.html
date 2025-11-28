@@ -1,0 +1,39 @@
+<div class="role-form-page">
+  <div class="role-form-container">
+    <form [formGroup]="form" (submit)="aceptar()" class="role-form-card">
+      <h2>{{ edicion ? 'Editar Rol' : 'Registro de Roles' }}</h2>
+
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly />
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de Rol</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="">-- Seleccione un tipo de rol --</mat-option>
+          @for (t of typeDevices; track t) {
+          <mat-option [value]="t.value">
+            {{ t.viewValue }}
+          </mat-option>
+          }
+        </mat-select>
+        <mat-error>
+          @if (form.get('tipo')?.hasError('required')) { Ingrese tipo de rol!! }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="role-form-actions">
+        <button mat-raised-button class="btn-cancelar" [routerLink]="['/app/reportes']" type="button">
+          Cancelar
+        </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Guardar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

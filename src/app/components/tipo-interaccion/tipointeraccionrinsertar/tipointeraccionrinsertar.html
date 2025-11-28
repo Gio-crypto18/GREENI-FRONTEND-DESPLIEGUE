@@ -1,0 +1,42 @@
+<div class="container">
+  <section class="white-section">
+    <div class="form-wrapper">
+<h2 class="form-title">
+  {{ edicion ? 'Edición de Tipo de Interacción' : 'Registro de Tipo de Interacción' }}
+</h2>
+
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        @if(edicion){
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>ID</mat-label>
+          <input matInput formControlName="codigo" readonly="" />
+        </mat-form-field>
+        }
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nombre del Tipo de Interacción</mat-label>
+          <input matInput formControlName="nombre" />
+          <mat-error>
+            @if (form.get('nombre')?.hasError('required')) { Ingrese tipo de interacción!! } 
+            @if (form.get('nombre')?.hasError('maxlength')) { Máximo 10 caracteres permitidos }
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button
+            mat-raised-button
+            class="btn-cancelar"
+            type="button"
+            [routerLink]="['/app/comunidad']"
+          >
+            Cancelar
+          </button>
+
+          <button mat-raised-button type="submit" class="btn-registrar" [disabled]="form.invalid">
+            {{ edicion ? 'Actualizar' : 'Registrar' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

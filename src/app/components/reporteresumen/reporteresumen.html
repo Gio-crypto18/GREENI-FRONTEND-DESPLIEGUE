@@ -1,0 +1,26 @@
+<div class="title-container">
+  <div style="text-align: center" class="title">
+
+    <h2>Resumen de interacciones </h2>
+  @if(hasData){
+    <div class="chart-container" style="text-align:center;">
+      <canvas
+        baseChart
+        [data]=" {datasets: barChartData, 
+                 labels: barChartLabels}"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [type]="barChartType">
+      </canvas>
+    </div>
+  }
+
+  @if(!hasData){
+    <div class="no-data">
+      <mat-icon class="no-data-icon">info_outline</mat-icon>
+      <p class="no-data-message">No hay datos disponibles para mostrar.</p>
+    </div>
+  }
+  </div>
+</div>
+

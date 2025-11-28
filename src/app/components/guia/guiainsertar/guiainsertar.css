@@ -1,0 +1,97 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #fef9e0; /* crema suave */
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #1a1a1a;
+}
+
+
+.form-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 18px;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  border: 1px solid #ece7c8;
+  margin-top: 10px; 
+}
+
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 24px;
+  min-height: 48px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8rem; 
+  color: #1a1a1a;
+}
+
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+
+mat-error {
+  font-size: 0.85rem;
+}
+
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem; 
+  margin-top: 0.8rem;
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancelar {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancelar:hover {
+  background-color: #4CAF50 !important;
+}
+
+.btn-registrar {
+  background: linear-gradient(135deg, #4caf50, #2e7d32) !important; 
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 999px;
+  padding-inline: 1.8rem;
+  
+  color: #ffffff !important; 
+}
+
+.btn-registrar span {
+  color: #ffffff !important;
+}
+
+.btn-registrar:hover:not([disabled]) {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20) !important;
+}
+
+.btn-registrar:hover:not([disabled]) span {
+  color: #ffffff !important;
+}
+
+.btn-registrar[disabled],
+.btn-cancelar[disabled] {
+  background: #cbd5e0 !important;
+  color: #718096 !important;
+}

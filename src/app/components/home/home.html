@@ -1,0 +1,215 @@
+<header class="main-header">
+  <button class="menu-toggle-btn" (click)="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="header-content">
+    <h1 id="welcome-message">Buenos días, Usuario</h1>
+    <p>Aquí tienes el resumen de tu jardín para hoy.</p>
+  </div>
+</header>
+
+<div class="dashboard-grid">
+  <div class="main-column">
+    <section class="quick-actions home-actions">
+      <section class="dashboard-card quick-actions-card">
+        <div class="card-body quick-actions-grid">
+          <a
+            [routerLink]="['/app/planta/agregar']"
+            class="action-pill"
+            *ngIf="isAdmin() || isCientifico()|| isPlantLover()"
+          >
+            <i class="fas fa-plus"></i>
+            <span>Añadir Planta</span>
+          </a>
+
+          <a
+            [routerLink]="['/app/diagnostico']"
+            class="action-pill"
+            *ngIf="isAdmin() || isCientifico() || isPlantLover()"
+          >
+            <i class="fas fa-stethoscope"></i>
+            <span>Diagnosticar Planta</span>
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <section class="dashboard-card">
+      <div class="card-header">
+        <h3>Tareas para Hoy</h3>
+      </div>
+      <ul class="task-list" id="task-list">
+        <li><i class="fas fa-leaf"></i> Regar Monstera Deliciosa</li>
+        <li><i class="fas fa-seedling"></i> Fertilizar Suculentas</li>
+        <li><i class="fas fa-spa"></i> Podar el Rosal</li>
+      </ul>
+      <section class="dashboard-card soft-card">
+        <div class="card-header">
+          <h3>Resumen Rápido</h3>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <i class="fas fa-leaf icon"></i>
+            <div>
+              <p class="summary-title">Plantas registradas</p>
+              <p class="summary-value">6</p>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <i class="fas fa-tint icon"></i>
+            <div>
+              <p class="summary-title">Riegos pendientes</p>
+              <p class="summary-value">3</p>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <i class="fas fa-bug icon"></i>
+            <div>
+              <p class="summary-title">Plantas en revisión</p>
+              <p class="summary-value">2</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-card soft-card">
+        <div class="card-header">
+          <h3>Próximos Recordatorios</h3>
+        </div>
+
+        <div class="record-table">
+          <table>
+            <tr>
+              <th>Tarea</th>
+              <th>Planta</th>
+              <th>Fecha</th>
+            </tr>
+
+            <tr>
+              <td>Revisar humedad del suelo</td>
+              <td>Monstera</td>
+              <td>Hoy</td>
+            </tr>
+
+            <tr>
+              <td>Aplicar fertilizante líquido</td>
+              <td>Suculenta</td>
+              <td>Mañana</td>
+            </tr>
+
+            <tr>
+              <td>Limpiar hojas secas</td>
+              <td>Helecho</td>
+              <td>En 2 días</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section class="dashboard-card soft-card">
+        <div class="card-header">
+          <h3>Guías rápidas de cuidado</h3>
+        </div>
+
+        <div class="card-body guides-body">
+          <p class="guides-intro">Abre una guía según lo que quieras revisar hoy en tu jardín.</p>
+
+          <mat-accordion class="guides-accordion">
+            <mat-expansion-panel *ngFor="let guide of healthGuides">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="guide-title"> {{ guide.icon }} {{ guide.title }} </span>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <span class="guide-badge">{{ guide.badge }}</span>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <p class="guide-text">
+                {{ guide.description }}
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </section>
+
+      <section class="dashboard-card soft-card">
+        <div class="card-header">
+          <h3>Actividad del jardín</h3>
+        </div>
+
+        <div class="card-body">
+          <mat-tab-group class="garden-tabs">
+            <mat-tab label="Hoy">
+              <div class="tab-content">
+                <p class="tab-title">Resumen de hoy</p>
+                <p class="tab-text">
+                  Tienes {{ todaySummary.tasks }} tareas y {{ todaySummary.warnings }} plantas que
+                  requieren atención especial.
+                </p>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Semana">
+              <div class="tab-content">
+                <p class="tab-title">Esta semana</p>
+                <p class="tab-text">
+                  Programaste {{ weekSummary.waterings }} riegos,
+                  {{ weekSummary.fertilizations }} fertilizaciones y registraste
+                  {{ weekSummary.newPlants }} nuevas plantas.
+                </p>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Mes">
+              <div class="tab-content">
+                <p class="tab-title">Visión del mes</p>
+                <p class="tab-text">
+                  Tu jardín se ha mantenido saludable el {{ monthSummary.healthPercent }}% del
+                  tiempo. ¡Sigue así! 🌿
+                </p>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <aside class="side-column">
+    <app-weather></app-weather>
+
+    <div class="dashboard-card">
+      <div class="card-header">
+        <h3>🌱 Consejo del Día</h3>
+      </div>
+
+      <p id="tip-of-day" class="muted">
+        {{ fraseMotivacional }}
+      </p>
+    </div>
+
+    <div class="dashboard-card">
+      <div class="card-header"><h3>🌿 Estado del Jardín</h3></div>
+      <ul class="mini-list" id="garden-stats">
+        <li>✅ <strong>Plantas saludables:</strong> 12</li>
+        <li>⚠️ <strong>Necesitan agua:</strong> 3</li>
+        <li>🌱 <strong>Nuevos brotes:</strong> 5</li>
+        <li>📅 <strong>Próximo riego:</strong> Hoy</li>
+      </ul>
+    </div>
+
+    <div class="dashboard-card">
+      <div class="card-header"><h3>🌎 Comunidad Verde</h3></div>
+      <ul class="mini-feed" id="community-mini">
+        <li><strong>María</strong> compartió su orquídea 🌸</li>
+        <li><strong>José</strong> publicó tips de compostaje ♻️</li>
+        <li><strong>Ana</strong> sembró 3 suculentas 🌵</li>
+      </ul>
+      <a [routerLink]="['/app/comunidad']" class="text-link small"> Ver más en Comunidad </a>
+    </div>
+  </aside>
+</div>

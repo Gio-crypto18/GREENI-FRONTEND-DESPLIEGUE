@@ -1,0 +1,86 @@
+<div class="app-layout">
+  <div class="main-content">
+    <header class="diagnostic-header-clean">
+      <h1 class="page-title">Diagnóstico de Plantas</h1>
+      <p class="page-subtitle">
+        Analiza tus plantas por foto y gestiona diagnósticos y tratamientos de forma sencilla.
+      </p>
+    </header>
+    
+    <div class="diagnostic-layout">
+      <section class="diagnostic-options">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fas fa-camera-retro"></i> Análisis por foto</h3>
+          </div>
+          <div class="card-body photo-analyzer-wrapper">
+            <app-plant-identifier></app-plant-identifier>
+          </div>
+        </div>
+      </section>
+
+      <aside class="diagnostic-results">
+        <section class="card side-card instructions-card">
+          <div class="card-header">
+            <h3>Instrucciones</h3>
+          </div>
+          <div class="card-body">
+            <ul class="instructions-list">
+              <li>Selecciona una imagen de tu planta.</li>
+              <li>Presiona <strong>Identificar Planta</strong>.</li>
+              <li>Luego revisa el diagnóstico generado debajo.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card side-card">
+          <div class="card-header">
+            <h3>Gestión de diagnósticos y tratamientos</h3>
+          </div>
+          <div class="card-body">
+            <div class="actions-column">
+              <!-- Registrar diagnósticos (TODOS) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/diagnostico/agregar']"
+        *ngIf="isAdmin() || isCientifico() ">
+  <i class="fas fa-plus"></i>
+  Registrar diagnósticos
+</button>
+
+<!-- Listar diagnósticos (Solo Admin y Científico) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/diagnostico/listar']"
+        *ngIf="isAdmin() || isCientifico()|| isPlantLover()">
+  <i class="fas fa-list"></i>
+  Listar diagnósticos
+</button>
+
+<!-- Registrar tratamientos (Solo Admin y Científico) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/tratamiento/agregar']"
+        *ngIf="isAdmin() || isCientifico()">
+  <i class="fas fa-plus"></i>
+  Registrar tratamientos
+</button>
+
+<!-- Listar tratamientos (TODOS) -->
+<button class="interaction-btn"
+        [routerLink]="['/app/tratamiento/listar']"
+        *ngIf="isAdmin() || isCientifico() || isPlantLover()">
+  <i class="fas fa-list"></i>
+  Listar tratamientos
+</button>
+
+            </div>
+          </div>
+        </section>
+
+        <div>
+          <div>
+              <app-reportecantidaddiagnostico></app-reportecantidaddiagnostico>
+        </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

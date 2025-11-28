@@ -1,0 +1,127 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 1.5rem 1rem 2rem;
+  background-color: #fef9e0; /* crema general */
+  font-family: 'Lato', 'Nunito', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  color: #212121;
+}
+
+/* Paleta Greeni */
+:host {
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-hover: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+}
+
+/* Layout principal */
+.role-form-page {
+  display: flex;
+  justify-content: center;
+}
+
+.role-form-container {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Título */
+.role-form-container h2 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 1.2rem 0 1.4rem;
+  color: var(--texto-principal);
+  text-align: left;
+}
+
+/* Card del formulario */
+.role-form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem 1.7rem;
+  border: 1px solid var(--borde-suave);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Campos */
+.full-width {
+  width: 100%;
+}
+
+/* Ajuste visual de mat-form-field */
+mat-form-field {
+  margin-bottom: 1rem;
+}
+
+mat-form-field.mat-mdc-form-field {
+  --mdc-outlined-text-field-outline-color: var(--borde-suave);
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background: transparent !important;
+}
+
+/* Botón */
+.role-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.8rem;
+}
+
+.role-form-actions button[color='primary'] {
+  background: linear-gradient(135deg, var(--verde-primario), #2e7d32);
+  color: #ffffff;
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 999px;
+  padding-inline: 1.8rem;
+}
+
+.role-form-actions button[color='primary']:hover:not([disabled]) {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+/* Estado disabled */
+.role-form-actions button[disabled] {
+  background: #cbd5e0 !important;
+  color: #718096 !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  :host {
+    padding-inline: 0.75rem;
+  }
+
+  .role-form-card {
+    padding: 1.4rem 1.2rem 1.5rem;
+  }
+
+  .role-form-container h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancelar {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancelar:hover {
+  background-color: #4CAF50 !important;
+}
+.role-form-card {
+  margin-top: 1.5rem; /* espacio solicitado */
+}
+
+.role-form-container h2 {
+  margin-bottom: 1.8rem; /* aumenta el espacio entre el título y el formulario */
+}

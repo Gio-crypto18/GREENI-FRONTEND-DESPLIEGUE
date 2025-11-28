@@ -1,0 +1,86 @@
+<div class="treat-form-container">
+  <section class="treat-form-card">
+    <h2 class="treat-form-title">
+      {{ edicion ? 'Editar tratamiento' : 'Registro de tratamientos' }}
+    </h2>
+
+    <form [formGroup]="form" (ngSubmit)="aceptar()" class="treat-form">
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly />
+        <mat-hint>Campo solo lectura</mat-hint>
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" maxlength="50" />
+        <mat-hint align="end"> {{ form.get('nombre')?.value?.length || 0 }}/50 </mat-hint>
+        <mat-error>
+          <div *ngIf="form.get('nombre')?.hasError('required')">Ingrese el nombre!!</div>
+          <div *ngIf="form.get('nombre')?.hasError('maxlength')">
+            Máximo 50 caracteres permitidos
+          </div>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Duración (días)</mat-label>
+        <input matInput type="number" formControlName="duracion" min="1" max="30" />
+        <mat-error>
+          <div *ngIf="form.get('duracion')?.hasError('required')">Ingrese la duración!!</div>
+          <div *ngIf="form.get('duracion')?.hasError('max')">Máximo 30 días permitidos</div>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="date-row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Fecha de inicio</mat-label>
+          <input matInput [matDatepicker]="pickerInicio" formControlName="fechainicio" />
+          <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+          <mat-datepicker #pickerInicio></mat-datepicker>
+          <mat-error>
+            <div *ngIf="form.get('fechainicio')?.hasError('required')">Ingrese fecha inicio!!</div>
+            <div *ngIf="form.get('fechainicio')?.hasError('fechaPasada')">
+              No se permiten fechas pasadas
+            </div>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Fecha de finalización</mat-label>
+          <input matInput [matDatepicker]="pickerFin" formControlName="fechafin" />
+          <mat-datepicker-toggle matIconSuffix [for]="pickerFin"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFin></mat-datepicker>
+          <mat-error>
+            <div *ngIf="form.get('fechafin')?.hasError('required')">Ingrese fecha fin!!</div>
+            <div *ngIf="form.get('fechafin')?.hasError('fechaAnteriorInicio')">
+              La fecha fin debe ser mayor a la de inicio
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Diagnóstico</mat-label>
+        <mat-select formControlName="diagnostico" required>
+          <mat-option *ngFor="let diag of listaDiagnostico" [value]="diag.idDiagnostico">
+            {{ diag.acciones }}
+          </mat-option>
+        </mat-select>
+        <mat-error> Seleccione un diagnóstico </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button mat-raised-button class="btn-cancel" [routerLink]="['/app/diagnostico']">
+          Cancelar
+        </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

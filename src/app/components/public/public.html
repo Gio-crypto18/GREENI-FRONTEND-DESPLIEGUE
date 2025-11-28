@@ -1,0 +1,53 @@
+<div class="app-layout">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content" style="background: #f8f7f4; min-height: 100vh">
+    <div class="publicar-card" style="margin: 40px auto">
+      <header>
+        <h2>Crear publicación</h2>
+
+        <button class="close-btn" type="button" (click)="publicar()" title="Cerrar">
+          <i class="fas fa-times"></i>
+        </button>
+      </header>
+
+      <div class="user-info">
+        <img src="https://i.pravatar.cc/52" alt="Avatar" class="avatar" />
+        <div>
+          <span>{{ userName }}</span>
+          <small><i class="fas fa-user-friends"></i> Amigos</small>
+        </div>
+      </div>
+
+      <textarea
+        class="publicar-textarea"
+        placeholder="¿Qué estás pensando, {{ userName.split(' ')[0] }}?"
+      ></textarea>
+
+      <div class="image-preview" (click)="fileInput.click()">
+        <ng-container *ngIf="previewUrl; else noImage">
+          <img [src]="previewUrl" alt="Vista previa" />
+        </ng-container>
+        <ng-template #noImage> <i class="fas fa-image"></i> Añadir foto o video </ng-template>
+      </div>
+
+      <input
+        #fileInput
+        type="file"
+        accept="image/*,video/*"
+        hidden
+        (change)="onFileSelected($event)"
+      />
+
+      <div class="add-options">
+        <i class="fas fa-photo-video"></i>
+        <i class="fas fa-user-tag"></i>
+        <i class="fas fa-smile"></i>
+        <i class="fas fa-map-marker-alt"></i>
+        <i class="fas fa-gif"></i>
+      </div>
+
+      <button class="publicar-button" type="button" (click)="publicar()">Publicar</button>
+    </div>
+  </div>
+</div>

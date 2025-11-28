@@ -1,0 +1,486 @@
+:host {
+  --green: #174d2d;
+  --green-2: #1f5a34;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --bg: #fafaf7;
+  --radius: 14px;
+
+  display: block;
+  min-height: 100vh;
+  background-color: #fef8ed; /* crema estilo Home */
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #1a1a1a;
+}
+
+/* ===== Layout general estilo Home ===== */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+/* ===== Header superior ===== */
+.main-header {
+  background: transparent;
+  padding: 24px 32px 8px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-toggle-btn {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  font-size: 1.1rem;
+  color: var(--green);
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 999px;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.1s ease;
+}
+
+.menu-toggle-btn:hover {
+  background: #f9fafb;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.main-header h1 {
+  color: #1a1a1a;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ===== Tarjetas ===== */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: #f7faf9;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-header.between {
+  justify-content: space-between;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.profile-card {
+  max-width: 1100px;
+  margin: 12px auto;
+}
+
+/* ===== Hero / Encabezado Perfil ===== */
+.profile-hero {
+  margin: 12px auto 8px;
+  max-width: 1100px;
+}
+
+.hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.avatar-preview {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #ecf8ef;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.avatar-preview.has-image {
+  background: #ffffff;
+}
+
+.avatar-preview.no-image {
+  background: #ecf8ef;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-initials {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--green);
+}
+
+.avatar-camera {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 2;
+  font-size: 0.8rem;
+  color: var(--green-2);
+}
+
+.avatar-camera:hover {
+  background: #f1f5f9;
+}
+
+.profile-hero .hero-info h2 {
+  margin: 0.1rem 0 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.profile-hero .hero-info .muted {
+  margin-top: 0.15rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Badge de rol */
+.role-badge {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: #eaf7ef;
+  color: var(--green);
+}
+
+.role-admin {
+  background: #fdecef;
+  color: #a3123a;
+}
+
+.role-cientifico {
+  background: #e8f3ff;
+  color: #0b3d8a;
+}
+
+.role-plantlover {
+  background: #eaf7ef;
+  color: var(--green);
+}
+
+/* ===== Tabs ===== */
+.profile-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: 10px auto 0;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+.tab-link {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #374151;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.tab-link:hover {
+  background: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.tab-link.active {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.profile-section {
+  display: block;
+}
+
+/* ===== Formularios / Layout ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
+  gap: 1rem;
+}
+
+.grid-1 {
+  display: grid;
+  gap: 1rem;
+}
+
+.col-2 {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .col-2 {
+    grid-column: 1;
+  }
+
+  .profile-hero,
+  .profile-card {
+    margin-inline: 12px;
+  }
+
+  .main-header {
+    padding-inline: 16px;
+  }
+
+  .profile-tabs {
+    padding-inline: 12px;
+    overflow-x: auto;
+  }
+}
+
+/* alturas uniformes */
+.input {
+  height: 46px;
+}
+
+/* inputs generales */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.input:focus {
+  border-color: var(--green-2);
+  box-shadow: 0 0 0 2px rgba(23, 77, 45, 0.12);
+}
+
+textarea.input {
+  height: auto;
+  min-height: 110px;
+}
+
+/* selects consistentes */
+select.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 2.2rem;
+  background-image: linear-gradient(45deg, transparent 50%, #9aa2ab 50%),
+    linear-gradient(135deg, #9aa2ab 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%, 100% 0;
+  background-size: 6px 6px, 6px 6px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+/* ayudas / feedback */
+.help {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.feedback {
+  min-height: 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.feedback.ok {
+  color: var(--green-2);
+}
+
+.feedback.err {
+  color: #b00020;
+}
+
+.feedback.hidden {
+  display: none;
+}
+
+/* acciones */
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-actions.right {
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  border: 1px solid var(--line);
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn.small {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.88rem;
+}
+
+.btn.primary {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
+}
+
+.btn.primary:hover:not(:disabled) {
+  background: var(--green-2);
+  border-color: var(--green-2);
+  transform: translateY(-1px);
+}
+
+.btn.primary:disabled {
+  opacity: 0.55;
+  background: #b7c8bf;
+  border-color: #b7c8bf;
+  color: white;
+  cursor: not-allowed;
+}
+
+.btn.danger {
+  background: #ffe8e8;
+  color: #b00020;
+  border-color: #f5b4b4;
+}
+
+.btn.danger:hover {
+  background: #ffdada;
+}
+
+.btn.secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* switches (notificaciones) */
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.switch {
+  width: 48px;
+  height: 26px;
+  appearance: none;
+  background: #d1d5db;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.switch:checked {
+  background: #22c55e;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+
+.switch:checked::after {
+  transform: translateX(22px);
+}
+
+/* icono ver/ocultar contraseña */
+.with-icon {
+  position: relative;
+}
+
+.with-icon .password-toggle {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+/* evita <img> heredados en mini tarjeta del sidebar */
+.sidebar-user-card img {
+  display: none !important;
+}
+
+/* Responsive muy pequeño */
+@media (max-width: 768px) {
+  .hero-left {
+    flex-direction: row;
+  }
+
+  .hero-info h2 {
+    font-size: 1.1rem;
+  }
+}

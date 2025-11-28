@@ -1,0 +1,130 @@
+.custom-toolbar {
+
+ background-color: rgb(242, 63, 35); /* verde principal */
+
+ display: flex;
+
+ align-items: center;
+
+ padding: 0 8px;
+
+}
+
+
+
+/* --- Botón principal --- */
+
+.btn-rojo {
+
+ background-color: rgb(242, 63, 35);
+
+ border: none;
+
+ font-size: smaller;
+
+ border-radius: 4px;
+
+ margin: 4px;
+
+ padding: 6px 10px;
+
+ display: flex;
+
+ align-items: center;
+
+ gap: 6px;
+
+ cursor: pointer;
+
+ transition: background-color 0.2s ease;
+
+}
+
+
+
+.btn-rojo:hover {
+
+ background-color: rgb(113, 118, 115);
+
+}
+
+
+
+/* --- Icono --- */
+
+.btn-rojo mat-icon,
+
+.btn-rojo .material-symbols-outlined {
+
+ font-size: 1.3rem;
+
+ vertical-align: middle;
+
+ line-height: 1;
+
+}
+
+
+
+/* --- Texto dentro del botón --- */
+
+.btn-rojo span:not(.material-symbols-outlined),
+
+.btn-rojo {
+
+ vertical-align: middle;
+
+}
+
+
+
+/* --- Asegurar color blanco --- */
+
+.custom-toolbar button,
+
+.custom-toolbar mat-icon {
+
+ color: rgb(255, 255, 255);
+
+}
+
+
+
+/* --- Menú desplegable translúcido verde claro --- */
+
+.mat-mdc-menu-panel {
+
+ background-color: rgba(144, 238, 144, 0.3) !important; /* verde claro translúcido (lightgreen con transparencia) */
+
+ backdrop-filter: blur(6px); /* efecto suave de vidrio */
+
+ border: 1px solid rgba(46, 158, 46, 0.3);
+
+ border-radius: 8px;
+
+ padding: 4px 0;
+
+}
+
+
+
+/* --- Opciones del menú --- */
+
+.mat-mdc-menu-item {
+
+ color: #064d06 !important; /* texto verde oscuro */
+
+ font-size: 0.85rem;
+
+ font-weight: 500;
+
+}
+
+
+
+.mat-mdc-menu-item:hover {
+
+ background-color: rgba(46, 158, 46, 0.2) !important; /* un verde más visible al pasar el mouse */
+
+}
+

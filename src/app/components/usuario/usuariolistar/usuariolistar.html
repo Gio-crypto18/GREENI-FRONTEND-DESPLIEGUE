@@ -1,0 +1,84 @@
+<div class="user-list-container">
+  <section class="list-card mat-elevation-z8">
+    <header class="list-header">
+      <button mat-icon-button [routerLink]="['/app/reportes']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <h2 class="list-title">Lista de Usuarios</h2>
+
+      <div class="header-spacer"></div>
+    </header>
+
+    <div class="table-wrapper">
+      <table mat-table [dataSource]="dataSource" class="user-table">
+        <ng-container matColumnDef="a">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="b">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="c">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="e">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.activo ? 'Activo' : 'Inactivo' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="f">
+          <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fechaIni | date : 'dd/MM/yyyy' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="g">
+          <th mat-header-cell *matHeaderCellDef>Biografía</th>
+          <td mat-cell *matCellDef="let element">{{ element.biografia }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="FK">
+          <th mat-header-cell *matHeaderCellDef>Rol</th>
+          <td mat-cell *matCellDef="let element">{{ element.rol.tipo }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="i">
+          <th mat-header-cell *matHeaderCellDef class="center-cell">Actualizar</th>
+          <td mat-cell *matCellDef="let element" class="center-cell">
+            <button
+              mat-icon-button
+              class="btn-edit"
+              [routerLink]="['/app/usuario/editar', element.id]"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="j">
+          <th mat-header-cell *matHeaderCellDef class="center-cell">Eliminar</th>
+          <td mat-cell *matCellDef="let element" class="center-cell">
+            <button mat-icon-button class="btn-delete" (click)="eliminar(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+    </mat-paginator>
+  </section>
+</div>

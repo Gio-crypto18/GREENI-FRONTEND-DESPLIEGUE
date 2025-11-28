@@ -1,0 +1,81 @@
+<div class="form-container">
+  <section class="form-card mat-elevation-z8">
+    <h2 class="form-title">{{ edicion ? 'Edición de recordatorio' : 'Registrar recordatorio' }}</h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID:</mat-label>
+        <input matInput formControlName="codigo" readonly="true" />
+        <mat-error> @if (form.get('codigo')?.hasError('required')) { Ingrese ID!! } </mat-error>
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error>
+          @if (form.get('nombre')?.hasError('required')) { Ingrese nombre!! } @else if
+          (form.get('nombre')?.hasError('maxlength')) { Máximo 15 caracteres }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo" required>
+          <mat-option value="Tarea">Personal</mat-option>
+          <mat-option value="Plantar">Trabajo</mat-option>
+          <mat-option value="Regar">Urgente</mat-option>
+        </mat-select>
+        <mat-error>
+          @if (form.get('tipo')?.hasError('required')) { El tipo es obligatorio. }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" />
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>
+          @if (form.get('fecha')?.hasError('required')) { La fecha es obligatoria. } @else if
+          (form.get('fecha')?.hasError('fechaPasada')) { No se permiten fechas pasadas. }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="Usuario">
+          @for (usuario of listaUsuarios; track usuario) {
+          <mat-option [value]="usuario.id">{{ usuario.nombre }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="Estado">
+          @for (estado of listaEstados; track estado) {
+          <mat-option [value]="estado.idEstadoRecordatorio">{{ estado.nombre }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button
+          mat-raised-button
+          class="btn-cancelar"
+          type="button"
+          [routerLink]="['/app/calendario']"
+        >
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

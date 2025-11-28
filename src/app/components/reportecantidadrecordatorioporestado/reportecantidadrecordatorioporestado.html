@@ -1,0 +1,56 @@
+<div class="report-container">
+
+  <!-- CONTENEDOR PRINCIPAL BLANCO -->
+  <div class="report-card">
+
+    <!-- HEADER -->
+    <div class="back-row">
+      <h2 class="report-title">Cantidad de Recordatorios por Estado</h2>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div *ngIf="hasData; else sinDatos" class="chart-content">
+
+      <div class="chart-wrapper">
+        <canvas
+          baseChart
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [type]="barChartType"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+
+      <!-- LEYENDA -->
+      <div class="legend-card">
+        <h3>Detalle por Estado</h3>
+
+        <ul>
+          <li
+            *ngFor="let label of barChartData.labels; let i = index"
+            class="legend-item">
+
+            <span class="legend-color" [style.background-color]="getColor(i)"></span>
+
+            <span class="legend-label">{{ label }}</span>
+
+            <span class="legend-value">
+              {{ barChartData.datasets[0].data[i] }} recordatorios
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- SIN DATOS -->
+    <ng-template #sinDatos>
+      <div class="no-data-section">
+        <mat-icon class="no-data-icon">info</mat-icon>
+        <p class="no-data-text">No hay datos para mostrar.</p>
+      </div>
+    </ng-template>
+
+  </div>
+
+</div>

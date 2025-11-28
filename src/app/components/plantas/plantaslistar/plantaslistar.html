@@ -1,0 +1,80 @@
+<div class="plant-list-container">
+  <section class="list-card mat-elevation-z8">
+    <header class="list-header">
+      <button mat-icon-button [routerLink]="['/app/mis-plantas']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <h2 class="list-title">Lista de plantas</h2>
+
+      <div class="header-spacer"></div>
+    </header>
+
+    <div class="card-grid">
+      <mat-card
+        class="item-card"
+        *ngFor="
+          let element of dataSource.data
+            | slice
+              : paginator.pageIndex * paginator.pageSize
+              : (paginator.pageIndex + 1) * paginator.pageSize
+        "
+      >
+        <mat-card-header>
+          <mat-card-title>{{ element.nombrePlanta }}</mat-card-title>
+          <mat-card-subtitle>{{ element.especie.nombreC || 'Sin especie' }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img
+          mat-card-image
+          *ngIf="element.imagen"
+          [src]="element.imagen"
+          alt="Imagen planta"
+          class="plant-image"
+        />
+        <div *ngIf="!element.imagen" class="no-image-placeholder">
+          <mat-icon>image_not_supported</mat-icon>
+          <span>Sin imagen</span>
+        </div>
+
+        <mat-card-content>
+          <p>
+            <strong>Diagnóstico:</strong> {{ element.diagnostico.severidad || 'Sin diagnóstico' }}
+          </p>
+          <p class="card-meta">
+            <strong>ID:</strong> {{ element.idPlanta }} | <strong>Fecha:</strong>
+            {{ element.fecha_reg | date : 'dd/MM/yyyy' }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button
+            mat-icon-button
+            class="btn-edit"
+            [routerLink]="['/app/planta/editar', element.idPlanta]"
+            aria-label="Editar planta"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            class="btn-delete"
+            (click)="eliminar(element.idPlanta)"
+            aria-label="Eliminar planta"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <mat-paginator
+      #paginator
+      [length]="dataSource.data.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </section>
+</div>

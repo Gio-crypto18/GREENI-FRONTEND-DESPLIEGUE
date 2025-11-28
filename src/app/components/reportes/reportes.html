@@ -1,0 +1,26 @@
+<div class="reportes-container">
+  
+  <!-- HEADER PRINCIPAL -->
+  <div class="reportes-header">
+    <h1 class="reportes-main-title">Panel de control</h1>
+    <p class="reportes-subtitle">Análisis y estadísticas del sistema</p>
+  </div>
+
+<div class="botonera-derecha">
+  <a routerLink="/app/reporteusuario" class="boton-enlace">
+    <i class="fas fa-chart-bar"></i>
+    Usuarios Reportes
+  </a>
+</div>
+    
+  <!-- GRID DE REPORTES -->
+  <div class="grid-reportes">
+    <app-cantidad-planta></app-cantidad-planta>
+    <app-cantidad-especie></app-cantidad-especie>
+    <app-top-interaccion></app-top-interaccion>
+    <app-reporteresumen></app-reporteresumen>
+    <app-recordatorio-reporte></app-recordatorio-reporte>
+    <app-reportevencimiento></app-reportevencimiento>
+    <app-reportecantidadrecordatorioporestado></app-reportecantidadrecordatorioporestado>
+  </div>
+</div>

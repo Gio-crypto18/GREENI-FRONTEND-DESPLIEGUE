@@ -1,0 +1,54 @@
+/* Contenedor principal (asume el fondo beige del body) */
+.guia-list-container {
+  /* Espacio para que la tarjeta no pegue arriba */
+  padding: 48px 24px 24px 24px; 
+}
+
+/* La tarjeta blanca que envuelve todo */
+.table-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden; /* Importante para el paginador */
+  padding: 16px 24px;
+}
+
+/* El nuevo encabezado de la tarjeta */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* <-- CENTRA EL TÍTULO */
+  position: relative; /* Contexto para el botón de volver */
+  margin-bottom: 16px;
+  min-height: 48px;
+}
+
+/* El título dentro del header */
+.card-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* El botón de "volver" */
+.card-header button {
+  position: absolute; /* <-- ACOMODA LA FLECHA */
+  left: 0; /* La pega a la izquierda */
+  color: #000000; /* Color negro */
+}
+
+/* La tabla */
+.guia-table {
+  width: 100%;
+}
+
+/* Botón de eliminar ROJO */
+.guia-btn-delete {
+  color: #388e3c; 
+}
+
+/* Paginador (para que combine con el fondo blanco) */
+.mat-paginator {
+  background-color: transparent;
+  margin-top: 16px;
+}

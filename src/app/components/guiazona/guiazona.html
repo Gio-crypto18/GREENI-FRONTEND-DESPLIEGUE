@@ -1,0 +1,160 @@
+<div class="app-layout">
+  <div class="main-content">
+    <header class="main-header">
+      <h1 class="page-title">Guías de Cultivo</h1>
+    </header>
+    <div class="guides-toolbar">
+      <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar guías por título o tipo..."
+          (input)="filterGuides($event)"
+        />
+      </div>
+
+      <div class="actions-wrapper">
+        <button
+          class="create-guide-btn"
+          [routerLink]="['/app/GUIAS/agregar']"
+          *ngIf="isAdmin() || isCientifico()"
+        >
+          <i class="fas fa-plus"></i>
+          Agregar Guía
+        </button>
+
+        <button
+          class="create-guide-btn"
+          [routerLink]="['/app/GUIAS/listar']"
+          *ngIf="isAdmin() || isPlantLover() || isCientifico()"
+        >
+          <i class="fas fa-list"></i>
+          Listar Guías
+        </button>
+
+        <button
+          class="create-guide-btn"
+          [routerLink]="['/app/guiafav/agregar']"
+          *ngIf="isAdmin() || isPlantLover()"
+        >
+          <i class="fas fa-star"></i>
+          Agregar Guía Favorita
+        </button>
+
+        <button
+          class="create-guide-btn"
+          [routerLink]="['/app/guiafav/listar']"
+          *ngIf="isAdmin() || isPlantLover()"
+        >
+          <i class="fas fa-bookmark"></i>
+          Listar Guías Favoritas
+        </button>
+      </div>
+
+      <div class="filters-wrapper">
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter === 'all'"
+          (click)="setFilter('all')"
+        >
+          Todas
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter === 'favoritos'"
+          (click)="setFilter('favoritos')"
+        >
+          <i class="fas fa-bookmark"></i> Mis Favoritos
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter === 'interior'"
+          (click)="setFilter('interior')"
+        >
+          Plantas de Interior
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter === 'exterior'"
+          (click)="setFilter('exterior')"
+        >
+          Plantas de Exterior
+        </button>
+
+        <button
+          class="filter-btn"
+          [class.active]="activeFilter === 'cuidados'"
+          (click)="setFilter('cuidados')"
+        >
+          Cuidados Básicos
+        </button>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <section class="guides-container">
+      <div *ngFor="let guide of filteredGuides" class="guide-card" (click)="openGuideModal(guide)">
+        <div class="guide-image">
+          <img [src]="getGuideImage(guide.tipoGuia)" [alt]="guide.tituloGuia" />
+        </div>
+
+        <div class="guide-content">
+          <h3 class="guide-title">{{ guide.tituloGuia }}</h3>
+          <p class="guide-description">
+            {{ getShortDescription(guide.contenidoGuia) }}
+          </p>
+
+          <div class="guide-meta">
+            <span class="guide-category {{ getCategoryClass(guide.tipoGuia) }}">
+              {{ guide.tipoGuia }}
+            </span>
+
+            <span class="guide-length">
+              <i class="fas fa-file-alt"></i>
+              {{ getContentLength(guide.contenidoGuia) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="no-results-message" *ngIf="filteredGuides.length === 0">
+      <i class="fas fa-sad-tear"></i>
+      <h3>No se encontraron guías</h3>
+      <p>Intenta con otra búsqueda o cambia los filtros.</p>
+    </div>
+  </div>
+
+  <div class="modal" [class.show]="showModal">
+    <div class="modal-content">
+      <button class="close-modal-btn" (click)="closeModal()">×</button>
+
+      <div class="modal-header-image">
+        <img [src]="getGuideImage(selectedGuide?.tipoGuia)" [alt]="selectedGuide?.tituloGuia" />
+      </div>
+
+      <div class="modal-body">
+        <h2 class="modal-title">{{ selectedGuide?.tituloGuia }}</h2>
+
+        <div
+          class="modal-badge {{ getCategoryClass(selectedGuide?.tipoGuia) }}"
+          *ngIf="selectedGuide?.tipoGuia"
+        >
+          {{ selectedGuide?.tipoGuia }}
+        </div>
+
+        <p class="modal-description">
+          {{ selectedGuide?.contenidoGuia }}
+        </p>
+
+        <div class="modal-buttons">
+          <button class="secondary-btn" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

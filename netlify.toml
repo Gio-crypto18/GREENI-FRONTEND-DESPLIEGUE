@@ -1,0 +1,29 @@
+
+# Redirección para la API de OpenWeatherMap
+[[redirects]]
+  from = "/api-weather/*"
+  to = "https://api.openweathermap.org/data/2.5/:splat"
+  status = 200
+  force = true
+
+# Redirección para la API de Plant.id
+[[redirects]]
+  from = "/api-plantid/*"
+  to = "https://api.plant.id/v2/:splat"
+  status = 200
+  force = true
+
+# Redirección para la API de OpenRouter
+[[redirects]]
+  from = "/api-openrouter/*"
+  to = "https://openrouter.ai/api/v1/:splat"
+  status = 200
+  force = true
+
+
+# Redirección para tu Backend en Render
+[[redirects]]
+  from = "/api-backend/*"
+  to = "https://greeni-app-despliefuefinal.onrender.com/:splat"
+  status = 200
+  force = true

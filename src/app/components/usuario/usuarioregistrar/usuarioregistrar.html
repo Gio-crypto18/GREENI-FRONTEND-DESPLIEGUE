@@ -1,0 +1,80 @@
+<div class="user-form-container">
+  <h2>{{ edicion ? 'Edición de Usuario' : 'Registrar Usuario' }}</h2>
+
+  <form [formGroup]="form" (submit)="aceptar()">
+    @if (edicion) {
+    <mat-form-field class="example-full-width">
+      <mat-label>ID:</mat-label>
+      <input matInput formControlName="codigo" readonly="true" />
+      <mat-error> @if (form.get('id')?.hasError('required')) { Ingrese ID!! } </mat-error>
+    </mat-form-field>
+    }
+
+    <mat-form-field class="form-field">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+      <mat-error>
+        @if (form.get('nombre')?.hasError('required')) { Ingrese nombre!! } @else if
+        (form.get('nombre')?.hasError('maxlength')) { Máximo 20 caracteres }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" />
+      <mat-error>
+        @if (form.get('email')?.hasError('required')) { Ingrese email!! } @else if
+        (form.get('email')?.hasError('email')) { Formato de email inválido } @else if
+        (form.get('email')?.hasError('maxlength')) { Máximo 30 caracteres } @else if
+        (form.get('email')?.hasError('pattern')) { Debe contener @ y punto (.) }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Biografía</mat-label>
+      <textarea matInput formControlName="biografia" rows="3"></textarea>
+      <mat-error>
+        @if (form.get('biografia')?.hasError('required')) { Ingrese biografía!! } @else if
+        (form.get('biografia')?.hasError('maxlength')) { Máximo 200 caracteres }
+      </mat-error>
+    </mat-form-field>
+
+    <div class="radio-group">
+      <label>Estado</label>
+      <mat-radio-group formControlName="activo">
+        <mat-radio-button [value]="true">Activo</mat-radio-button>
+        <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+      </mat-radio-group>
+      <mat-error>
+        @if (form.get('activo')?.hasError('required')) { El estado es obligatorio. }
+      </mat-error>
+    </div>
+
+    <mat-form-field class="form-field">
+      <mat-label>Rol</mat-label>
+      <mat-select formControlName="rol">
+        @for (r of listaRoles; track r) {
+        <mat-option [value]="r.rolId">{{ r.tipo }}</mat-option>
+        }
+      </mat-select>
+      <mat-error>
+        @if (form.get('rol')?.hasError('required')) { El rol es obligatorio. }
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-group">
+        <button
+            mat-raised-button
+            class="btn-cancelar"
+            type="button"
+            [routerLink]="['/app/reporteusuario']"
+        >
+        Cancelar
+        </button>
+          
+        <button mat-raised-button color="primary" class="submit-btn">
+            {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+    </div>
+  </form>
+</div>

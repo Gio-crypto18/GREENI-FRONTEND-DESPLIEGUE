@@ -1,0 +1,154 @@
+/* CONTENEDOR PRINCIPAL */
+.user-form-container {
+  max-width: 850px;
+  margin: 2.5rem auto;
+  padding: 2.2rem 2.3rem;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(226, 232, 240, 0.7);
+  border-left: 6px solid #005014;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Lato', 'Nunito', system-ui;
+}
+
+/* halo decorativo */
+.user-form-container::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(
+    circle,
+    rgba(76, 175, 80, 0.14) 0%,
+    transparent 65%
+  );
+  border-radius: 50%;
+}
+
+/* TÍTULO */
+.user-form-container h2 {
+  font-family: 'Poppins';
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #005014;
+}
+
+/* CAMPOS */
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* RADIO BUTTONS */
+.radio-group {
+  margin-bottom: 20px;
+  color: #005014;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* BOTÓN */
+.submit-btn {
+  width: auto; /* Mantener */
+    padding: 0.9rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.35);
+}
+
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .user-form-container {
+    margin: 1.8rem 1rem;
+    padding: 1.7rem 1.4rem;
+    border-radius: 20px;
+  }
+
+  .user-form-container h2 {
+    font-size: 1.6rem;
+  }
+}
+
+
+/* AÑADE ESTA REGLA EXTRA. 
+  A veces, Angular Material pone el texto en un <span>, 
+  y esta regla fuerza a que ese <span> también sea blanco.
+*/
+.submit-btn span {
+  color: #ffffff !important;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancelar {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancelar:hover {
+  background-color: #4CAF50 !important;
+}
+
+/* GRUPO DE BOTONES (Contenedor Flex) */
+/* GRUPO DE BOTONES (Contenedor Flex) - El último y correcto ajuste */
+.button-group {
+    display: flex;
+    gap: 15px;
+    /* Ajuste para que suba un poco, desde 2rem a 0.5rem o 1rem */
+    margin-top: 1rem; 
+    align-items: center; /* Asegura la alineación central vertical */
+}
+
+/* Aplicar la distribución de espacio para que ambos botones sean del mismo tamaño */
+.button-group .btn-cancelar,
+.button-group .submit-btn {
+    flex: 1; /* Hace que ambos elementos ocupen una parte igual del espacio disponible */
+    width: auto; /* Anula el width: 100% que tenías en .submit-btn si estuviera solo */
+    
+    /* Reajustar el padding/radio para que se vean bien juntos (opcional) */
+    border-radius: 12px; /* Unificar el estilo de borde si el cancelar tenía 50px */
+}
+
+/* Ajuste específico para el botón Cancelar */
+.button-group .btn-cancelar {
+    /* Mantenemos tus estilos de color, pero aseguramos el mismo padding y radio */
+    padding: 0.9rem 1.6rem; 
+    min-width: unset; /* Permite que flexbox controle el ancho */
+}
+
+/* Ajuste del .submit-btn para quitar el width: 100% que ya no es necesario */
+.submit-btn {
+    /* Elimina el width: 100% que tenías antes, ya que lo maneja flex: 1 */
+    width: auto; 
+    color: #ffffff !important;
+}
+
+
+
+/* GRUPO DE BOTONES (Contenedor Flex) */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 0.2rem;
+    /* Añade esta línea para alinear ambos elementos verticalmente al centro */
+    align-items: center; 
+}

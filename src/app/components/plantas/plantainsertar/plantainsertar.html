@@ -1,0 +1,91 @@
+<div class="form-container">
+  <section class="form-card mat-elevation-z8">
+    <h2 class="form-title">{{ edicion ? 'Edición de planta' : 'Registrar planta' }}</h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID:</mat-label>
+        <input matInput formControlName="codigo" readonly="true" />
+        <mat-error> @if (form.get('codigo')?.hasError('required')) { Ingrese ID!! } </mat-error>
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de la Planta</mat-label>
+
+        <mat-select formControlName="nombre" required>
+          <mat-option *ngFor="let planta of tipoplantas" [value]="planta.value">
+            {{ planta.viewValue }}
+          </mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">
+          ¡Seleccione un nombre de planta!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="radio-group-container">
+        <label class="radio-label">Imagen</label>
+        <mat-radio-group aria-label="Imagen" formControlName="imagen" class="radio-options">
+          <mat-radio-button [value]="true">Activo</mat-radio-button>
+          <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="form.get('imagen')?.hasError('required') && form.get('imagen')?.touched">
+          La imagen es obligatoria.
+        </mat-error>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Especie</mat-label>
+        <mat-select formControlName="especie" required>
+          @for (especie of listaEspecies; track especie) {
+          <mat-option [value]="especie.idEspecie">{{ especie.nombreC }}</mat-option>
+          }
+        </mat-select>
+        <mat-error>
+          @if (form.get('especie')?.hasError('required')) { La especie es obligatoria. }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="usuario" required>
+          @for (usuario of listaUsuarios; track usuario) {
+          <mat-option [value]="usuario.id">{{ usuario.nombre }}</mat-option>
+          }
+        </mat-select>
+        <mat-error>
+          @if (form.get('usuario')?.hasError('required')) { El usuario es obligatorio. }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Diagnóstico</mat-label>
+        <mat-select formControlName="diagnostico" required>
+          @for (diagnostico of listaDiagnosticos; track diagnostico) {
+          <mat-option [value]="diagnostico.idDiagnostico">{{ diagnostico.acciones }}</mat-option>
+          }
+        </mat-select>
+        <mat-error>
+          @if (form.get('diagnostico')?.hasError('required')) { El diagnóstico es obligatorio. }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button
+          mat-raised-button
+          class="btn-cancelar"
+          type="button"
+          [routerLink]="['/app/mis-plantas']"
+        >
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

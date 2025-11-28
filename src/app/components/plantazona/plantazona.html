@@ -1,0 +1,279 @@
+<router-outlet></router-outlet>
+<div [hidden]="route.children.length !== 0">
+  <div class="app-layout">
+    <div class="main-content">
+      <div class="green-bar">
+        <h1>Mis Plantas</h1>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="content-section">
+          <section class="card">
+            <div class="card-header"><h3>Añadir planta</h3></div>
+            <form class="card-body">
+              <div class="uploader" title="Sube una imagen clara de tu planta">
+                <label class="uploader-hint" tabindex="0" for="plant-file-input">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <p>Arrastra una foto aquí o haz clic para seleccionar</p>
+                  <small>Formatos aceptados: JPG, PNG, WEBP</small>
+                </label>
+
+                <input
+                  id="plant-file-input"
+                  type="file"
+                  accept="image/*"
+                  (change)="onFileSelected($event)"
+                />
+
+                <img
+                  class="preview"
+                  *ngIf="previewUrl"
+                  [src]="previewUrl"
+                  alt="Vista previa de la planta"
+                />
+              </div>
+            </form>
+          </section>
+
+          <section class="content-area panel">
+            <div
+              class="header-container"
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+              "
+            >
+              <h2 class="panel-title">
+                <mat-icon style="color: #05752a; vertical-align: middle; margin-right: 8px"
+                  >eco</mat-icon
+                >
+                Mis plantas registradas
+              </h2>
+
+              <div class="header-actions">
+                <!-- Ver todas las plantas (TODOS) -->
+                <button
+                  class="interaction-btn"
+                  type="button"
+                  routerLink="/app/planta/listar"
+                  *ngIf="isAdmin() || isCientifico() || isPlantLover()"
+                  style="
+                    background: #4caf50;
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                    transition: background 0.3s ease;
+                  "
+                >
+                  <mat-icon style="font-size: 18px; width: 18px; height: 18px">list</mat-icon>
+                  Ver Todas las Plantas
+                </button>
+
+                <!-- Insertar plantas (TODOS) -->
+                <button
+                  class="interaction-btn"
+                  type="button"
+                  routerLink="/app/planta/agregar"
+                  *ngIf="isAdmin() || isCientifico() || isPlantLover()"
+                  style="
+                    background: #2e7d32;
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                    transition: background 0.3s ease;
+                  "
+                >
+                  <i class="fas fa-plus"></i>
+                  Insertar Planta
+                </button>
+
+                <!-- Listar Mediciones (TODOS) -->
+                <button
+                  class="interaction-btn"
+                  [routerLink]="['/app/medicion/listar']"
+                  *ngIf="isAdmin() || isCientifico() || isPlantLover()"
+                  style="
+                    background: #4caf50;
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                    transition: background 0.3s ease;
+                  "
+                >
+                  <i class="fas fa-list"></i>
+                  Listar Mediciones
+                </button>
+
+                <!-- Agregar Mediciones (TODOS) -->
+                <button
+                  class="interaction-btn"
+                  [routerLink]="['/app/medicion/agregar']"
+                  *ngIf="isAdmin() || isCientifico() "
+                  style="
+                    background: #2e7d32;
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                    transition: background 0.3s ease;
+                  "
+                >
+                  <i class="fas fa-plus"></i>
+                  Agregar Mediciones
+                </button>
+
+                <!-- Agregar Especies (SOLO Admin y Científico) -->
+                <button
+                  class="interaction-btn"
+                  [routerLink]="['/app/especie/agregar']"
+                  *ngIf="isAdmin() || isCientifico()"
+                  style="
+                    background: #2e7d32;
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                    transition: background 0.3s ease;
+                  "
+                >
+                  <i class="fas fa-plus"></i>
+                  Agregar Especies
+                </button>
+
+                <!-- Ver todas las especies (TODOS) -->
+                <button
+                  class="interaction-btn"
+                  type="button"
+                  routerLink="/app/especie/listar"
+                  *ngIf="isAdmin() || isCientifico() || isPlantLover()"
+                  style="
+                    background: #4caf50;
+                    color: white;
+                    border: none;
+                    padding: 12px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                    transition: background 0.3s ease;
+                  "
+                >
+                  <mat-icon style="font-size: 18px; width: 18px; height: 18px">list</mat-icon>
+                  Ver Especies
+                </button>
+              </div>
+            </div>
+
+            <div class="plants-grid">
+              <div class="plant-card">
+                <div class="plant-image">
+                  <img
+                    src="assets/guia-monstera.webp"
+                    alt="Monstera Deliciosa"
+                    style="
+                      width: 100%;
+                      height: 210px;
+                      object-fit: cover;
+                      display: block;
+                      border-radius: 18px 18px 0 0;
+                    "
+                  />
+                  <button class="delete-btn" disabled title="Función no implementada">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="plant-info">
+                  <h3>Monstera Deliciosa</h3>
+                  <p>En la sala de estar, necesita luz indirecta</p>
+                </div>
+              </div>
+
+              <div class="plant-card">
+                <div class="plant-image">
+                  <img
+                    src="assets/guia-suculenta.jpeg"
+                    alt="Suculenta"
+                    style="
+                      width: 100%;
+                      height: 210px;
+                      object-fit: cover;
+                      display: block;
+                      border-radius: 18px 18px 0 0;
+                    "
+                  />
+                  <button class="delete-btn" disabled title="Función no implementada">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="plant-info">
+                  <h3>Suculenta</h3>
+                  <p>En el balcón, riego semanal</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="empty-state" style="display: none">
+              Aún no has registrado plantas. ¡Sube una imagen y guarda tu primera planta!
+            </div>
+          </section>
+
+          <section class="content-area panel">
+            <h2 class="panel-title">🧬 Especies</h2>
+            <p class="panel-sub">
+              Lista estimada a partir de tus plantas guardadas a espera de conformación de un
+              científico.
+            </p>
+            <div class="species-chips">
+              <span class="species-chip" style="cursor: not-allowed">Monstera</span>
+              <span class="species-chip" style="cursor: not-allowed">Suculenta</span>
+              <span class="species-chip" style="cursor: not-allowed">Cactus</span>
+            </div>
+          </section>
+
+          <section class="content-area panel">
+            <h2 class="panel-title">Consejos rápidos</h2>
+            <ul class="tips-list">
+              <li>Riega por la mañana para evitar evaporación.</li>
+              <li>Revisa el drenaje de la maceta.</li>
+              <li>Gira la planta cada semana para crecimiento uniforme.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-chatbot></app-chatbot>
+</div>

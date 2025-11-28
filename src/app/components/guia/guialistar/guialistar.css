@@ -1,0 +1,222 @@
+/* Fondo general tipo home */
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #fef9e0;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #1a1a1a;
+}
+
+/* Título */
+.container h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 55px 0 35px 30px; /* top – right – bottom – left */
+  color: #1a1a1a;
+}
+
+
+/* Card principal */
+.table-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 20px 24px 10px;
+  border: 1px solid #efe7cf;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th.mat-header-cell {
+  font-weight: 600;
+  font-size: 15px;
+  color: #1a1a1a;
+  border-bottom: 1px solid #ececec;
+  padding: 14px 16px;
+}
+
+td.mat-cell {
+  font-size: 15px;
+  color: #444;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Hover fila */
+tr.mat-row:hover {
+  background: #f9fff5;
+  transition: background-color 0.25s ease;
+}
+
+/* Botones de acción */
+button[mat-button] {
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Wrapper del paginador */
+.paginator-wrapper {
+  margin-top: 8px;
+  padding: 12px 6px 4px;
+  border-top: 1px solid #ebebeb;
+}
+
+/* Estilos del paginador */
+mat-paginator {
+  width: 100%;
+}
+
+/* Texto “Guías por página” */
+.mat-mdc-paginator-page-size-label {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+/* Select de tamaño de página */
+.mat-mdc-paginator-page-size-select {
+  margin: 0 6px;
+}
+
+/* Botones de navegación */
+.mat-mdc-icon-button {
+  border-radius: 8px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :host {
+    padding: 24px 10px;
+  }
+
+  .container h2 {
+    font-size: 2rem;
+    margin-left: 16px;
+  }
+
+  .table-wrapper {
+    padding-inline: 12px;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+}
+/* Contenedor principal (asume el fondo beige del body) */
+.list-container {
+  padding: 48px 24px 24px 24px; 
+}
+
+/* La tarjeta blanca (mat-card) principal */
+.list-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px 24px;
+  overflow: hidden;
+}
+
+/* El encabezado de la tarjeta */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el título */
+  position: relative; /* Contexto para el botón de volver */
+  margin-bottom: 24px; /* Espacio antes de la cuadrícula */
+  min-height: 48px;
+}
+
+/* El título dentro del header */
+.card-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* El botón de "volver" */
+.card-header button {
+  position: absolute;
+  left: 0;
+  color: #000000;
+}
+
+/* --- NUEVA CUADRÍCULA DE TARJETAS --- */
+.card-grid {
+  display: grid;
+  /* Crea columnas automáticas de 300px min. */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px; /* Espacio antes del paginador */
+}
+
+/* Estilo de cada tarjeta individual */
+.item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Estira la tarjeta */
+  transition: box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item-card mat-card-content {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.item-card mat-card-actions {
+  padding-bottom: 8px;
+}
+
+/* Botón Editar (Verde Claro) */
+.btn-edit {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  
+}
+
+/* Botón Eliminar (Verde Oscuro) */
+.btn-delete {
+  /* Tono de verde oscuro (Ejemplo: Deep Green) */
+  
+}
+
+/* Paginador (para que combine con el fondo blanco) */
+.mat-paginator {
+  background-color: transparent;
+  margin-top: 16px;
+}
+
+/* ... (tus otros estilos para .card-grid, .item-card, etc.) ... */
+
+/* Botón de editar VERDE */
+.btn-edit mat-icon {
+  color: #66bb6a; 
+}
+
+/* Botón de eliminar ROJO */
+.btn-delete mat-icon {
+  color: #388e3c; 
+}
+
+

@@ -1,0 +1,52 @@
+<div class="form-container">
+  <div class="form-card mat-elevation-z8">
+    <div class="card-header">
+      <h2>{{ edicion ? 'Edición de Guía Favorita' : 'Registrar Guía Favorita' }}</h2>
+    </div>
+
+    <div class="form-content">
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        @if (edicion) {
+        <mat-form-field class="form-field">
+          <mat-label>ID:</mat-label>
+          <input matInput formControlName="codigo" readonly="true" />
+        </mat-form-field>
+        }
+
+        <mat-form-field class="form-field">
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="usuarios">
+            @for (usuario of listaUsuarios; track usuario) {
+            <mat-option [value]="usuario.id">{{ usuario.nombre }}</mat-option>
+            }
+          </mat-select>
+          <mat-error>
+            @if (form.get('usuarios')?.hasError('required')) { Seleccione usuario!! }
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Guía</mat-label>
+          <mat-select formControlName="guias">
+            @for (guia of listaGuia; track guia) {
+            <mat-option [value]="guia.guiaId">{{ guia.tituloGuia }}</mat-option>
+            }
+          </mat-select>
+          <mat-error>
+            @if (form.get('guias')?.hasError('required')) { Seleccione guía!! }
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-raised-button class="btn-cancelar" [routerLink]="['/app/guia']">
+            Cancelar
+          </button>
+
+          <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+            {{ edicion ? 'Actualizar' : 'Registrar' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

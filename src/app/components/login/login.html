@@ -1,0 +1,59 @@
+<div class="login-page">
+  <div class="login-container">
+    <a routerLink="/" class="btn-back-home" title="Volver al inicio">
+      <i class="fas fa-times"></i>
+
+    </a>
+
+    <div class="login-header">
+      <a routerLink="/" class="logo-link">
+        <img src="assets/logo-greeni.png" alt="Logo Greeni" />
+      </a>
+      <h2>Bienvenido de vuelta</h2>
+      <p>Inicia sesión para gestionar tu jardín digital.</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="input-group">
+        <label for="email">Correo Electrónico</label>
+        <div class="input-with-icon">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="tu.correo@ejemplo.com"
+          />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Contraseña</label>
+        <div class="input-with-icon">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="Ingresa tu contraseña"
+          />
+        </div>
+      </div>
+
+      <p id="login-error-message" class="error-message">
+        {{ errorMessage }}
+      </p>
+
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid || isSubmitting">
+        {{ isSubmitting ? 'Verificando...' : 'Iniciar Sesión' }}
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <p>
+        ¿Aún no tienes una cuenta?
+        <a routerLink="/usuario/agregar">Regístrate aquí</a>
+      </p>
+    </div>
+  </div>
+</div>

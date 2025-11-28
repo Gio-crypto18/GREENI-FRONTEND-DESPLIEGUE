@@ -1,0 +1,357 @@
+.app-layout {
+  min-height: 100vh;
+  background-color: #fef8ed !important;
+  font-family: "Lato", system-ui, sans-serif;
+  padding-top: 30px;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+
+.page-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #212121;
+  text-align: left;
+  margin-bottom: 28px;
+  margin-left: 8px;
+  margin-top: 20px;
+}
+
+
+.guides-toolbar {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid #e8e8e8;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 450px;
+}
+
+.search-wrapper i {
+  position: absolute;
+  left: 14px;
+  color: #6b7280;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 11px 15px 11px 45px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  font-size: 15px;
+}
+
+.search-wrapper input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+.actions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.create-guide-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.create-guide-btn:hover {
+  background: #43a047;
+}
+
+.filters-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  font-size: 14px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: #444;
+}
+
+.filter-btn:hover {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  color: #388e3c;
+}
+
+.filter-btn.active {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+}
+
+
+.guides-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 22px;
+}
+
+.guide-card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #ececec;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: 0.25s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.guide-image {
+  height: 180px;
+  overflow: hidden;
+}
+
+.guide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.guide-content {
+  padding: 18px;
+}
+
+.guide-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.guide-description {
+  color: #6b6b6b;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.guide-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.guide-category {
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+
+.guide-category.interior {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.guide-category.exterior {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
+
+.guide-category.cuidados {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.guide-category.riego {
+  background: #e0f7fa;
+  color: #006064;
+}
+
+.guide-category.poda {
+  background: #f3e5f5;
+  color: #4a148c;
+}
+
+.guide-length {
+  color: #757575;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.no-results-message {
+  margin-top: 40px;
+  text-align: center;
+  color: #555;
+}
+
+.no-results-message i {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  width: min(750px, 95vw);
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeModal 0.25s ease;
+  position: relative;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 25px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #333;
+  transition: 0.2s;
+}
+
+.close-modal-btn:hover {
+  color: #4caf50;
+}
+
+.modal-header-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.modal-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 22px 28px 30px;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1d1d1d;
+  margin-bottom: 12px;
+}
+
+.modal-badge {
+  display: inline-block;
+  background: #4caf50;
+  color: white;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+  text-transform: capitalize;
+}
+
+.modal-description {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.secondary-btn {
+  background: #dddddd;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.secondary-btn:hover {
+  background: #cfcfcf;
+}
+
+@keyframes fadeModal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.9rem;
+    margin-left: 5px;
+  }
+
+  .guides-toolbar {
+    padding: 16px;
+  }
+
+  .guides-container {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body {
+    padding: 18px 18px 22px;
+  }
+}
+
+
+

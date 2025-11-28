@@ -1,0 +1,122 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  /* Este padding baja todo el formulario */
+  padding: 5rem 1rem 2rem; 
+  background-color: #fef9e0; /* Fondo beige */
+  font-family: 'Lato', 'Nunito', system-ui;
+  color: #212121;
+
+  /* Variables de tu tema */
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-hover: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+  --sombra-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* El contenedor .container ahora solo centra */
+.container {
+  max-width: 500px; /* Ancho del formulario */
+  margin: 0 auto; 
+  margin-top: 4rem;/* Centrar */
+}
+
+/* La tarjeta blanca */
+.white-section {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--borde-suave);
+  box-shadow: var(--sombra-md);
+  padding: 2rem 2.2rem 2rem;
+}
+
+
+
+.form-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  text-align: center;
+  margin: 1.5rem 0 2.4rem 0 !important;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.3;
+  width: 100%;
+}
+
+/* Formulario */
+.example-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem; /* Espacio entre campos */
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 10px;
+}
+
+mat-error {
+  font-size: 0.8rem;
+}
+
+/* --- ESTILOS DE BOTÓN --- */
+
+/* Contenedor para alinear botones a la derecha */
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem; /* Espacio entre botones */
+  margin-top: 1.8rem;
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancelar {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancelar:hover {
+  background-color: #4CAF50 !important;
+}
+
+/* Botón Registrar (Verde) */
+.btn-registrar {
+  background: linear-gradient(135deg, #4caf50, #2e7d32) !important; 
+  color: #ffffff !important;
+  font-weight: 600;
+  min-width: 140px;
+  border-radius: 50px;
+}
+
+.btn-registrar span {
+  color: #ffffff !important;
+}
+
+.btn-registrar:hover:not([disabled]) {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20) !important;
+}
+
+/* Estado deshabilitado (VERDE CLARO, como en tu imagen) */
+.btn-registrar[disabled] {
+  background-color: #cfe9d5 !important;
+  color: #f5f5f5 !important;
+}

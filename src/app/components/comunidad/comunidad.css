@@ -1,0 +1,455 @@
+:host {
+  --sidebar-width: 259px;
+  --verde-oscuro: #005014;
+  --verde-boton: #2e7d32;
+  --fondo-crema: #fef9e0;
+  --fondo-tarjeta: #ffffff;
+  --fondo-chip: #f8f7f4;
+  --texto-principal: #1a1a1a;
+
+  display: block;
+  min-height: 100vh;
+  background-color: var(--fondo-crema);
+  font-family: 'Poppins', sans-serif;
+  color: var(--texto-principal);
+}
+
+/* ===== LAYOUT GENERAL ===== */
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 32px;
+  box-sizing: border-box;
+}
+
+/* ===== HEADER / BARRA SUPERIOR ===== */
+
+.green-bar {
+  background-color: var(--fondo-crema);
+  color: var(--texto-principal);
+  padding: 0 4px 22px;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 18px;
+  border-bottom: 1px solid #f1e7c7;
+  margin-bottom: 20px;
+}
+
+.green-bar h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 6px 4px;
+  color: var(--texto-principal);
+}
+
+/* ===== BUSCADOR ===== */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  max-width: 420px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  width: 100%;
+  background: transparent;
+}
+
+.search-bar i {
+  color: #4a5568;
+  margin-left: 4px;
+}
+
+/* ===== BOTONES HEADER ===== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.green-button {
+  background-color: var(--verde-oscuro);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.25s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.green-button:hover {
+  background-color: #003d29;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.green-button i {
+  font-size: 16px;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+
+.content-wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.content-section {
+  flex: 2;
+}
+
+.side-section {
+  flex: 1.1;
+  padding: 2px;
+  background-color: transparent;
+}
+
+/* tarjetas genéricas */
+.content-area {
+  background-color: var(--fondo-tarjeta);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ece7c8;
+}
+
+.content-area h2 {
+  font-size: 1.1rem;
+  color: var(--texto-principal);
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+/* ===== STORIES "PARA TI" ===== */
+
+.stories-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.story-card {
+  background-color: var(--fondo-chip);
+  padding: 36px 14px;
+  border-radius: 14px;
+  text-align: center;
+  width: 120px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid #e4e4dc;
+  transition: background 0.25s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.story-card:hover {
+  background-color: #f1f5f1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.story-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.ver-mas-link {
+  text-decoration: none;
+  color: var(--verde-oscuro);
+  font-weight: 600;
+}
+
+/* ===== POSTS ===== */
+
+.post,
+.share {
+  background-color: var(--fondo-chip);
+  padding: 16px 18px;
+  border-radius: 18px;
+}
+
+.post {
+  border: 1px solid #e4e4dc;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info strong {
+  font-size: 0.95rem;
+}
+
+.user-info small {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.post-options {
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+.post-options:hover {
+  color: #111;
+}
+
+.post p {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* botones de acciones del post */
+.post-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.action-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #4a5568;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+}
+
+.like-button.liked i {
+  color: #e0245e;
+}
+
+.save-button.saved i {
+  color: #f6ad55;
+}
+
+/* ===== TENDENCIAS ===== */
+
+.trend-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.trend-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.trend-list span {
+  cursor: pointer;
+  color: var(--verde-oscuro);
+  font-weight: 500;
+}
+
+.trend-list span:hover {
+  text-decoration: underline;
+}
+
+.trend-options {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.trend-options:hover {
+  color: #111;
+}
+
+/* ===== RECOMENDACIONES DE AMIGOS ===== */
+
+.friend-recommendation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.friend-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.friend-recommendation p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.friend-recommendation button {
+  background-color: var(--verde-oscuro);
+  color: white;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.friend-recommendation button:hover {
+  background-color: #003d29;
+}
+
+/* ===== SHARE / SUBIR FOTO ===== */
+
+.share p {
+  margin-top: 0;
+  font-size: 0.95rem;
+}
+
+.image-preview {
+  margin: 10px 0 14px;
+  min-height: 80px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px dashed #cbd5e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 160px;
+  border-radius: 12px;
+}
+
+.share button {
+  background-color: var(--verde-oscuro);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.share button:hover {
+  background-color: #003d29;
+}
+
+/* ===== BOTONES DE INTERACCIÓN ===== */
+
+.interaction-buttons h3 {
+  margin-bottom: 12px;
+  color: var(--verde-boton);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.interaction-btn {
+  background: var(--verde-boton);
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.25s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.interaction-btn:hover {
+  background: #256628;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 992px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .side-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .green-bar {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    justify-self: stretch;
+  }
+
+  .header-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    padding-inline: 20px;
+  }
+}

@@ -1,0 +1,31 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --verde-oscuro: #005014;
+    --verde-claro: #4CAF50;
+    --blanco: #FFFFFF;
+    --texto-principal: #1A202C;
+    --texto-secundario: #4A5568;
+    --borde-suave: #E2E8F0;
+    --fondo-suave: #F7FAFC;
+    --crema-fondo: #F8F7F4;
+    --radio-borde: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; 
+    font-family: 'Poppins', 'Roboto', "Helvetica Neue", sans-serif;
+    background-color: var(--crema-fondo);
+    color: var(--texto-principal);
+}

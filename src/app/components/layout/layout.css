@@ -1,0 +1,246 @@
+/* CONTENEDOR GENERAL ------------------------------------------- */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #fff7d6; /* mismo fondo crema que el home */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+}
+
+/* SIDEBAR ------------------------------------------------------ */
+.app-sidebar {
+  width: 260px;
+  background: #336733;
+  color: #f5ffe9;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.6rem;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.18);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Marca / logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 2.5rem;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+/* MENÚ --------------------------------------------------------- */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  margin-bottom: auto;
+  padding: 0;
+}
+
+/* Cada opción del menú */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  color: #fdfdfd;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    opacity 0.15s ease;
+}
+
+/* Pseudo-bullet a la izquierda (opcional, decorativo) */
+.menu-item::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: transparent;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* Hover */
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* ACTIVO (Angular pone la clase .active por routerLinkActive) */
+.menu-item.active {
+  background: #f9ffe2;
+  color: #233a22;
+  opacity: 1;
+}
+
+.menu-item.active::before {
+  background: #82e18b;
+  transform: scale(1.4);
+}
+
+/* FOOTER DEL SIDEBAR ------------------------------------------- */
+.sidebar-footer {
+  margin-top: 2rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.user-summary {
+  font-size: 0.85rem;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-email {
+  opacity: 0.85;
+}
+
+/* Botón cerrar sesión */
+.logout-btn {
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background: #e4493b;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.logout-btn:hover {
+  background: #ff5a4b;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.3);
+}
+
+/* CONTENIDO PRINCIPAL ------------------------------------------ */
+.app-main {
+  flex: 1;
+  min-height: 100vh;
+  background: #fff7d6;
+  overflow-y: auto;
+}
+
+/* RESPONSIVE --------------------------------------------------- */
+@media (max-width: 900px) {
+  .app-sidebar {
+    width: 220px;
+    padding-inline: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .app-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .menu-item {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.86rem;
+  }
+
+  .sidebar-footer {
+    margin-top: 0;
+    border-top: none;
+    margin-left: auto;
+    align-items: flex-end;
+  }
+}
+
+.user-menu-btn {
+  color: white !important;
+}
+
+.user-menu-btn mat-icon {
+  color: white !important;
+}
+
+.user-menu-btn span {
+  color: white !important;
+}
+
+/* Opcional: Para cambiar el color al hacer hover */
+.user-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.user-menu-btn {
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+}
+
+.user-menu-btn mat-icon {
+  color: white !important;
+  margin: 0 !important;
+}
+
+.user-menu-btn span {
+  color: white !important;
+  margin: 0 !important;
+}
+
+/* Para centrar todo el contenedor */
+.logout-section {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Opcional: hover effect */
+.user-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}

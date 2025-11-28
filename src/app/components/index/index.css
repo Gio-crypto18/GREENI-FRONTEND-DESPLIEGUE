@@ -1,0 +1,1031 @@
+/* index.css */
+
+/* ============= LAYOUT GENERAL ============= */
+.landing-wrapper {
+  min-height: 100vh;
+  background-color: #0d2f1f;
+  color: #f9fafb;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* HEADER */
+.landing-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 3rem;
+  background: rgba(6, 27, 17, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+}
+
+.landing-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.landing-nav a {
+  color: #e5f6ec;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.landing-nav a:hover {
+  text-decoration: underline;
+}
+
+.nav-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.3rem;
+  background: #fef9e0;
+  color: #05301c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ============= HERO ============= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 3rem;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.65));
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 720px;
+  text-align: center;
+  color: #fefcf5;
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  margin-bottom: 0.75rem;
+  color: #c7f9cc;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  margin-bottom: 0.9rem;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  max-width: 620px;
+  margin: 0 auto 1.5rem;
+  font-size: 0.98rem;
+  color: #e2f3e5;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+/* Botones genéricos */
+.btn-primary,
+.btn-ghost {
+  border-radius: 999px;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+/* Estilo específico para el botón de registro transparente */
+.btn-registro-ghost {
+    /* Propiedades de un botón genérico (si no están heredadas) */
+    border-radius: 999px; 
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    
+    /* Colores y transparencia (estilo 'ghost') */
+    background: transparent;
+    color: #fefcf5; /* Asume un color claro para el texto, como en btn-ghost */
+    border: 1px solid rgba(230, 244, 233, 0.8); /* Borde claro y semitransparente */
+}
+
+.btn-registro-ghost:hover {
+    background: rgba(255, 255, 255, 0.12); /* Efecto hover con ligera transparencia */
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: #2e7d32;
+  color: #ffffff;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary:hover {
+  background: #1b5e20;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+}
+
+
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ============= SECCIONES RESTO ============= */
+.section-light {
+  padding: 4rem 3rem;
+  background: #f7fafc;
+  color: #1a202c;
+}
+
+.section-dark {
+  padding: 4rem 3rem;
+  background: #0d3b27;
+  color: #e6fffa;
+}
+
+/* ============= MODALES AUTH ============= */
+
+.auth-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.auth-backdrop.show {
+  display: flex;
+}
+
+.auth-modal {
+  width: min(520px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.4rem 2.3rem 2rem;
+  position: relative;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.auth-close {
+  position: absolute;
+  right: 1.2rem;
+  top: 1.2rem;
+  border: none;
+  background: #f3f4f6;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.auth-logo img {
+  height: 46px;
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  color: #111827;
+}
+
+.auth-subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.6rem;
+  color: #4b5563;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #374151;
+}
+
+.field-input {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  padding: 0.65rem 0.9rem;
+  background: #f9fafb;
+}
+
+.field-input i {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.field-input input,
+.field-input select {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.85rem;
+}
+
+.auth-links a {
+  color: #1b5e20;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.auth-submit {
+  margin-top: 0.4rem;
+  width: 100%;
+}
+
+.auth-switch {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.auth-switch button {
+  border: none;
+  background: none;
+  color: #1b5e20;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 768px) {
+  .landing-header {
+    padding-inline: 1.2rem;
+  }
+
+  .landing-nav a {
+    display: none;
+  }
+
+  .hero {
+    padding-inline: 1.2rem;
+  }
+
+  .auth-modal {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* ---- Reset pequeño ---- */
+section {
+  box-sizing: border-box;
+}
+
+/* ================= HERO ================= */
+
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 120px 24px 80px;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url('/assets/menu2.jpg'); /* aquí uso tu imagen */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 850px;
+}
+
+.hero-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  color: #c7f9cc;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 3.4vw, 3.3rem);
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+/* ================= BOTONES ================= */
+
+.btn-primary {
+  border-radius: 999px;
+  padding: 0.85rem 1.9rem;
+  border: none;
+  background: #1b5e20;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #10451d;
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.btn-back {
+  border-radius: 999px;
+  padding: 0.45rem 1.2rem;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #1b5e20;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-disabled {
+  border-radius: 999px;
+  padding: 0.85rem 1.9rem;
+  border: none;
+  background: #d1d5db;
+  color: #6b7280;
+  font-weight: 600;
+  cursor: not-allowed;
+  width: 100%;
+}
+
+/* ================= INTRO ================= */
+
+.intro-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  padding: 80px 10%;
+  background: #f9fafb;
+  color: #111827;
+  align-items: center;
+}
+
+.intro-left h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: #4caf50;
+}
+
+.intro-text {
+  color: #6b7280;
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+
+.intro-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.intro-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.icon-check {
+  height: 26px;
+  width: 26px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.intro-right img {
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+}
+
+/* ================= SECCIONES GENERALES ================= */
+
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #111827;
+}
+
+.section-title.align-left {
+  text-align: left;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.section-light {
+  background: #f9fafb;
+  padding: 80px 10%;
+}
+
+/* ================= QUIÉNES SOMOS ================= */
+
+.qs-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.qs-row.reverse {
+  grid-template-columns: 1.1fr 1.1fr;
+}
+
+.qs-img {
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+}
+
+.qs-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.qs-text p {
+  color: #4b5563;
+}
+
+/* ================= DIAGNÓSTICO ================= */
+
+.diagnostico-section {
+  padding: 80px 10%;
+  background: #0f3b26;
+  color: #f9fafb;
+}
+
+.diagnostico-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.diagnostico-left {
+  background: #fdf7e9;
+  color: #111827;
+  padding: 24px 26px 28px;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.4);
+}
+
+.diagnostic-tabs {
+  display: flex;
+  background: #e5e7eb;
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.diagnostic-tabs button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.diagnostic-tabs button.active {
+  background: #ffffff;
+  color: #166534;
+}
+
+.diagnostico-left label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.diagnostico-left input[type='range'] {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.diagnostico-left input[type='text'] {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+.diagnostico-right img {
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.4);
+}
+
+/* ================= GUÍAS DE CULTIVO ================= */
+
+.guides-section {
+  padding: 80px 10%;
+  background: #f9fafb;
+}
+
+.guides-preview {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.guides-left h3 {
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.guides-left p {
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.guides-right img {
+  width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+}
+
+.guides-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.guide-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.guide-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.guide-card h3 {
+  font-size: 1.1rem;
+  margin: 12px 16px 4px;
+}
+
+.guide-card p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0 16px 14px;
+}
+
+.guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.25);
+}
+
+/* ================= COMUNIDAD ================= */
+
+.comunidad-section {
+  padding: 80px 10%;
+  background: #0f3b26;
+  color: #f9fafb;
+  text-align: center;
+}
+
+.testimonial-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fdf7e9;
+  color: #111827;
+  padding: 24px 26px;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.4);
+}
+
+/* ================= CONTACTO ================= */
+
+.contact-section {
+  padding: 80px 10%;
+  background: #f9fafb;
+}
+
+.contact-form {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.contact-form textarea {
+  border-radius: 16px;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.25);
+}
+
+.radio-group {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .intro-section,
+  .qs-row,
+  .diagnostico-container,
+  .guides-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-inline: 16px;
+  }
+
+  .intro-section,
+  .section-light,
+  .diagnostico-section,
+  .guides-section,
+  .comunidad-section,
+  .contact-section {
+    padding-inline: 16px;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ================= AJUSTE HERO (imagen y textos) ================= */
+
+/* Asegura que se vea bien la imagen /assets/menu2.jpg */
+.hero {
+  min-height: 100vh;
+  background: none;            /* sin color sólido encima */
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);    /* que se vea la foto */
+  z-index: -2;
+}
+
+.hero-overlay {
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.55));    /* un poco más suave que antes */
+}
+
+/* Texto del hero más limpio y grande */
+.hero-content {
+  max-width: 900px;
+}
+
+.hero-kicker {
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 1.1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.7rem, 4vw, 3.5rem);
+  line-height: 1.08;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.hero-subtitle {
+  font-size: 1.02rem;
+}
+
+/* ================= QUITAR ESPACIO EN BLANCO ================= */
+
+/* Esconder las secciones de ejemplo vacías (#quienes, #guias, #contacto) */
+#quienes.section-light,
+#guias.section-light,
+#contacto.section-dark {
+  display: none;
+}
+
+/* ================= INTRO: TÍTULO MÁS GRANDE Y “ENCUENTRAN” SEPARADO ================= */
+
+.intro-left h2 {
+  font-size: 2.7rem;     /* más grande */
+  line-height: 1.15;
+}
+
+.intro-left h2 .highlight {
+  display: block;        /* que baje a la siguiente línea */
+  margin-top: 0.15rem;
+  letter-spacing: 0.04em; /* un poco más separadas las letras */
+}
+
+/* ================= TÍTULOS MÁS GRANDES (SECCIONES) ================= */
+
+.section-title {
+  font-size: 2.5rem;
+}
+
+/* ================= COLORES DE TÍTULOS (DIAGNÓSTICO Y COMUNIDAD) ================= */
+
+.diagnostico-section .section-title,
+.comunidad-section .section-title {
+  color: #ffffff;
+}
+
+/* ==== FIX DE SUPERPOSICIÓN === */
+.hero-content h1 {
+  line-height: 1.25 !important;
+  font-size: 3.4rem !important;
+  letter-spacing: 0.3px;
+}
+
+/* Subtítulo */
+.hero-content p.hero-subtitle {
+  font-size: 1.15rem !important;
+}
+
+/* Quita espacio en blanco */
+.section-light,
+.section-dark,
+.intro-section {
+  margin-top: 0 !important;
+}
+
+/* Ajuste del título "encuentran" */
+.intro-left h2 span.highlight {
+  margin-left: 6px;
+  letter-spacing: 1.5px;
+}
+
+/* TITULOS DIAGNÓSTICO Y COMUNIDAD BLANCOS */
+#diagnostico .section-title,
+#comunidad .section-title {
+  color: #ffffff !important;
+  font-weight: 800;
+  font-size: 2.6rem;
+}
+
+/* ==== TESTIMONIOS === */
+.testimonial-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: #fdf7e9;
+  padding: 26px 30px;
+  border-radius: 20px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.25);
+  color: #111827;
+}
+
+.testimonial-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stars {
+  color: #4caf50;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.testimonial-card p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #4b5563;
+}
+
+.testimonial-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stars {
+  color: #4caf50;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.testimonial-card p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* ==== FORZAR FONDO DEL HERO CON menu2.jpg ==== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 3rem;
+  overflow: hidden;
+
+  /* 🔥 Aquí va tu imagen */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url("/assets/menu2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ocultamos la <img> para que no moleste */
+.hero-bg {
+  display: none;
+}
+
+/* Aseguramos que el contenido quede por encima */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Botón estilo Primario */
+.btn-primary {
+  border-radius: 999px !important;
+  padding: 0.8rem 1.8rem !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  border: none !important;
+  cursor: pointer;
+  background: #2e7d32 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35) !important;
+  transition: transform 0.18s ease, 
+              box-shadow 0.18s ease, 
+              background 0.18s ease;
+}
+
+.btn-primary:hover {
+  background: #1b5e20 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45) !important;
+}

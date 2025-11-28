@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grafico1 {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0 20px 15px; /* ← CAMBIADO: 15px izquierda, 0 derecha, 20px arriba/abajo */
+  max-width: 100%;
+  width: 100%;
+  font-weight: 700 !important;
+  position: relative;
+  top: -5px; /* ← AÑADIDO: Sube 10px el componente */
+}
+
+.grafico1 h2 {
+  font-size: 1.8rem;
+  font-weight: 700 !important;
+  color: #388e3c;
+  margin-bottom: -20px; 
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.chart-container {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  border: 1px dashed #bdbdbd;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  min-height: 250px;
+}
+
+.no-data-icon {
+  font-size: 48px;
+  color: #757575;
+  margin-bottom: 10px;
+}
+
+.no-data-message {
+  font-size: 1.2rem;
+  color: #757575;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .grafico1 {
+    padding: 20px 15px;
+    margin: 15px 0 15px 10px; /* ← También movido en móviles */
+    top: -5px; /* ← Menos movimiento en móviles */
+  }
+  
+  .grafico1 h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+

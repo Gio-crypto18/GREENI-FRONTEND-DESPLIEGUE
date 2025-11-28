@@ -1,0 +1,38 @@
+<div class="form-container">
+  <section class="form-card mat-elevation-z8">
+    <h2 class="form-title">{{ edicion ? 'Edición de especie' : 'Registro de especies' }}</h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if(edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly="true" />
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de la especie</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error>
+          @if (form.get('nombre')?.hasError('required')) { Ingrese la especie!! } @else if
+          (form.get('nombre')?.hasError('maxlength')) { Máximo 15 caracteres permitidos }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button
+          mat-raised-button
+          class="btn-cancelar"
+          type="button"
+          [routerLink]="['/app/mis-plantas']"
+        >
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

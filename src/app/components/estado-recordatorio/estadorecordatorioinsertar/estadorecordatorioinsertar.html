@@ -1,0 +1,40 @@
+<div class="estado-form-wrapper">
+  <section class="estado-form-card mat-elevation-z8">
+    <h2 class="form-title-centered">
+      {{ edicion ? 'Edición de Estado de Recordatorio' : 'Registro de Estados de Recordatorio' }}
+    </h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="form-content">
+      @if(edicion){
+      <mat-form-field appearance="outline" class="field-full">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly />
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="field-full">
+        <mat-label>Nombre del Estado</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error>
+          @if (form.get('nombre')?.hasError('required')) { Ingrese Estado recordatorio!! } @else if
+          (form.get('nombre')?.hasError('maxlength')) { Máximo 20 caracteres permitidos }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button
+          mat-raised-button
+          class="btn-cancelar"
+          type="button"
+          [routerLink]="['/app/calendario']"
+        >
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

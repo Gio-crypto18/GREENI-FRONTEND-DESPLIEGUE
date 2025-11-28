@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 3rem 1rem 2rem;
+  background-color: #fef9e0; /* Fondo beige */
+  font-family: 'Lato', 'Nunito', system-ui;
+  color: #212121;
+
+  /* Variables */
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-hover: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+  --sombra-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Contenedor principal que centra y baja el formulario */
+.form-container {
+  max-width: 500px;
+  margin: 1rem auto 0; /* Subirá 5rem desde donde estaba antes (3rem) */
+}
+
+/* Título */
+.form-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  text-align: center;
+  margin: 0 0 2.4rem; 
+}
+
+/* Tarjeta blanca */
+.form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--borde-suave);
+  box-shadow: var(--sombra-md);
+  padding: 2rem 2.2rem 2rem;
+}
+
+/* Formulario */
+.example-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem; /* Espacio entre campos */
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Campos de texto (Mat-form-field) */
+mat-form-field {
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+/* Esto crea los bordes redondeados */
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 10px;
+}
+
+mat-hint {
+  color: var(--texto-secundario);
+}
+
+mat-error {
+  font-size: 0.8rem;
+}
+
+/* --- ESTILOS DE BOTÓN --- */
+
+.button-row {
+  display: flex;
+  justify-content: flex-end; /* Alinea botones a la derecha */
+  align-items: center;
+  gap: 1rem; /* Espacio entre botones */
+  margin-top: 1.8rem;
+}
+
+/* Estilo base para ambos botones (forma de píldora) */
+.button-row button[mat-raised-button] {
+  min-width: 140px;
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancelar {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancelar:hover {
+  background-color: #4CAF50 !important;
+}
+
+
+/* Botón Registrar (Verde) */
+.btn-registrar {
+  background-color: var(--verde-primario) !important;
+  color: #ffffff !important;
+}
+
+.btn-registrar:hover:not([disabled]) {
+  background-color: #2e7d32 !important;
+}
+
+/* Estado deshabilitado (Verde claro, como en la imagen) */
+.btn-registrar[disabled] {
+  background-color: #cfe9d5 !important;
+  color: #f5f5f5 !important;
+}

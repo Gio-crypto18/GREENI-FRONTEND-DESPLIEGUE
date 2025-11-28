@@ -1,0 +1,67 @@
+<div class="list-container">
+  <section class="list-card mat-elevation-z8">
+    <header class="list-header">
+      <button mat-icon-button [routerLink]="['/app/diagnostico']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2 class="list-title">Lista de tratamientos</h2>
+      <div class="header-spacer"></div>
+    </header>
+
+    <div class="card-grid">
+      <mat-card
+        class="item-card"
+        *ngFor="
+          let element of dataSource.data
+            | slice
+              : paginator.pageIndex * paginator.pageSize
+              : (paginator.pageIndex + 1) * paginator.pageSize
+        "
+      >
+        <mat-card-header>
+          <mat-card-title>{{ element.nombre }}</mat-card-title>
+          <mat-card-subtitle>
+            ID: {{ element.idTratamiento }} | Duración: {{ element.duracion }} días
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p><strong>Diagnóstico:</strong> {{ element.diagnostico.acciones }}</p>
+          <p>
+            <strong>Inicio:</strong> {{ element.fechainicio | date : 'dd/MM/yyyy' }} |
+            <strong>Fin:</strong> {{ element.fechafin | date : 'dd/MM/yyyy' }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button
+    mat-icon-button
+    class="btn-edit"
+    [routerLink]="['/app/tratamiento/editar', element.idTratamiento]"
+    aria-label="Editar tratamiento"
+    *ngIf="puedeEditarTratamiento()"
+>
+    <mat-icon>edit</mat-icon>
+</button>
+
+          <button
+            mat-icon-button
+            class="btn-delete"
+            (click)="eliminar(element.idTratamiento)"
+            aria-label="Eliminar tratamiento"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <mat-paginator
+      #paginator
+      [length]="dataSource.data.length"
+      [pageSize]="4"
+      [pageSizeOptions]="[4, 10, 20]"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </section>
+</div>

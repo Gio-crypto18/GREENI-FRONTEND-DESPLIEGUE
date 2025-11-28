@@ -1,0 +1,68 @@
+/* En: rollistar.css */
+
+.role-list-container {
+  /* background-color: #fdfaf5; */ /* <-- BORRA ESTA LÍNEA (ahora lo hace el body) */
+  padding: 48px 24px 24px 24px; 
+}
+
+/* La tarjeta blanca que envuelve todo */
+.table-wrapper {
+  background-color: #ffffff; /* <-- ARREGLADO: La tarjeta debe ser blanca */
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 16px 24px;
+}
+
+/* El nuevo encabezado de la tarjeta */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 16px;
+  min-height: 48px;
+}
+
+/* El título dentro del header */
+.card-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* El botón de "volver" */
+.card-header button {
+  position: absolute;
+  left: 0;
+  color: #000000;
+}
+
+/* La tabla */
+.role-table {
+  width: 100%;
+}
+
+/* Colores para los botones de acción */
+.role-btn-edit {
+  color: #66bb6a; 
+}
+
+.role-btn-delete {
+  color: #388e3c; 
+}
+
+/* Paginador (para que combine con el fondo) */
+.mat-paginator {
+  background-color: transparent; /* <-- CORRECTO: transparente para ver el blanco de la tarjeta */
+  margin-top: 16px;
+}
+
+/* BORRA EL "body { ... }" DE AQUÍ */
+/* En: src/styles.css */
+
+body {
+  margin: 0; /* <-- ESTO QUITA LA BARRA BLANCA DE ARRIBA */
+  background-color: #fdfaf5; /* <-- Esto pone el fondo beige en TODA la app */
+  font-family: Roboto, "Helvetica Neue", sans-serif; /* Recomendado */
+}

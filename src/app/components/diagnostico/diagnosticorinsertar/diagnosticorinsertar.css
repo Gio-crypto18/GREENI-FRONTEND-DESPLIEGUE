@@ -1,0 +1,138 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 3rem 1rem 2rem;
+  background-color: #fef9e0;
+  font-family: 'Lato', 'Nunito', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  color: #212121;
+}
+
+:host {
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-hover: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+  --sombra-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.diag-form-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.diag-form-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  text-align: center;
+  margin: 0 0 2.4rem; 
+}
+
+.diag-form-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--borde-suave);
+  box-shadow: var(--sombra-md);
+  padding: 2rem 2.2rem 2rem;
+}
+
+.diag-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  font-size: 0.95rem;
+}
+
+mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 10px;
+}
+
+mat-hint {
+  color: var(--texto-secundario);
+}
+
+mat-error {
+  font-size: 0.8rem;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem; /* Espacio entre Cancelar y Registrar */
+  margin-top: 1.8rem;
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancel {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancel:hover {
+  background-color: #4CAF50 !important;
+}
+
+.button-row button[mat-raised-button] {
+  min-width: 140px;
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+button[color='primary'] {
+  background-color: var(--verde-primario);
+  color: #ffffff;
+}
+
+button[color='primary']:hover:not([disabled]) {
+  background-color: #2e7d32;
+}
+
+button[color='primary'][disabled] {
+  background-color: #cfe9d5;
+  color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding-inline: 0.75rem;
+  }
+
+  .diag-form-card {
+    padding: 1.5rem 1.2rem 1.6rem;
+  }
+
+  .diag-form-title {
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .button-row {
+    flex-direction: column-reverse;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+
+  .button-row button {
+    width: 100%;
+  }
+}
+
+.diag-form-container {
+  max-width: 760px;
+  margin: 3rem auto 0; 
+}
+

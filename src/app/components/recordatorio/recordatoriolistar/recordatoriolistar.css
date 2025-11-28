@@ -1,0 +1,119 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  /* El padding que baja el contenido */
+  padding: 6rem 1rem 2rem; 
+  background-color: #fef9e0; /* Fondo beige */
+
+  /* Variables */
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-hover: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+}
+
+.list-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+/* Tarjeta blanca principal */
+.list-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.5rem 1rem;
+  border: 1px solid var(--borde-suave);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Encabezado (Flecha + Título) */
+.list-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Flecha | Título | Espaciador */
+  align-items: center;
+  margin-bottom: 1.5rem; /* Espacio antes de las tarjetas */
+}
+
+.list-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  text-align: center; /* Título centrado */
+  margin: 0;
+}
+
+.header-spacer {
+  width: 40px;
+  height: 40px;
+}
+
+/* --- CUADRÍCULA DE TARJETAS --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+/* Estilo de cada tarjeta individual */
+.item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item-card mat-card-content {
+  flex-grow: 1; /* Empuja los botones al fondo */
+  font-size: 0.9rem;
+  padding-top: 16px;
+}
+
+.item-card mat-card-content p {
+  margin: 8px 0;
+}
+
+.item-card mat-card-actions {
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+/* --- FIN DE ESTILOS DE TARJETA --- */
+
+
+.btn-edit {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  color: #66bb6a; 
+}
+
+/* Botón Eliminar (Verde Oscuro) */
+.btn-delete {
+  /* Tono de verde oscuro (Ejemplo: Deep Green) */
+  color: #388e3c; 
+}
+
+/* Paginador */
+mat-paginator {
+  background-color: transparent;
+  margin-top: 0.8rem;
+  border-top: 1px solid var(--borde-suave);
+  padding-top: 0.4rem;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  :host {
+    padding-inline: 0.5rem;
+  }
+  .list-title {
+    font-size: 1.8rem;
+  }
+}

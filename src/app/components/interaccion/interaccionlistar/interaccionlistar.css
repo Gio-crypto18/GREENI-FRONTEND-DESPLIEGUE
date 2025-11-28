@@ -1,0 +1,59 @@
+.cards-container {
+  padding: 20px;
+  background-color: white;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* Cambia a una sola columna */
+  gap: 16px;
+  padding: 16px;
+  background-color: white;
+}
+
+.interaction-card {
+  transition: transform 0.2s ease-in-out;
+  background: white;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.interaction-card:hover {
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  color: #388e3c; 
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+  justify-content: center;
+  position: relative;
+}
+
+.list-title {
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-spacer {
+  width: 48px;
+}
+
+.list-card {
+  background: white;
+}
+.custom-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 12px 0;
+}
+.tipo-interaccion-derecha {
+  padding-left: 15px; /* Ajusta la cantidad según necesites */
+  /* O también puedes usar margin-left: 15px; si prefieres mover todo el bloque */
+}

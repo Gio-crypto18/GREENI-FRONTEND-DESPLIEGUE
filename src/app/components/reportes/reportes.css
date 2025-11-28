@@ -1,0 +1,118 @@
+.grid-reportes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+}
+.reportes-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+
+}
+
+/* HEADER PRINCIPAL */
+.reportes-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #388e3c 0%, #4caf50 100%);
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 8px 24px rgba(56, 142, 60, 0.2);
+    margin-right: 15px;
+}
+
+.reportes-main-title {
+  font-size: 2.8rem; /* ← Un poco más pequeño */
+  font-weight: 800;
+  margin: 0 0 20px 0; /* ← Espacio entre título y subtítulo */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.5px;
+}
+
+.reportes-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+/* GRID DE REPORTES */
+.grid-reportes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .reportes-container {
+    padding: 15px;
+  }
+
+  .reportes-header {
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+
+  .reportes-main-title {
+    font-size: 2.2rem;
+  }
+
+  .reportes-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .grid-reportes {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reportes-main-title {
+    font-size: 1.8rem;
+  }
+
+  .reportes-subtitle {
+    font-size: 1rem;
+  }
+
+  .grid-reportes {
+    gap: 15px;
+  }
+}
+
+.botonera-derecha {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+            padding-right: 20px;
+        }
+
+        .boton-enlace {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: #388e3c;
+            color: white;
+            text-decoration: none;
+            transition: all 0.6s ease;
+            box-shadow: 0 2px 6px rgba(56, 142, 60, 0.25);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .boton-enlace:hover {
+            background-color: #2e7d32;
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+        }

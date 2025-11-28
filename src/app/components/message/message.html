@@ -1,0 +1,88 @@
+<div class="app-layout">
+  <app-sidebar></app-sidebar>
+
+  <div class="messenger-container">
+    <aside class="sidebar">
+      <h3>Chats</h3>
+      <div class="chat-list">
+        <div
+          class="chat-list-item"
+          *ngFor="let c of contacts"
+          (click)="selectContact(c)"
+          [class.active]="c === currentContact"
+        >
+          {{ c.name }}
+        </div>
+      </div>
+    </aside>
+
+    <main class="chat-main">
+      <header class="chat-header">
+        <span id="contact-name">
+          {{ currentContact?.name || 'Selecciona un contacto' }}
+        </span>
+        <button id="profile-btn" type="button" (click)="openProfile()">Perfil</button>
+      </header>
+
+      <section class="chat-messages" id="chat-messages">
+        <div *ngFor="let msg of messages" class="message" [class.sent]="msg.sender === 'me'">
+          {{ msg.text }}
+        </div>
+      </section>
+
+      <footer class="chat-input">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Escribe un mensaje..."
+          [(ngModel)]="messageText"
+          (keyup.enter)="sendMessage()"
+        />
+        <button id="send-btn" type="button" (click)="sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </footer>
+    </main>
+  </div>
+
+  <div
+    class="contact-modal-overlay"
+    [class.open]="isModalOpen"
+    [attr.aria-hidden]="!isModalOpen"
+    (click)="closeProfile()"
+  >
+    <div
+      class="contact-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-name"
+      (click)="$event.stopPropagation()"
+    >
+      <button
+        class="contact-modal-close"
+        type="button"
+        (click)="closeProfile()"
+        aria-label="Cerrar"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="contact-modal-body" *ngIf="currentContact">
+        <img [src]="currentContact.avatar" class="contact-modal-avatar" alt="Avatar del contacto" />
+        <h2 id="contact-modal-name" class="contact-modal-name">
+          {{ currentContact.name }}
+        </h2>
+
+        <div class="contact-modal-details">
+          <h3>Información del Chat</h3>
+          <p><strong>Usuario:</strong> {{ currentContact.name }}</p>
+          <p><strong>Estado:</strong> {{ currentContact.status }}</p>
+          <p>
+            <strong>Miembro desde:</strong>
+            {{ currentContact.memberSince }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

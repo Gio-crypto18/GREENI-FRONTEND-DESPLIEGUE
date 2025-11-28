@@ -1,0 +1,47 @@
+<div class="diag-form-container">
+  <section class="diag-form-card">
+    <h2 class="diag-form-title">
+      {{ edicion ? 'Actualizar diagnóstico' : 'Registro de diagnósticos' }}
+    </h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="diag-form">
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly />
+        <mat-hint>Campo solo lectura</mat-hint>
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Severidad</mat-label>
+        <input matInput formControlName="seve" type="number" />
+        <mat-hint>Valor del 1 al 10</mat-hint>
+        <mat-error>
+          @if (form.get('seve')?.hasError('required')) { Ingrese severidad!! } @else if
+          (form.get('seve')?.hasError('range')) { Solo números del 1 al 10 }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Acciones</mat-label>
+        <textarea matInput formControlName="ace" rows="3"></textarea>
+        <mat-hint align="end"> {{ form.get('ace')?.value?.length || 0 }}/100 </mat-hint>
+        <mat-error>
+          @if (form.get('ace')?.hasError('required')) { Ingrese acciones!! } @else if
+          (form.get('ace')?.hasError('maxlength')) { Máximo 100 caracteres permitidos }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button mat-raised-button class="btn-cancel" [routerLink]="['/app/diagnostico']">
+          Cancelar
+        </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

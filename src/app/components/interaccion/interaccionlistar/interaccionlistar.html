@@ -1,0 +1,48 @@
+<div class="cards-container">
+  <section class="list-card mat-elevation-z8">
+    <header class="list-header">
+      <button mat-icon-button routerLink="/app/comunidad">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <h2 class="list-title">Lista de Interacciones</h2>
+
+      <div class="header-spacer"></div>
+    </header>
+
+    <div class="cards-wrapper">
+      <mat-card *ngFor="let element of dataSource.data" class="interaction-card mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>Usuario: {{ element.usuario.nombre }}</mat-card-title>
+          <mat-card-subtitle>ID: {{ element.interaccion_id }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Fecha:{{ element.fecha_pub | date : 'dd/MM/yyyy' }}</p>
+        </mat-card-content>
+
+        <mat-divider></mat-divider>
+        <p style="padding-left: 16px; padding-top: 5px">
+          <strong>Tipo de Interacción:</strong> {{ element.tipoInteraccion.nombre }}
+        </p>
+        <p style="padding-left: 16px; padding-top: 5px">
+            <strong>Comentario</strong>  {{ element.descripcion }}
+        </p>
+
+        <mat-card-actions align="end">
+          <button mat-icon-button class="btn-delete" (click)="eliminar(element.interaccion_id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      [pageSize]="5"
+      showFirstLastButtons
+      aria-label="Paginación de Interacción"
+    >
+    </mat-paginator>
+  </section>
+</div>

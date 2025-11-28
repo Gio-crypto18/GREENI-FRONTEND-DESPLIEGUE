@@ -1,0 +1,98 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="assets/logo-greeni.png" alt="Greeni Logo" class="logo">
+    <span class="logo-text">Greeni</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul class="nav-links">
+      <!-- Home - Acceso para todos los roles -->
+      <li [class.hidden]="!(isAdmin() || isCientifico() || isPlantLover())">
+        <a [routerLink]="['/']" routerLinkActive="active">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      
+      <!-- Mis plantas - Acceso para todos los roles -->
+      <li [class.hidden]="!(isAdmin() || isCientifico() || isPlantLover())">
+        <a [routerLink]="['/plantazona']" routerLinkActive="active">
+          <i class="fas fa-seedling"></i>
+          <span>Mis plantas</span>
+        </a>
+      </li>
+      
+      <!-- Diagnóstico - Acceso para todos los roles -->
+      <li [class.hidden]="!(isAdmin() || isCientifico() || isPlantLover())">
+        <a [routerLink]="['/diagnosticozona']" routerLinkActive="active">
+          <i class="fas fa-magnifying-glass"></i>
+          <span>Diagnóstico</span>
+        </a>
+      </li>
+      
+      <!-- Calendario - SOLO ADMIN y PLANTLOVER (CIENTIFICO NO ve) -->
+      <li [class.hidden]="!(isAdmin() || isPlantLover())">
+        <a [routerLink]="['/calendar']" routerLinkActive="active">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Calendario</span>
+        </a>
+      </li>
+      
+      <!-- Mis Guías - Acceso para todos los roles -->
+      <li [class.hidden]="!(isAdmin() || isCientifico() || isPlantLover())">
+        <a [routerLink]="['/guiazona']" routerLinkActive="active">
+          <i class="fas fa-book"></i>
+          <span>Mis Guías</span>
+        </a>
+      </li>
+      
+      <!-- Comunidad - SOLO ADMIN y PLANTLOVER (CIENTIFICO NO ve) -->
+      <li [class.hidden]="!(isAdmin() || isPlantLover())">
+        <a [routerLink]="['/comunidad']" routerLinkActive="active">
+          <i class="fas fa-users"></i>
+          <span>Comunidad</span>
+        </a>
+      </li>
+      
+      <!-- Mi Perfil - Acceso para todos los roles -->
+      <li [class.hidden]="!(isAdmin() || isCientifico() || isPlantLover())">
+        <a [routerLink]="['/perfil']" routerLinkActive="active">
+          <i class="fas fa-user"></i>
+          <span>Mi Perfil </span>
+        </a>
+      </li>
+      
+      <!-- Reportes - Solo ADMIN -->
+      <li [class.hidden]="!isAdmin()">
+        <a [routerLink]="['/reportes']" routerLinkActive="active">
+          <i class="fas fa-chart-bar"></i>
+          <span>Panel de Control</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Versión mejorada de tu diseño actual -->
+<div class="sidebar-footer">
+  <div class="logout-section">
+    
+    <!-- Menú de usuario -->
+    <button mat-button [matMenuTriggerFor]="menuUsuario" class="user-menu-btn">
+      <mat-icon>account_circle</mat-icon>
+      <span>Usuario</span>
+    </button>
+    
+    <mat-menu #menuUsuario="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>person</mat-icon>
+        <span>Rol: {{ role }}</span>
+      </button>
+    </mat-menu>
+
+  </div>
+</div>
+</aside>

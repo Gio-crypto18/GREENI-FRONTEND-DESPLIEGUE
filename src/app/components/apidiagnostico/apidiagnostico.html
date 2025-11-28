@@ -1,0 +1,75 @@
+
+<div class="plant-identifier">
+  <div class="file-section">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button (click)="identifyPlant()" [disabled]="!selectedFile || isLoading">
+      {{ isLoading ? 'Identificando...' : 'Identificar Planta' }}
+    </button>
+  </div>
+
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+ 
+  <div *ngIf="processedPlantData" class="results-section">
+    
+   
+    <div class="main-identification">
+      <h3>{{ processedPlantData.identification.name }}</h3>
+      <p class="confidence">Confianza: {{ processedPlantData.identification.confidence }}</p>
+      <p class="scientific-name">
+        <strong>Nombre científico:</strong> {{ processedPlantData.identification.scientificName }}
+      </p>
+    </div>
+
+  
+    <div class="info-card">
+      <h4>🧬 Taxonomía</h4>
+      <ul>
+        <li><strong>Familia:</strong> {{ processedPlantData.taxonomy.family }}</li>
+        <li><strong>Género:</strong> {{ processedPlantData.taxonomy.genus }}</li>
+        <li><strong>Orden:</strong> {{ processedPlantData.taxonomy.order }}</li>
+        <li><strong>Clase:</strong> {{ processedPlantData.taxonomy.class }}</li>
+      </ul>
+    </div>
+
+  
+    <div class="info-card" *ngIf="processedPlantData.description">
+      <h4>📖 Descripción</h4>
+      <p>{{ processedPlantData.description }}</p>
+    </div>
+
+
+  
+    <div class="info-card" *ngIf="processedPlantData.media.images.length > 0">
+      <h4>🖼️ Imágenes similares</h4>
+      <div class="image-gallery">
+        <img *ngFor="let img of processedPlantData.media.images" [src]="img.url" [alt]="processedPlantData.identification.name">
+      </div>
+    </div>
+
+
+    <div class="info-card" *ngIf="processedPlantData.otherSuggestions.length > 0">
+      <h4>🔍 Otras posibles identificaciones</h4>
+      <ul>
+        <li *ngFor="let suggestion of processedPlantData.otherSuggestions">
+          <strong>{{ suggestion.name }}</strong> - {{ suggestion.confidence }}
+          <br><small>{{ suggestion.scientificName }}</small>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="info-card" *ngIf="processedPlantData.additionalInfo.url">
+      <h4>🔗 Más información</h4>
+      <a [href]="processedPlantData.additionalInfo.url" target="_blank">Ver detalles completos</a>
+    </div>
+  </div>
+
+
+  <div *ngIf="isLoading" class="loading">
+    <p>🔄 Analizando imagen... Esto puede tomar unos segundos.</p>
+  </div>
+</div>

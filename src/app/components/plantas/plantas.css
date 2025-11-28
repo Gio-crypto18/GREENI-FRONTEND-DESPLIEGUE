@@ -1,0 +1,382 @@
+/* ===================== BASE PÁGINA PLANTAS ===================== */
+
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 1.5rem 1rem 2rem;
+  background-color: #fef9e0; /* Fondo crema Greeni */
+  color: #212121;
+  font-family: 'Lato', 'Nunito', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+}
+
+/* Tokens de diseño compartidos con Home */
+:host {
+  --verde-oscuro: #005014;
+  --verde-primario: #4caf50;
+  --verde-claro: #a5d6a7;
+  --texto-principal: #212121;
+  --texto-secundario: #4a5568;
+  --fondo-general: #fef9e0;
+  --fondo-secundario: #fef8ed;
+  --borde-suave: #e2e8f0;
+  --sombra-sm: 0 1px 3px rgba(0, 0, 0, 0.07),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  --sombra-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sombra-lg: 0 10px 24px rgba(0, 0, 0, 0.14);
+  --radio-card: 18px;
+}
+
+/* Contenedor general de la sección de plantas */
+.plants-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título principal "Mis Plantas" */
+.plants-page h1,
+.plants-page h2.page-title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin: 0.8rem 0 0.5rem;
+  color: var(--texto-principal);
+}
+
+/* Subtítulo tipo "+ Añadir" si lo tienes cerca del título */
+.plants-page .page-subtitle {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  margin-bottom: 1.3rem;
+}
+
+/* ===================== ASISTENTE DE RECOMENDACIONES ===================== */
+/* (card como en tu primer screenshot) */
+
+.assistant-card {
+  background: #ffffff;
+  border-radius: 26px;
+  border: 1px solid var(--borde-suave);
+  box-shadow: var(--sombra-lg);
+  padding: 1.8rem 2rem 1.6rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.assistant-card h2 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 1.4rem;
+  color: var(--verde-oscuro);
+}
+
+/* textarea del asistente */
+.assistant-card textarea {
+  width: 100%;
+  min-height: 150px;
+  border-radius: 18px;
+  border: 1px solid #d2e8d7;
+  padding: 0.9rem 1.1rem;
+  resize: vertical;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--texto-principal);
+  background: #fbfffb;
+  box-sizing: border-box;
+}
+
+.assistant-card textarea::placeholder {
+  color: rgba(113, 128, 150, 0.7);
+  font-style: italic;
+}
+
+/* botón "Consultar IA" */
+.assistant-card .assistant-actions {
+  margin-top: 1.1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.assistant-card .assistant-actions button {
+  border-radius: 18px;
+  padding: 0.75rem 1.6rem;
+  border: none;
+  background-color: var(--verde-primario);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(76, 175, 80, 0.3);
+  text-transform: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.assistant-card .assistant-actions button:hover:not(:disabled) {
+  background-color: var(--verde-oscuro);
+  transform: translateY(-1px);
+}
+
+.assistant-card .assistant-actions button:disabled {
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  box-shadow: none;
+}
+
+/* ===================== BLOQUE "AÑADIR PLANTA" (UPLOADER) ===================== */
+
+.add-plant-section {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-plant-section h3 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0 0 0.7rem;
+  color: var(--texto-principal);
+}
+
+/* Uploader */
+.uploader {
+  border: 2px dashed #b7d0b7;
+  background: #f7fff7;
+  padding: 32px 26px;
+  border-radius: 18px;
+  text-align: center;
+  transition: background 0.15s, border-color 0.15s;
+  cursor: pointer;
+}
+
+.uploader.dragging {
+  background: #eefbea;
+  border-color: #8dc08d;
+}
+
+.uploader-hint i {
+  font-size: 32px;
+  margin-bottom: 8px;
+  display: block;
+  color: #2f7a42;
+}
+
+.uploader-hint p {
+  margin: 0.3rem 0 0;
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+.preview {
+  display: none;
+  max-width: 100%;
+  max-height: 260px;
+  margin: 12px auto 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ===================== BOTONES PRINCIPALES (Ver/Insertar/Listar Mediciones/etc.) ===================== */
+
+.plants-actions-bar {
+  margin-top: 1.5rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.plants-actions-bar button,
+.plants-actions-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--verde-primario);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(76, 175, 80, 0.35);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plants-actions-bar button:hover,
+.plants-actions-bar a:hover {
+  background-color: var(--verde-oscuro);
+  transform: translateY(-1px);
+}
+
+/* Si quieres un botón más clarito tipo secundario */
+.plants-actions-bar .secondary {
+  background-color: var(--verde-claro);
+  color: var(--texto-principal);
+  box-shadow: 0 6px 14px rgba(165, 214, 167, 0.5);
+}
+
+.plants-actions-bar .secondary:hover {
+  background-color: #9ad19f;
+}
+
+/* ===================== BLOQUE "Mis plantas registradas" (cards) ===================== */
+
+.registered-plants-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid var(--borde-suave);
+  box-shadow: var(--sombra-md);
+  padding: 1.5rem 1.6rem 1.8rem;
+  margin-top: 0.8rem;
+}
+
+.registered-plants-card .section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--texto-principal);
+}
+
+.registered-plants-card .section-title i {
+  color: var(--verde-oscuro);
+}
+
+/* Grid de plant cards */
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 0.5rem;
+}
+
+/* Card individual */
+.plant-card {
+  background: #f8fafc;
+  border: 1px solid var(--borde-suave);
+  border-radius: 18px;
+  box-shadow: var(--sombra-sm);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+}
+
+.plant-card:hover {
+  box-shadow: var(--sombra-lg);
+  transform: translateY(-3px);
+}
+
+/* Imagen / icono grande de la planta */
+.plant-thumb {
+  width: 100%;
+  height: 150px;
+  background: #e2e8f0 center / 60% no-repeat;
+}
+
+/* Contenido de la tarjeta */
+.plant-body {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.plant-title {
+  margin: 0;
+  color: var(--texto-principal);
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.plant-desc {
+  margin: 0.35rem 0 0;
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+}
+
+/* Botón de cerrar ("X") si lo usas en la esquina */
+.plant-card .close-btn {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 999px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #cbd5e0;
+  background: #ffffff;
+  color: #4a5568;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+/* ===================== STATES / VACÍO ===================== */
+
+.empty-state {
+  text-align: center;
+  color: var(--texto-secundario);
+  background: #ffffff;
+  border: 1px dashed var(--borde-suave);
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 1024px) {
+  :host {
+    padding-inline: 1rem;
+  }
+
+  .assistant-card {
+    padding-inline: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding-inline: 0.75rem;
+  }
+
+  .plants-page h1,
+  .plants-page h2.page-title {
+    font-size: 1.8rem;
+  }
+
+  .assistant-card h2 {
+    font-size: 1.7rem;
+  }
+
+  .plants-actions-bar {
+    flex-direction: column;
+  }
+
+  .plants-actions-bar button,
+  .plants-actions-bar a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding-inline: 0.6rem;
+  }
+
+  .assistant-card {
+    padding: 1.4rem 1.1rem 1.3rem;
+  }
+
+  .plants-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

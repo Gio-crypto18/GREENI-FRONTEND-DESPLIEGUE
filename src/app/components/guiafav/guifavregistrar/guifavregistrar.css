@@ -1,0 +1,153 @@
+/* Contenedor principal (asume el fondo beige del body) */
+.form-container {
+  padding: 48px 24px 24px 24px;
+  /* Hacemos el formulario más angosto en pantallas grandes */
+  max-width: 700px;
+  margin: 0 auto; /* Centra el formulario */
+}
+
+/* La tarjeta blanca que envuelve todo */
+.form-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 16px 24px;
+}
+
+/* El nuevo encabezado de la tarjeta */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el título */
+  position: relative; /* Contexto para el botón de volver */
+  margin-bottom: 24px; /* Más espacio para separar del formulario */
+  min-height: 48px;
+}
+
+/* El título dentro del header */
+.card-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* El botón de "volver" (flecha) */
+.card-header button {
+  position: absolute;
+  left: 0;
+  color: #000000;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+
+/* Contenedor del formulario */
+.example-form {
+  display: flex;
+  flex-direction: column; /* Apila los campos verticalmente */
+}
+
+/* Estilo para cada campo del formulario */
+.form-field {
+  width: 100%;
+  margin-bottom: 16px; /* Espacio entre campos */
+}
+
+/* Contenedor para los botones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 16px; /* Espacio entre los botones */
+  margin-top: 16px;
+}
+
+/* ... (tus estilos existentes para .form-container, .card-header, etc.) ... */
+
+/* Contenedor para los botones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ... (tus otros estilos para .form-container, .card-header, etc.) ... */
+
+/* Contenedor para los botones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* --- ESTILOS DE BOTÓN PERSONALIZADOS --- */
+
+/* Contenedor para los botones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem; /* Espacio entre botones */
+  margin-top: 0.8rem;
+}
+
+/* Botón Cancelar (Verde Claro, igual que Editar) */
+.btn-cancelar {
+  /* Tono de verde claro (Ejemplo: Light Green) */
+  background-color: #A5D6A7 !important;
+  color: #ffffff !important; /* Mantiene el texto blanco para contraste */
+}
+
+.btn-cancelar:hover {
+  background-color: #4CAF50 !important;
+}
+
+/* Botón Registrar/Actualizar (Verde Gradiente) */
+.btn-registrar {
+  /* Gradiente extraído de tu paleta */
+  background: linear-gradient(135deg, #4caf50, #2e7d32); 
+  color: #ffffff;
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 999px; /* Botón píldora */
+  padding-inline: 1.8rem;
+}
+
+/* Hover para Registrar */
+.btn-registrar:hover:not([disabled]) {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+/* Estado deshabilitado (para ambos botones si lo necesitas) */
+.btn-registrar[disabled],
+.btn-cancelar[disabled] {
+  background: #cbd5e0 !important;
+  color: #718096 !important;
+}
+/* Botón Registrar/Actualizar (Verde Gradiente) */
+.btn-registrar {
+  /* Gradiente extraído de tu paleta */
+  background: linear-gradient(135deg, #4caf50, #2e7d32) !important; 
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 999px;
+  padding-inline: 1.8rem;
+  
+  /* Color aplicado directamente al botón */
+  color: #ffffff !important; 
+}
+
+/* Forzamos el color blanco al texto INTERNO del botón */
+.btn-registrar span {
+  color: #ffffff !important;
+}
+
+/* Hover para Registrar */
+.btn-registrar:hover:not([disabled]) {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20) !important;
+}
+
+/* Hover para el texto (por si acaso) */
+.btn-registrar:hover:not([disabled]) span {
+  color: #ffffff !important;
+}

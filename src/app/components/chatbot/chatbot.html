@@ -1,0 +1,43 @@
+<button
+  class="ia-launcher"
+  *ngIf="!isOpen"
+  (click)="togglePanel()"
+>
+  <i class="fas fa-seedling"></i>
+</button>
+
+<div class="ia-overlay" *ngIf="isOpen" (click)="closePanel()"></div>
+
+
+<div class="ia-container" *ngIf="isOpen" (click)="$event.stopPropagation()">
+  <button class="ia-close" (click)="closePanel()">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <h2>Asistente de Recomendaciones</h2>
+
+  <textarea
+    [(ngModel)]="pregunta"
+    placeholder="Ej. ¿En qué puedo ayudar hoy?"
+    
+  ></textarea>
+
+<div *ngIf="errorPregunta" class="error-msg">
+  ❌ {{ errorPregunta }}
+</div>
+
+
+<button
+  class="ia-button"
+  (click)="preguntarIA()"
+  [disabled]="cargando"
+>
+
+    {{ cargando ? 'Consultando...' : 'Consultar IA' }}
+  </button>
+
+  <div class="respuesta" *ngIf="respuesta">
+    <h3>Respuesta de la IA</h3>
+    <p>{{ respuesta }}</p>
+  </div>
+</div>

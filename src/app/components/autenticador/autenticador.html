@@ -1,0 +1,74 @@
+<div class="login-page">
+  <div class="login-container">
+    
+<a routerLink="/" class="btn-back-home" title="Volver al inicio">
+  <i class="fas fa-times"></i>
+</a>
+
+
+    <!-- Encabezado del login -->
+    <div class="login-header">
+      <a routerLink="/app/home" class="logo-link">
+        <img src="assets/logo-greeni.png" alt="Logo Greeni" />
+      </a>
+      <h2>Bienvenido de vuelta</h2>
+      <p>Inicia sesión para gestionar tu jardín digital.</p>
+    </div>
+
+    <!-- FORMULARIO con tu lógica [(ngModel)] -->
+    <div class="login-form">
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <label for="email">Correo Electrónico</label>
+        <div class="input-with-icon">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            placeholder="tu.correo@ejemplo.com"
+          />
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-group">
+        <label for="password">Contraseña</label>
+        <div class="input-with-icon">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="password"
+            placeholder="Ingresa tu contraseña"
+          />
+        </div>
+      </div>
+
+
+
+      <!-- MENSAJE DE ERROR -->
+      <p id="login-error-message" class="error-message">
+        {{ mensaje }}
+      </p>
+
+      <!-- BOTÓN -->
+      <button 
+        class="btn-login" 
+        (click)="login()"
+      >
+        Ingresar
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="login-footer">
+      <p>
+        ¿Aún no tienes una cuenta?
+        <a routerLink="/usuario/agregar">Regístrate aquí</a>
+      </p>
+    </div>
+
+  </div>
+</div>

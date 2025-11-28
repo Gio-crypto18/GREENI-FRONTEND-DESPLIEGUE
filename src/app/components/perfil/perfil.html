@@ -1,0 +1,104 @@
+<div class="app-layout">
+  <main class="main-content">
+    <header class="main-header">
+      <h1>Mi Perfil</h1>
+    </header>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state">
+      <p>🔄 Cargando información del perfil...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="errorMessage" class="error-state">
+      <p>❌ {{ errorMessage }}</p>
+      <button (click)="loadUserData()" class="btn primary">Reintentar</button>
+    </div>
+
+    <!-- Content cuando hay datos -->
+    <div *ngIf="!loading && user && !errorMessage">
+      <section class="profile-hero card">
+        <div class="hero-left">
+          <div class="avatar-preview" [class]="avatarClass">
+            <span class="avatar-initials">{{ getUserInitials() }}</span>
+          </div>
+          <div class="hero-info">
+            <h2>{{ user.nombre || '—' }}</h2>
+            <p class="muted">{{ user.email || '—' }}</p>
+            <span [class]="getRoleBadgeClass()">
+              {{ getUserRoleDisplay() }}
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <nav class="profile-tabs">
+        <button class="tab-link" [class.active]="activeTab === 'perfil'" 
+                (click)="setActiveTab('perfil')">
+          Perfil
+        </button>
+      </nav>
+
+      <section *ngIf="activeTab === 'perfil'" class="profile-section active">
+        <div class="card profile-card">
+          <div class="card-header between">
+            <h3>Información Personal</h3>
+          </div>
+
+          <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="card-body grid-2">
+            <!-- Campo ID -->
+            <div class="form-group">
+              <label>Usuario ID</label>
+              <input formControlName="id" class="input" type="text" readonly />
+            </div>
+
+            <!-- Campo Fecha -->
+            <div class="form-group">
+              <label>Fecha de unión</label>
+              <input formControlName="fechaIni" class="input" type="text" readonly />
+            </div>
+
+            <!-- Campo Nombre -->
+            <div class="form-group">
+              <label>Nombre Completo</label>
+              <input formControlName="nombre" class="input" type="text" 
+                     placeholder="Tu nombre completo" />
+            </div>
+
+            <!-- Campo Email -->
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input formControlName="email" class="input" type="email" 
+                     placeholder="tu@correo.com" />
+            </div>
+
+            <!-- Campo Estado -->
+            <div class="form-group">
+              <label>Estado</label>
+              <select formControlName="activo" class="input">
+                <option [value]="true">Activo</option>
+                <option [value]="false">Inactivo</option>
+              </select>
+            </div>
+
+            <!-- Campo Rol -->
+            <div class="form-group">
+              <label>Rol</label>
+              <input formControlName="rol" class="input" type="text" readonly />
+            </div>
+
+            <!-- Campo Biografía -->
+            <div class="form-group col-2">
+              <label>Biografía</label>
+              <textarea formControlName="biografia" class="input" rows="4"
+                        placeholder="Cuéntanos algo sobre ti, tus plantas favoritas, etc.">
+              </textarea>
+            </div>
+
+            
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

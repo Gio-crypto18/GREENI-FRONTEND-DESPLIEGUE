@@ -1,0 +1,59 @@
+<div class="form-container">
+  <div class="form-card">
+    <div class="card-header">
+      <h2>{{ edicion ? 'Edición de Guía' : 'Registro de Guías' }}</h2>
+    </div>
+
+    <form [formGroup]="form" (submit)="aceptar()">
+      @if(edicion){
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly="true" />
+      </mat-form-field>
+      }
+
+      <mat-form-field>
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="titulo" />
+        <mat-hint align="end">{{ form.get('titulo')?.value?.length || 0 }}/20</mat-hint>
+        <mat-error>
+          @if (form.get('titulo')?.hasError('required')) { Ingrese título!! } @else if
+          (form.get('titulo')?.hasError('maxlength')) { Máximo 20 caracteres permitidos }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo de Guía</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="Reciclaje">Reciclaje</mat-option>
+          <mat-option value="Compostaje">Compostaje</mat-option>
+          <mat-option value="Ahorro Energético">Ahorro Energético</mat-option>
+          <mat-option value="Otros">Otros</mat-option>
+        </mat-select>
+        <mat-error>
+          @if (form.get('tipo')?.hasError('required')) { Seleccione el tipo de guía!! }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Contenido</mat-label>
+        <textarea matInput formControlName="contenido" rows="5"></textarea>
+        <mat-hint align="end">{{ form.get('contenido')?.value?.length || 0 }}/200</mat-hint>
+        <mat-error>
+          @if (form.get('contenido')?.hasError('required')) { Ingrese contenido!! } @else if
+          (form.get('contenido')?.hasError('maxlength')) { Máximo 200 caracteres permitidos }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button class="btn-cancelar" [routerLink]="['/app/guia']">
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

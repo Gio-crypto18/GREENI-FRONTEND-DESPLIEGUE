@@ -1,0 +1,31 @@
+<div class="weather-container">
+  <h3>🌤️ Componente del Clima</h3>
+  
+  <div class="search-section">
+    <input 
+      type="text" 
+      [(ngModel)]="citySearch" 
+      placeholder="Buscar ciudad..."
+      (keyup.enter)="searchWeather()"
+      class="search-input">
+      
+    <button 
+      (click)="searchWeather()" 
+      class="search-btn"
+      [disabled]="!citySearch || citySearch.trim() === ''">
+      🔍 Buscar
+    </button>
+  </div>
+
+  <div *ngIf="error" class="error-msg search-error">
+    <p>❌ {{ error }}</p>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <p>🔄 Cargando datos del clima...</p>
+  </div>
+
+  <div *ngIf="weatherData && !loading" class="weather-card">
+  </div>
+</div>
+

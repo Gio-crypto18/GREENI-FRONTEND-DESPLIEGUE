@@ -1,0 +1,63 @@
+<div class="form-container">
+  <section class="form-card mat-elevation-z8">
+    <h2 class="form-title">{{ edicion ? 'Edición de interacción' : 'Registrar interacción' }}</h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID:</mat-label>
+        <input matInput formControlName="codigo" readonly="true" />
+        <mat-error>@if (form.get('codigo')?.hasError('required')) { Ingrese ID!! }</mat-error>
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="FK">
+          @for (usuario of listaUsuarios; track usuario) {
+          <mat-option [value]="usuario.id">{{ usuario.nombre }}</mat-option>
+          }
+        </mat-select>
+        <mat-error>@if (form.get('FK')?.hasError('required')) { Seleccione un usuario. }</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo Interacción</mat-label>
+        <mat-select formControlName="FK2">
+          @for (tipo of listatipo; track tipo) {
+          <mat-option [value]="tipo.tipoInteraccion_Id">{{ tipo.nombre }}</mat-option>
+          }
+        </mat-select>
+        <mat-error
+          >@if (form.get('FK2')?.hasError('required')) { Seleccione un tipo de interacción.
+          }</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descripcion" rows="4" maxlength="100"></textarea>
+        <mat-hint align="end"> {{ form.get('descripcion')?.value?.length || 0 }}/100 </mat-hint>
+        <mat-error>
+          @if (form.get('descripcion')?.hasError('required')) { Ingrese descripción!! } @else if
+          (form.get('descripcion')?.hasError('maxlength')) { Máximo 100 caracteres permitidos }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button
+          mat-raised-button
+          class="btn-cancelar"
+          type="button"
+          [routerLink]="['/app/comunidad']"
+        >
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

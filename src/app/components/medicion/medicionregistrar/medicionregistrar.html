@@ -1,0 +1,74 @@
+<div class="form-container">
+  <section class="form-card mat-elevation-z8">
+    <h2 class="form-title">{{ edicion ? 'Edición de Medición' : 'Registrar Medición' }}</h2>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if (edicion) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ID:</mat-label>
+        <input matInput formControlName="codigo" readonly="true" />
+      </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Humedad</mat-label>
+        <input matInput formControlName="humedad" type="text" />
+        <mat-error>
+          @if (form.get('humedad')?.hasError('required')) { Ingrese la humedad!! } @if
+          (form.get('humedad')?.hasError('pattern')) { Solo números permitidos } @if
+          (form.get('humedad')?.hasError('min') || form.get('humedad')?.hasError('max')) { Valor
+          entre 0 y 100 }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Temperatura</mat-label>
+        <input matInput formControlName="temperatura" type="text" />
+        <mat-error>
+          @if (form.get('temperatura')?.hasError('required')) { Ingrese la temperatura!! } @if
+          (form.get('temperatura')?.hasError('pattern')) { Solo números permitidos } @if
+          (form.get('temperatura')?.hasError('min') || form.get('temperatura')?.hasError('max')) {
+          Valor entre -50 y 60 }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>PH</mat-label>
+        <input matInput formControlName="ph" type="text" />
+        <mat-error>
+          @if (form.get('ph')?.hasError('required')) { Ingrese el PH!! } @if
+          (form.get('ph')?.hasError('pattern')) { Solo números permitidos } @if
+          (form.get('ph')?.hasError('min') || form.get('ph')?.hasError('max')) { Valor entre 0 y 14
+          }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Planta</mat-label>
+        <mat-select formControlName="planta">
+          @for (planta of ListaPlantas; track planta) {
+          <mat-option [value]="planta.idPlanta">{{ planta.nombrePlanta }}</mat-option>
+          }
+        </mat-select>
+        <mat-error>
+          @if (form.get('planta')?.hasError('required')) { Seleccione una planta. }
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button
+          mat-raised-button
+          class="btn-cancelar"
+          type="button"
+          [routerLink]="['/app/mis-plantas']"
+        >
+          Cancelar
+        </button>
+
+        <button mat-raised-button class="btn-registrar" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

@@ -1,0 +1,256 @@
+:root {
+  --sidebar-width: 259px;
+}
+
+:host {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Layout general */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.messenger-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Lista de chats */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.sidebar h3 {
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: #005014;
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat-list-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-list-item:hover {
+  background-color: #e9f5ee;
+}
+
+.chat-list-item.active {
+  background-color: #005014;
+  color: #ffffff;
+}
+
+/* Zona de chat */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.chat-header {
+  padding: 16px;
+  background-color: #005014;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.chat-header button {
+  background: white;
+  color: #005014;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.chat-header button:hover {
+  background: #f0f0f0;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mensajes */
+.message {
+  background-color: #e0f2e9;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 60%;
+  word-wrap: break-word;
+  align-self: flex-start;
+}
+
+.message.sent {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+}
+
+/* Input */
+.chat-input {
+  display: flex;
+  padding: 12px 16px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.chat-input input:focus {
+  border-color: #005014;
+}
+
+.chat-input button {
+  background-color: #005014;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-input button:hover {
+  background-color: #003d29;
+}
+
+.chat-input button i {
+  font-size: 16px;
+}
+
+/* Modal perfil de contacto */
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.contact-modal-overlay.open {
+  display: flex;
+}
+
+.contact-modal {
+  background: #fff;
+  width: min(420px, 92vw);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  padding: 24px 20px 28px;
+  text-align: center;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.contact-modal-close:hover {
+  opacity: 1;
+}
+
+.contact-modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-modal-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid #2ecc71;
+}
+
+.contact-modal-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.contact-modal-details {
+  width: 100%;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.contact-modal-details h3 {
+  margin: 6px 0 8px;
+  font-size: 1rem;
+  color: #174d2d;
+}
+
+.contact-modal-details p {
+  margin: 4px 0;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .chat-main {
+    flex: 1;
+  }
+}

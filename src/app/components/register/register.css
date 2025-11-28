@@ -1,0 +1,145 @@
+:host {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7f6;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url('/../img/menu2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 0;
+}
+
+/* Contenedor principal */
+.register-container {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+/* Header */
+.register-header .logo-link {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.register-header img {
+  width: 60px;
+}
+
+.register-header h2 {
+  font-size: 1.8rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.register-header p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Formulario */
+.register-form .input-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  outline: none;
+  border-color: #52ad02;
+  box-shadow: 0 0 0 3px rgba(82, 173, 2, 0.2);
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Botón */
+.btn-register {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #005014;
+  color: #fef9e0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-register:hover:not(:disabled) {
+  background-color: #00380a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-register:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.register-footer {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.register-footer a {
+  color: #52ad02;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Rol (select) más bonito */
+#reg-role {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #9aa2ab 50%),
+    linear-gradient(135deg, #9aa2ab 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%, 100% 0;
+  background-size: 6px 6px, 6px 6px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}

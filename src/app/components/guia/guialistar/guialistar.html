@@ -1,0 +1,57 @@
+<div class="list-container">
+  <mat-card class="mat-elevation-z8 list-card">
+    <div class="card-header">
+      <button mat-icon-button [routerLink]="['/app/guia']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <h2>Lista de Guías</h2>
+    </div>
+
+    <div class="card-grid">
+      <mat-card
+        class="item-card"
+        *ngFor="
+          let element of dataSource.data
+            | slice
+              : paginator.pageIndex * paginator.pageSize
+              : (paginator.pageIndex + 1) * paginator.pageSize
+        "
+      >
+        <mat-card-header>
+          <mat-card-title>{{ element.tituloGuia }}</mat-card-title>
+          <mat-card-subtitle
+            >ID: {{ element.guiaId }} | Tipo: {{ element.tipoGuia }}</mat-card-subtitle
+          >
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{ element.contenidoGuia }}</p>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button
+            mat-icon-button
+            class="btn-edit"
+            [routerLink]="['/app/GUIAS/editar', element.guiaId]"
+            *ngIf="puedeEditarGuia()"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="btn-delete" (click)="eliminar(element.guiaId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <mat-paginator
+      #paginator
+      [length]="dataSource.data.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </mat-card>
+</div>

@@ -1,0 +1,277 @@
+/* apidiagnostico.css */
+.plant-identifier {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.plant-identifier h2 {
+  text-align: center;
+  color: #2c5530;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Sección de archivo */
+.file-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+  border: 2px dashed #e9ecef;
+  transition: border-color 0.3s ease;
+}
+
+.file-section:hover {
+  border-color: #4CAF50;
+}
+
+.file-section input[type="file"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+  background: #f8f9fa;
+}
+
+.file-section button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.file-section button:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.file-section button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mensajes de error */
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #f44336;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+/* Loading */
+.loading {
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+  border-left: 4px solid #2196F3;
+  font-weight: 500;
+}
+
+/* Sección de resultados */
+.results-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+/* Identificación principal */
+.main-identification {
+  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+  padding: 25px;
+  border-bottom: 1px solid #c8e6c9;
+}
+
+.main-identification h3 {
+  margin: 0 0 10px 0;
+  color: #2c5530;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.confidence {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.scientific-name {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 10px 0 0 0;
+}
+
+.scientific-name strong {
+  color: #2c5530;
+}
+
+/* Tarjetas de información */
+.info-card {
+  padding: 20px 25px;
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+.info-card:hover {
+  background: #f8f9fa;
+}
+
+.info-card:last-child {
+  border-bottom: none;
+}
+
+.info-card h4 {
+  margin: 0 0 15px 0;
+  color: #2c5530;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Lista de otras identificaciones */
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-card li {
+  background: #f8f9fa;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #4CAF50;
+  transition: transform 0.2s ease;
+}
+
+.info-card li:hover {
+  transform: translateX(5px);
+  background: #e8f5e8;
+}
+
+.info-card li:last-child {
+  margin-bottom: 0;
+}
+
+.info-card li strong {
+  color: #2c5530;
+  font-size: 1rem;
+}
+
+.info-card li small {
+  color: #666;
+  font-style: italic;
+}
+
+/* Enlaces */
+.info-card a {
+  display: inline-block;
+  background: #2196F3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.info-card a:hover {
+  background: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .plant-identifier {
+    padding: 15px;
+  }
+  
+  .plant-identifier h2 {
+    font-size: 1.5rem;
+  }
+  
+  .file-section {
+    padding: 20px 15px;
+  }
+  
+  .file-section input[type="file"] {
+    max-width: 100%;
+  }
+  
+  .main-identification {
+    padding: 20px 15px;
+  }
+  
+  .main-identification h3 {
+    font-size: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 15px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.results-section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.info-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.info-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.info-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.info-card:nth-child(4) {
+  animation-delay: 0.3s;
+}

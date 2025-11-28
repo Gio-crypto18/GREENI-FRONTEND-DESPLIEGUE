@@ -1,0 +1,98 @@
+.title-container {
+  width: 90%; /* ← AUMENTA EL PORCENTAJE */
+  /* width: 98%; para casi todo el ancho */
+  /* width: 100%; para ancho completo */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 20px 0px 20px 25px;
+  max-width: 1100px; /* ← AUMENTA EL MÁXIMO */
+  /* max-width: 1400px; para pantallas muy grandes */
+  /* max-width: none; para eliminar el límite */
+  font-weight: 700 !important;
+}
+
+/* ========================================= */
+/* Contenedor del Chart (Gráfico) */
+/* ========================================= */
+
+.chart-container {
+  /* Asegura que el canvas se mantenga centrado y con un buen aspecto */
+  width: 100%; 
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center;
+  margin-top: 0; /* ← ASEGURA que no tenga margen superior */
+  padding-top: 0; /* ← ASEGURA que no tenga padding superior */
+  min-height: 400px; /* Altura mínima para gráficos vacíos/cargando */
+}
+
+/* ========================================= */
+/* Estilos para "No hay datos" */
+/* ========================================= */
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  border: 1px dashed #bdbdbd; /* Borde punteado para indicar un espacio vacío */
+  border-radius: 8px;
+  background-color: #f7f7f7; /* Fondo ligeramente gris */
+  min-height: 250px; /* Altura adecuada para el mensaje */
+}
+
+.no-data-icon {
+  font-size: 48px;
+  color: #757575; /* Icono gris */
+  margin-bottom: 10px;
+}
+
+.no-data-message {
+  font-size: 1.2rem;
+  color: #757575;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ========================================= */
+/* Medias Queries (Responsividad) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .title-container {
+    padding: 20px 15px; /* Reducir el padding en móviles */
+    margin: 10px auto;
+  }
+}
+
+.title-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700 !important; /* 🔥 ahora sí será negrita real */
+  color: #388e3c;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* ========================================= */
+/* Medias Queries (Responsividad) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .title-container h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+:host ::ng-deep .chart-legend {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+

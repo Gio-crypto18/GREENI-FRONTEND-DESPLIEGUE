@@ -1,0 +1,99 @@
+.weather-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #6d28d9;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(0, 0, 0);
+}
+
+.search-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #6d28d9;
+  color: white;
+  cursor: pointer;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.weather-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.temperature {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+}
+
+.error-msg {
+  margin-top: 10px;
+  padding: 10px;
+  background: #ffe8e8;
+  border-left: 4px solid #e63946;
+  border-radius: 6px;
+  color: #b30000;
+  font-size: 14px;
+}
+
+#error-message {
+  order: 3;
+  margin-top: 10px;
+}
+
+.error-msg {
+  order: 10; /* obliga a bajar */
+}
