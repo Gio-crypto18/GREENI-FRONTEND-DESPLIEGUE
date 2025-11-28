@@ -32,21 +32,20 @@
 
     @if (!edicion) {
   <mat-form-field class="form-field">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email" type="email" />
+    <mat-label>Contraseña</mat-label>
+    <input matInput formControlName="password" type="password" />
     <mat-error>
-      @if (form.get('email')?.hasError('required')) {
-        Ingrese email!!
-      } @else if (form.get('email')?.hasError('email')) {
-        Formato de email inválido
-      } @else if (form.get('email')?.hasError('maxlength')) {
-        Máximo 30 caracteres
-      } @else if (form.get('email')?.hasError('pattern')) {
-        Debe contener @ y punto (.)
+      @if (form.get('password')?.hasError('required')) {
+        Ingrese contraseña!!
+      } @else if (form.get('password')?.hasError('minlength')) {
+        Debe tener al menos 6 caracteres
+      } @else if (form.get('password')?.hasError('maxlength')) {
+        Debe tener máximo 8 caracteres
       }
     </mat-error>
   </mat-form-field>
 }
+
 
     <mat-form-field class="form-field">
       <mat-label>Biografía</mat-label>
