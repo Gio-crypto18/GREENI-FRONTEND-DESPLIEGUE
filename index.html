@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido a mi portafolio!!  🫡👍</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <nav>
+  <a href="#" class="logo"><span>Giovanni</span></a>
+  
+  <ul class="links">
+  <li><a href="#home">Inicio</li>
+  <li><a href="#about">Sobre mi</a></li>
+  <li><a href="#services">Certificaciones</a></li>
+  <li><a href="#contact">Contactame</a></li>
+  
+  <!-- Contenedor nuevo para íconos -->
+  <div class="top-icons">
+    <a href="https://www.linkedin.com/in/giovanni-alexander-palomino-mathey-924a81309" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn" class="skill-icon">
+    </a>
+    <a href="https://wa.me/984313493" target="_blank">
+      <img src="whatsapp.png" alt="WhatsApp" class="skill-icon">
+    </a>
+    <a href="https://github.com/Gio-crypto18" target="_blank">
+      <img src="github (2).png" alt="GitHub" class="skill-icon">
+    </a>
+  </div>
+</ul>
+  
+  <i class='bx bx-menu-alt-right' id="menu"></i>
+</nav>
+    <section id ="home">
+      
+<div class="hero-section">
+  <div class="Imagen inicio">
+    <img src="prueba3.png" alt="yo" class="atom-nucleus">
+  </div>
+    
+  <div class="info-box">
+    <h1>Bienvenido a mi portafolio</h1>
+    <h3><span>Sistemas de Información </span> universitario </h3>
+    <p>
+      Explora mi informacion, habilidades, y certificaciones. Trabajemos juntos!
+    </p>  
+  </div>
+</div>
+
+
+
+<div class="container">
+<div class="btn-container">
+  <!-- Botón de Descargar CV que ya tienes -->
+  <label class="label" id="downloadBtn">
+    <input type="checkbox" class="input" />
+    <span class="circle">
+      <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+      </svg>
+      <div class="square"></div>
+    </span>
+    <p class="title">Descargar CV</p>
+    <p class="title">Listo</p>
+  </label>
+  
+</div>
+
+  
+  <script>
+  document.getElementById('downloadBtn').addEventListener('click', function() {
+    // Ruta de tu PDF (cambia esto)
+    const pdfUrl = 'Curriculum.pdf';
+    
+    // Crear enlace oculto
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'CV.pdf';  // Nombre al descargar
+    link.style.display = 'none';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
+
+</div>
+<div class="uiverse">
+    <span class="tooltip">hablemos!</span>
+    <span>
+      <a href="https://wa.me/984313493" target="_blank" style="color: inherit; text-decoration: none;">
+        Contáctame
+      </a>
+    </span>
+  </div>
+</div>
+    </section>
+
+
+
+<section id="about">
+  <h1 class="section-title">Sobre Mi</h1>
+  <div class="about-content">
+    <div class="about-row">
+      <!-- About Me -->
+      <div class="mi-objetivo">
+        <h2><span>¿Quién soy?</span></h2>
+        <p>Soy un estudiante de Ingeniería de Sistemas, motivado por el aprendizaje continuo y por explorar de manera integral las diversas ramas de esta disciplina.</p>
+      </div>
+      
+      <!-- My Objective -->
+      <div class="mi-objetivo">
+        <h2><span>Mi objetivo</span></h2>
+        <p>Mi objetivo es seguir aprendiendo y aplicar todos mis conocimientos para solucionar todo tipo de problemas.</p>
+      </div>
+      
+      <!-- My Profile -->
+      <div class="mi-objetivo">
+        <h2><span>Mi Perfil</span></h2>
+        <p>Me caracterizo por mi facil adaptabilidad y capacidad de liderazgo,además de mi atención al detalle y compromiso.</p>
+      </div>
+    </div>
+    
+    <!-- Skills Box (personalizado) -->
+    <div class="about-box skills-custom">
+      <h2><span>Habilidades</span></h2>
+      <div class="skills-main-container">
+        <div class="skills-container">
+          <!-- Lenguajes -->
+          <div class="skill-category" style="border-top: 4px solid #EF4444;">
+            <h3>Lenguajes</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="piton.png" alt="Python" class="skill-icon">
+                <span>Python</span>
+              </div>
+              <div class="skill-item">
+                <img src="CC.png" alt="C#" class="skill-icon">
+                <span> C#</span>
+              </div>
+              
+              
+              <div class="skill-item">
+                <img src="TSTS.png" alt="JavaScript" class="skill-icon">
+                <span>TypeScript</span>
+              </div>
+              <div class="skill-item">
+                <img src="JAVA.png" alt="JavaScript" class="skill-icon">
+                <span>Java</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web -->
+          <div class="skill-category" style="border-top: 4px solid #3B82F6;">
+            <h3> Frontend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="h.png" alt="HTML" class="skill-icon">
+                <span>HTML</span>
+              </div>
+              <div class="skill-item">
+                <img src="cs.png" alt="CSS" class="skill-icon">
+                <span>CSS</span>
+              </div>
+            <div class="skill-item">
+                <img src="JS.png" alt="JavaScript" class="skill-icon">
+                <span>JavaScript</span>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- Bases de datos -->
+          <div class="skill-category" style="border-top: 4px solid #10B981;">
+            <h3>Bases de datos</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="sql.png" alt="SQL Server" class="skill-icon">
+                <span>SQL Server</span>
+              </div>
+              <div class="skill-item">
+                <img src="el.png" alt="MongoDB" class="skill-icon">
+                <span>MongoDB</span>
+              </div>
+              <div class="skill-item">
+                <img src="POSTGRESSQL-removebg-preview.png" alt="MongoDB" class="skill-icon">
+                <span>PostGresSQL</span>
+              </div>
+              <div class="skill-item">
+                <img src="mysqlmysql.png" alt="MongoDB" class="skill-icon">
+                <span>MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Herramientas -->
+          <div class="skill-category" style="border-top: 4px solid #F59E0B;">
+            <h3>Herramientas</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="figma.png" alt="Figma" class="skill-icon">
+                <span>Figma</span>
+              </div>
+              <div class="skill-item">
+                <img src="biza-removebg-preview.png" alt="Bizagi" class="skill-icon">
+                <span>Bizagi</span>
+              </div>
+              <div class="skill-item">
+                <img src="GITHUB.png" alt="Excel" class="skill-icon">
+                <span>Github</span>
+              </div>
+               <div class="skill-item">
+                <img src="plat-removebg-preview.png" alt="R" class="skill-icon">
+                <span>Power Platform</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud -->
+          <div class="skill-category" style="border-top: 4px solid #8B5CF6;">
+            <h3>Cloud</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="azure.png" alt="Azure" class="skill-icon">
+                <span>Azure</span>
+              </div>
+              <div class="skill-item">
+                <img src="render.png" alt="Azure" class="skill-icon">
+                <span>Render</span>
+              </div>
+              <div class="skill-item">
+                <img src="netlify.png" alt="Azure" class="skill-icon">
+                <span>Netlify</span>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category" style="border-top: 4px solid #f65ce4;">
+            <h3>Datos</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="sobresalir.png" alt="Extra" class="skill-icon">
+                <span>Excel</span>
+              </div>
+              <div class="skill-item">
+                <img src="bi.png" alt="Extra" class="skill-icon">
+                <span>Power BI</span>
+              </div>
+              <div class="skill-item">
+                <img src="r.png " alt="R" class="skill-icon">
+                <span>R</span>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="services">
+<h1 class="header"><span>Certificaciones</span></h1>
+<div class="services-container">
+  
+  <div class="box">
+    <h1><span>Soporte de TI-Google</span></h1>
+    <p>Certificado Profesional en Fundamentos de Tecnologías de la Información (TI).</p>
+    <img src="soporte.png" alt="" />
+  </div>
+  <div class="box">
+    <h1><span>Ingles-Britanico</span></h1>
+    <p>Certificaciones de inglés: LinguaSkill nivel B2, (británico y Examen Movers de Cambridge (completado)).</p>
+    <img src="ingles.png" alt="" />
+  </div>
+  <div class="box">
+    <h1><span>Scrum</span></h1>
+    <p>Certificacion de Scrum y experiencia como delegado y manejo de equipos</p>
+    <img src="scrum.png" alt="" />
+  </div>
+  <div class="box">
+    <h1><span>IBM</span></h1>
+    <p>Certificaciones de IBM de los topicos de  fundamentos de Diseño web y TI</p>
+    <img src="ibm.png" alt="" />
+  </div>
+
+  <div class="box">
+    <h1><span>SQL SERVER</span></h1>
+    <p>Certificados en SQL Server en Skill-Lima educa-Ademass y Platzi</p>
+    <img src="base.png" alt="" />
+  </div>
+  <div class="box">
+    <h1><span>MongoDB</span></h1>
+    <p>Certificacion de un curso de fundamentos completo </p>
+    <img src="mongo.png" alt="" />
+  </div>
+  <div class="box">
+    <h1><span>Excel</span></h1>
+    <p>Certificaciones de Excel Avanzado para analisis de datos</p>
+    <img src="excel.png" alt="" />
+  </div>
+  <div class="box">
+        <!-- aqui va el de POWER BI-->
+    <h1><span>Power BI</span></h1>
+    <p>Análisis y modelado de datos empleando DAX para la creación  dashboards interactivos.</p>
+    <img src="DAX.png" alt="" />
+  </div>
+</section>
+
+
+<section id="contact">
+  <h1><span>Contactame</span></h1>
+  <div class="contact-container">
+    <!-- Fotocheck (izquierda) -->
+    <div class="fotocheck-wrapper">
+      <div class="fotocheck-container">
+        <div class="cord"></div>
+        <div class="cord-knot"></div>
+        <div class="fotocheck">
+          <div class="photo-frame">
+            <img src="prueba3.png " alt="Mi Foto" id="user-photo">
+          </div>
+          <div class="details">
+            <h3>Giovanni Palomino</h3>
+            <p>UPC</p>
+            <p>Estudiante Ing Sistemas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulario (derecha) -->
+    <div class="form-wrapper">
+      <form action="https://formsubmit.co/gapalomino1809@gmail.com" method="POST" class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" required name ="name">
+          <label for="name">Nombre</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" required name="email">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="5" required name ="message"></textarea>
+          <label for="message">Mensaje</label>
+        </div>
+        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+      </form>
+      <input type ="hidden" name="_next" value="http://127.0.0.1:5500/">
+      <input type="hidden" name="_captcha" value="false"> 
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="col-left">
+    <div class="col-box">
+      <img src="maps-and-location (1).png" alt="Location" class="skill-icon">
+      <span>Lima, Peru</span>
+    </div>
+    <div class="col-box">
+      <img src="whatsapp.png" alt="WhatsApp" class="skill-icon">
+      <span>+51 984 313 493</span>
+    </div>
+    <div class="col-box">
+      <img src="gmail.png" alt="Email" class="skill-icon">
+      <span>gapalomino1809@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="col-right">
+    <span>Mas recursos!  </span>
+    <p>Explora mis proyectos y certificaciones realizadas durante toda mi vida.</p>
+    <p>Construyendo soluciones digitales con propósito</p>
+    <div class="social-icons">
+      <a href="https://github.com/Gio-crypto18" target="_blank">
+      <img src="github (2).png" alt="GitHub" class="skill-icon">
+      </a>
+      
+      
+      <a href="https://www.linkedin.com/in/giovanni-alexander-palomino-mathey-924a81309" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn" class="skill-icon">
+      </a>
+      <a>
+      <a href="https://drive.google.com/drive/folders/1SM5yqkHstGyTyku7uVUYMgrZ1LUShsov?usp=sharing" target="_blank">
+        <img src="drive.png" alt="Google Drive" class="skill-icon">
+      </a>
+      
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Giovanni. All rights reserved.</p>
+  </div>
+</footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins";
+}
+
+:root {
+  --background: rgb(24, 24, 24);
+  --second-background: rgb(21, 21, 21);
+}
+body {
+  min-height: 100vh;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: url('prueba.png'), auto; 
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2em 10% 2em 20%; /* más espacio a la izquierda, nav se mueve a la derecha */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(15,15,15,0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra horizontalmente */
+  gap: 1.5em; /* Espacio uniforme entre elementos */
+  margin-left: 0; /* Elimina el margen izquierdo anterior */
+  padding: 0;
+  width: 100%;
+  margin-right: auto; /* Empuja el menú hacia la izquierda */
+  margin-left: -80px; /* Ajuste fino de posición */
+}
+
+.links li {
+  margin: 0; /* Elimina márgenes predeterminados de <li> */
+}
+
+.links a {
+  display: inline-block;
+  padding: 0.5em 0; /* Espacio vertical interno */
+  font-size: 24px;
+}
+
+.links .skill-icon {
+  width: 24px; /* Tamaño consistente para íconos */
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.links .skill-icon:hover {
+  transform: scale(1.1); /* Efecto hover sutil */
+}
+/* Contenedor para los íconos de redes sociales */
+.social-icons {
+  position: absolute;
+  right: -170px; /* Fija los íconos a la derecha */
+  display: flex;
+  gap: 1em; /* Espacio entre íconos */
+}
+
+/* Ajustes para los íconos individuales */
+.social-icons .skill-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons .skill-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Ajustes para los íconos individuales agrandados */
+.top-icons .skill-icon {
+  /* --- TAMAÑO AGRANDADO --- */
+  width: 80px;  /* De 24px subió a 50px */
+  height: 80px; /* De 24px subió a 50px */
+  /* ------------------------ */
+  
+  transition: transform 0.3s ease;
+  object-fit: contain; /* Asegura que el ícono no se deforme al crecer */
+}
+.top-icons {
+  position: absolute;
+  right: 130px; /* Fija los íconos a la derecha */
+  display: flex;
+  gap: 1em; /* Espacio entre íconos */
+}
+
+/* Ajustes para los íconos individuales */
+.top-icons .skill-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.top-icons .skill-icon:hover {
+  transform: scale(1.1);
+}
+ul {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+nav ul a {
+  color: white;
+  opacity: 0.7;
+  transition: 0.2s ease-in-out;
+}
+nav ul a:hover {
+  opacity: 1;
+}
+.logo {
+  font-size: 2em;
+  color: white;
+  font-weight: 800;
+  opacity: 0.8;
+  transition: 0.2s ease-in-out;
+  margin-left: -2.5em; /* mueve el logo más a la izquierda */
+}
+.logo:hover {
+  opacity: 1;
+}
+.btn {
+  padding: 0.5em 1em;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btn:hover {
+  background-color: white;
+  color: var(--background);
+}
+span {
+  background: 
+  radial-gradient(circle at center, #00F5FF, transparent 70%),
+  linear-gradient(to right, #00FF87, #00F5FF);
+  background-clip: text;
+  color: transparent;
+}
+
+#menu {
+  color: white;
+  font-size: 3em;
+  display: none;
+}
+.menu-icon { /* Usa clase en lugar de ID */
+  color: white;
+  font-size: 3em;
+  display: none; /* Oculta por defecto */
+}
+
+/* Oculta el ícono por defecto */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Oculta el botón en desktop */
+.menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+
+section {
+  min-height: 100vh;
+  padding: 5% 15%;
+}
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 3em;
+  color: white;
+  margin-left: 120px;
+  padding-top: 4em; /* Espacio superior añadido */
+}
+#home img {
+  width: 18vw;
+  border-radius: 50%;
+  margin-top: 3em;
+}
+.info-box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 1em; /* Aumentado de 0.5em a 1em */
+  max-width: 1000px; /* Aumentado de 600px */
+  font-size: large;
+  margin-top: 1em; /* Espacio superior adicional */
+}
+
+.info-box h1 {
+  font-size: 4em; /* Aumentado de 3em a 4em */
+  font-weight: 600; /* Aumentado de 500 a 600 */
+  line-height: 1.2;
+  margin-bottom: 0.3em;
+}
+
+.info-box h3 {
+  font-size: 2.5em; /* Aumentado de 2em a 2.5em */
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+.info-box p {
+  opacity: 0.7;
+  font-size: 1.8em; /* Aumentado de 1.5em a 1.8em */
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+.btn-box {
+  display: flex;
+  gap: 1em;
+}
+.btn-box .btn:nth-of-type(2) {
+  background-color: white;
+  color: var(--background);
+  border: 2px solid var(--background);
+}
+.btn-box .btn:nth-of-type(2):hover {
+  background-color: var(--background);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00FF87, #00F5FF);
+  border-radius: 10px;
+}
+
+.bx-menu {
+  /* Estos estilos deben estar dentro de .menu-icon */
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.menu-toggle {
+  display: none; /* Oculta por defecto */
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+/* Efecto hover opcional */
+.bx-menu:hover {
+  color: #ccc;
+  transform: scale(1.1);
+}
+
+
+/* =========================================
+   1. SECCIÓN SOBRE MI (ABOUT) - AJUSTE DE ANCHO
+   ========================================= */
+/* =========================================
+   1. SECCIÓN SOBRE MI (ABOUT) - AJUSTE FINAL
+   ========================================= */
+#about {
+  background-color: var(--second-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2em;
+  width: 100%;
+  padding: 5% 0;
+}
+
+/* Alineación exacta con el título de Services */
+.section-title {
+  color: #fff;
+  font-size: 4.5em; 
+  font-weight: 800;
+  text-align: left;
+  
+  /* REDUCIDO: de 14% a 10% para mover un poco a la izquierda */
+  margin-left: 16%; 
+  
+  margin-bottom: 0.2em;
+  margin-top: 0.5em;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* 1. Ajuste para Sobre Mi */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  /* 1. MOVEMOS A LA IZQUIERDA: Bajamos de 15% a 10% */
+  margin-left: 16%; 
+  
+  /* 2. ESTIRAMOS A LA DERECHA: Aumentamos el ancho para ocupar el espacio */
+  width: 88%;       
+  
+  /* 3. AGRANDAMOS TODO: Aumentamos el máximo para pantallas grandes */
+  max-width: 1520px; 
+  color: #ccc;
+  gap: 2.5em; /* Más espacio entre las tarjetas y habilidades */
+}
+
+/* =========================================
+   2. TARJETAS Y FILAS (ESTIRAMIENTO)
+   ========================================= */
+.about-row {
+  display: flex;
+  gap: 2em;
+  width: 100%; /* Ocupa todo el nuevo ancho del 90% */
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.mi-objetivo {
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 1em;
+  padding: 2.5em;
+  flex: 1; /* Esto hace que las 3 cajas se estiren proporcionalmente */
+  min-height: 250px;
+  align-content: center;
+}
+
+/* Caja de Habilidades: Ahora también se estira automáticamente */
+.skills-custom {
+  background: rgba(30, 30, 30, 0.95) !important;
+  width: 100% !important; 
+  padding: 3em !important;
+  border-radius: 1.5em;
+  margin-left: 0 !important;
+}
+
+.mi-objetivo h2 {
+  font-size: 2.2em;
+  margin-bottom: 0.8em;
+  align-items: center;
+}
+
+.mi-objetivo p {
+  font-size: 1.3em;
+  line-height: 1.6;
+}
+
+/* =========================================
+   3. CAJA DE HABILIDADES (SKILLS CUSTOM)
+   ========================================= */
+/* Caja de Habilidades: Ahora se alineará con el nuevo margen */
+.skills-custom {
+  background: rgba(30, 30, 30, 0.95) !important;
+  width: 100% !important; 
+  padding: 3em !important;
+  border-radius: 1.5em;
+  margin-left: 0 !important; /* Reseteamos márgenes internos */
+}
+
+.skills-custom h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+
+.skills-container {
+  display: grid;
+  /* Ajuste para que las categorías respiren mejor a lo largo */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+  gap: 2em;
+  width: 100%;
+}
+
+/* =========================================
+   4. CATEGORÍAS E ÍCONOS
+   ========================================= */
+.skill-category {
+  background: #3f3838;
+  border-radius: 10px;
+  padding: 1.5em;
+  transition: transform 0.3s;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+
+.skill-category h3 {
+  color: #ffffff;
+  font-size: 1.6em; /* Aumentado */
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-weight: 600;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 0;
+  width: 100%;
+
+}
+.skill-item span {
+  text-align: justify;
+}
+
+.cert-text {
+  text-align: justify;
+}
+
+
+.skill-icon {
+  width: 28px; /* Tamaño unificado */
+  height: 28px;
+  object-fit: contain;
+}
+
+.skill-item span {
+  color: #e2e8f0;
+  font-size: 1.2em; /* Texto legible */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* =========================================
+   5. AJUSTES GLOBALES DE PANTALLA
+   ========================================= */
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   SECCIÓN CERTIFICACIONES (SERVICES)
+   ========================================= */
+
+#services {
+  background-color: var(--second-background);
+  padding: 5% 10%; /* Ajuste de padding general */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Título principal: Certificaciones */
+.header {
+  text-align: center;
+  font-size: 2em; /* Aumentado de 5em a 6em */
+  margin: 0.5em 0;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+#services .box p {
+  text-align: justify;
+}
+
+
+/* Alineación del título Certificaciones con el nombre Giovanni */
+#services .header {
+    text-align: left;         /* Cambiar de center a left */
+    margin-left: 8%;        /* Este valor debe ser igual al margin-left de .about-content */
+    font-size: 4em;          /* Mantener el tamaño grande que pediste */
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+/* Opcional: Si quieres que el subrayado también empiece ahí */
+#services .header span {
+    display: inline-block;
+    position: relative;
+}
+
+/* Contenedor: Aquí achicamos el lado izquierdo y estiramos a la derecha */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cajas más anchas */
+  gap: 2.5em; /* Más espacio entre cajas */
+  
+  /* MOVIMIENTO HACIA LA DERECHA */
+  margin-left: 8%;  /* Achica el lado izquierdo empujando todo a la derecha */
+  width: 95%;       /* Estira el contenido hacia el borde derecho */
+  
+  margin-top: 50px;
+  padding: 0;
+}
+
+/* Cajas de certificaciones */
+.box {
+  background: rgba(30, 30, 30, 0.6); /* Fondo sutil para mejorar legibilidad */
+  border: 3px solid rgb(49, 49, 49);
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Alinea contenido y foto */
+  padding: 3.5em; /* Más espacio interno */
+  gap: 1.5em;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.box:hover {
+  border: 3px solid #00F5FF; /* Borde neón al pasar el mouse */
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+}
+
+/* Título dentro de la caja */
+.box h1 {
+  font-size: 2.8em; /* Aumentado de 2em a 2.8em */
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Texto descriptivo */
+.box p {
+  font-size: 1.4em; /* Aumentado de 1em a 1.4em */
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Imágenes de las certificaciones */
+.box img {
+  width: 100%;
+  min-width: 25px;
+  border-radius: 0.5em;
+  margin-top: 1em;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: 0.3s;
+}
+
+.box:hover img {
+  filter: grayscale(0%);
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .services-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  .header {
+    font-size: 4em;
+  }
+  .box h1 {
+    font-size: 2em;
+  }
+}
+
+#contact {
+  display: flex;
+  justify-content: flex-end; /* Alinea todo el contenido a la derecha */
+  padding-right: 10%; /* Añade espacio en el lado derecho */
+  margin-right: 10px; /* Esto empuja el formulario a la derecha */
+  font-size: 1em;
+  margin-right: -110px;
+  position: relative;
+}
+
+/* Solo afecta al título de la sección de contacto */
+#contact h1 {
+  text-align: left;
+  margin-left: -12%;           /* BAJA este número para moverlo a la izquierda */
+  font-size: 4em; 
+  font-weight: 800;
+  margin-bottom: 30px; 
+  transform: none !important; 
+  display: block;             /* Asegura que el margen se aplique bien */
+}
+
+.header {
+  text-align: left; /* Alinea el título a la izquierda */
+  font-size: 3em; /* Reduce un poco el tamaño */
+  margin: 0;
+  flex: 1; /* Ocupa espacio disponible */
+}
+
+/* 1. Contenedor de la foto: lo bajamos y alineamos */
+/* HACER SOLO EL FOTOCHECK MÁS LARGO */
+#contact .fotocheck-wrapper {
+    flex: 0 0 400px;
+    display: flex;
+    align-self: flex-start; 
+    margin-top: 5px;
+    /* Elimina el min-height de aquí */
+}
+
+/* AQUÍ es donde debes aplicar la altura - al contenedor directo */
+#contact .fotocheck-container {
+    min-height: 20px; /* Esto hará el fotocheck más largo */
+    position: relative;
+    width: 100%;
+}
+
+/* Y el cuadro interior debe expandirse */
+#contact .fotocheck {
+    width: 100%;
+    height: 100%; /* Esto hará que ocupe todo el 800px */
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Asegúrate de que crezca */
+    flex-grow: 1;
+}
+
+/* 3. Marco de la foto: un poco más grande para que resalte */
+#contact .photo-frame {
+    width: 350px; 
+    height: 350px;
+    border-radius: 50%;
+    border: 5px solid #00F5FF;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.4);
+}
+
+#contact .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 4. Textos del Fotocheck: Letra más grande */
+#contact .details {
+    text-align: center;
+    color: white;
+}
+
+#contact .details h3 {
+    font-size: 2.2em; /* Nombre más grande */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#contact .details p {
+    font-size: 1.5em; /* Cargo y Universidad más legibles */
+    opacity: 0.9;
+    margin: 5px 0;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  flex: 2; /* Ocupa el doble de espacio que el título */
+  width: 5000px; /* Limita el ancho del formulario */
+  margin-top: 110px; /* Baja el formulario 40px desde el título */
+  margin-left: 230px; /* Lo mantiene a la derecha */
+  max-width: 550px;
+  font-size: 1.5em;
+}
+
+form .input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1em;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+form input {
+  font-size: 1.3em;
+  padding: 1em;
+  border-radius: 0.5em;
+  border: none;
+  outline: none;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+form input:focus {
+  background-color: rgba(229, 229, 229, 1); /* Corregido valor alpha */
+}
+
+/* 4. EL BOTÓN: Letra gigante y estirado */
+/* 4. EL BOTÓN: Letra mucho más grande */
+/* Asegúrate de usar .submit-btn porque así está en tu HTML */
+.submit-btn {
+    display: block !important;
+    width: 100% !important;
+    
+    /* --- TAMAÑO DE LETRA GRANDE --- */
+    font-size: 1em !important; 
+    /* ------------------------------ */
+    
+    font-weight: 900 !important;
+    padding: 0.6em 1em !important; 
+    line-height: 1.2 !important;
+    
+    background: linear-gradient(45deg, #00F5FF, #FF00E4) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50px !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+
+    /* --- CAMBIA ESTO PARA SUBIRLO --- */
+    margin-top: -5px !important;  /* Bajamos de 30px a 10px para que suba */
+    /* Si quieres que suba más, usa un número negativo como: -10px */
+    
+    transition: transform 0.3s ease !important;
+}
+
+
+.submit-btn:hover {
+    transform: scale(1.05) !important;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05) !important;
+}
+.btn:hover {
+  transform: scale(1.05); /* Efecto de crecimiento al pasar el mouse */
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.6); /* Brillo neón */
+}
+
+#contact .header span {
+  display: inline-block;
+  margin-left: -185%; /* Mueve el texto a la derecha */
+  transform: translateX(-50%); /* Centra el texto en su nueva posición */
+}
+
+#about .header,
+#services .header,
+#contact .header {
+  margin-top: 50px; /* Ajusta este valor (ej: 30px, 80px, etc.) */
+  margin-bottom: 30px; /* Espacio bajo el título (opcional) */
+}
+#contact .contact-container {
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: stretch !important; /* Forza misma altura para ambos */
+    gap: 50px !important;
+    margin-top: 50px !important;
+}
+
+
+
+@media (max-width: 968px) {
+  #menu {
+    display: block;
+  }
+  
+  .links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .links.active {
+    left: 0;
+  }
+  
+  .links a {
+    margin: 1.5em 0;
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+  }
+
+  #home h1{
+    font-size: 4em;
+  }
+  #home h3{
+    font-size: 2em;
+  }
+  #home img{
+    width: 24vw;
+  }
+  #about{
+    flex-direction: column;
+  }
+  #about img{
+    width: 32vw;
+  }
+  #about{
+    flex-direction: column;
+  }
+  #about img{
+    width: 32vw;
+  }
+  #about h1{
+    font-size: 3em;
+  }
+  #about ul{
+    font-size: 1em;
+  }
+  /* Media query CORREGIDA */
+
+  .menu-toggle {
+    display: block; /* Muestra solo en mobile */
+  }
+  
+  nav .links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s ease;
+    z-index: 999;
+  }
+  
+  nav .links.active {
+    left: 0;
+  }
+  
+  .links a {
+    margin: 1em 0;
+    font-size: 1.5em;
+  }
+}
+  
+
+@media (max-width: 768px) {
+ #home h1{
+    font-size: 2.5em;
+  }
+  #home h3{
+    font-size: 1.5em;
+  }
+  #home img{
+    width: 32vw;
+  }
+  #about .skills{
+    gap: 3em
+  }
+  #services .header{
+    font-size: 3em;
+  }
+  #contact .input-box span{
+    font-size: 1.2em;
+  }
+  .input-box input{
+    padding: 0.5em 1em;
+  }
+  footer{
+    flex-direction: column;
+    gap:5em;
+    align-items: center; /* Centra el contenido verticalmente */
+  }
+}
+
+
+
+/* Reduce el margen inferior de #about O el superior de #services */
+#about {
+  margin-bottom: -120px !important; /* Valor original podría ser 80px+ */
+}size
+#contact {
+  margin-top: -80px !important; /* Valor original podría ser 80px+ */
+}
+
+/* O alternativamente */
+#services {
+  margin-top: 30px !important;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between; /* Distribuye espacio entre columnas */
+  background-color: var(--background);
+  width: 100%;
+  padding: 5em 15%;
+  flex-wrap: wrap; /* Para responsive */
+  align-items: stretch; /* Asegura que ambas columnas tengan misma altura */
+  background-color: black;
+}
+.col-left .col-box span { font-size: 1.2em !important; }
+.col-right span { font-size: 1.2em !important; }
+.col-right p { font-size: 1.4em !important; }
+
+/* Columna izquierda */
+.col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 40%; /* Ajusta según necesidad */
+  min-height: 100%; /* Ocupan toda la altura disponible */
+}
+
+/* Columna derecha */
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  color: white;
+  width: 40%; /* Ajusta según necesidad */
+  max-width: 700px;
+  min-height: 120%; /* Ocupan toda la altura disponible */
+  justify-content: space-between; /* Distribuye el espacio internamente */
+  position:relative;
+  top: -15px;
+}
+
+
+.top-icons {
+  display: flex;
+  gap: 15px; /* Espacio fijo entre TODOS los iconos */
+  padding: 0; /* Elimina padding interno */
+  margin: 0; /* Elimina márgenes externos */
+  justify-content: flex-start; /* Alinea íconos desde la izquierda */
+}
+
+.top-icons a {
+  display: block; /* Elimina espacios fantasma */
+  line-height: 0; /* Corrige alineación vertical */
+}
+
+.top-icons img.skill-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0; /* Elimina márgenes en imágenes */
+}
+
+.top-icons img.skill-icon {
+  width: 32px; /* Tamaño aumentado */
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.top-icons img.skill-icon:hover {
+  transform: scale(1.1); /* Efecto hover */
+}
+.mi-objetivo p {
+    text-align: justify;
+}
+
+
+.social-icons {
+  display: flex;
+  gap: 15px; /* Espacio fijo entre TODOS los iconos */
+  padding: 0; /* Elimina padding interno */
+  margin: 0; /* Elimina márgenes externos */
+  justify-content: flex-start; /* Alinea íconos desde la izquierda */
+}
+
+.social-icons a {
+  display: block; /* Elimina espacios fantasma */
+  line-height: 0; /* Corrige alineación vertical */
+}
+
+.social-icons img.skill-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0; /* Elimina márgenes en imágenes */
+}
+
+.social-icons img.skill-icon {
+  width: 32px; /* Tamaño aumentado */
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img.skill-icon:hover {
+  transform: scale(1.1); /* Efecto hover */
+}
+
+/* Items de contacto */
+.col-box {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.col-box img.skill-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer inferior */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(255, 255, 255, 0.993);
+}
+
+.footer-bottom p {
+  color: white !important; /* Fuerza color blanco */
+  /* O también puedes usar: */
+  /* color: #ffffff; */
+}
+
+/* Estilo para el texto de copyright */
+.footer-bottom p {
+  color: white;
+  margin: 0; /* Elimina márgenes por defecto */
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* From Uiverse.io by Na3ar-17 */ 
+.container {
+  padding: 0;
+  margin-right: 200px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* CONTENEDOR DE BOTONES */
+.btn-container {
+  display: flex;
+  flex-direction: column; /* Apila verticalmente */
+  align-items: center;
+  gap: 25px; /* Espacio entre botones */
+  margin-top: 30px; /* Bajamos el contenedor */
+  width: 100%;
+  max-width: 500px;
+}
+
+.label {
+  background-color: transparent;
+  border: 2px solid rgb(91, 91, 240);
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  width: 160px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 5px;
+  position: relative;
+  font-size: 500em;
+}
+
+.label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  width: 8px;
+  height: 8px;
+  transition: all 0.4s ease;
+  border-radius: 100%;
+  margin: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.label .input {
+  display: none;
+}
+
+.label .title {
+  font-size: 30px;
+  color: #fff;
+  transition: all 0.4s ease;
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  text-align: center;
+}
+
+.label .title:last-child {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.label .circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: rgb(91, 91, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.label .circle .icon {
+  color: #fff;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+.label .circle .square {
+  aspect-ratio: 1;
+  width: 15px;
+  border-radius: 2px;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+.label .circle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #3333a8;
+  width: 100%;
+  height: 0;
+  transition: all 0.4s ease;
+}
+
+.label:has(.input:checked) {
+  width: 57px;
+  animation: installed 0.4s ease 3.5s forwards;
+}
+
+.label:has(.input:checked)::before {
+  animation: rotate 3s ease-in-out 0.4s forwards;
+}
+
+.label .input:checked + .circle {
+  animation:
+    pulse 1s forwards,
+    circleDelete 0.2s ease 3.5s forwards;
+  rotate: 180deg;
+}
+
+.label .input:checked + .circle::before {
+  animation: installing 3s ease-in-out forwards;
+}
+
+.label .input:checked + .circle .icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.label .input:checked ~ .circle .square {
+  opacity: 1;
+  visibility: visible;
+}
+
+.label .input:checked ~ .title {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.label .input:checked ~ .title:last-child {
+  animation: showInstalledMessage 0.4s ease 3.5s forwards;
+}
+
+@keyframes pulse {
+  0% {
+    scale: 0.95;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    scale: 1;
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+  100% {
+    scale: 0.95;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes installing {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg) translate(27px) rotate(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    transform: rotate(270deg) translate(27px) rotate(270deg);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes installed {
+  100% {
+    width: 150px;
+    border-color: rgb(35, 174, 35);
+  }
+}
+
+@keyframes circleDelete {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes showInstalledMessage {
+  100% {
+    opacity: 1;
+    visibility: visible;
+    right: 56px;
+  }
+}
+
+.uiverse {
+  position: relative;
+  background: rgba(30, 30, 30, 0.95);
+  color: #000;
+  padding: 15px;
+  margin: -86px 10px 100px 240px; /* Movido a la derecha */
+  border-radius: 50px; /* Esquinas muy redondeadas (rectángulo ovalado) */
+  width: 160px; /* Ancho similar al de referencia */
+  height: 50px;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border: none; /* Eliminamos borde para mantener estilo original */
+}
+#contactBtn .tooltip,
+.uiverse .tooltip {
+  font-size: 20px !important; /* AÚN MÁS GRANDE */
+  padding: 15px 20px !important;
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 500px;
+  background: #ffffff;
+  color: #000; /* Cambiado a negro para mejor contraste */
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  margin-left: 20px;
+}
+
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.uiverse:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  color: #000;
+}
+
+.uiverse:hover {
+  background: linear-gradient(to right, #000000, #000000); /* Gradiente intermedio */
+  color: #FFFFFF; /* Texto blanco */
+  text-shadow: none; /* Sin efectos de sombra */
+}
+
+.uiverse:hover .tooltip,
+.uiverse:hover .tooltip::before {
+  background: white;
+  color: #000;
+}
+
+/* Texto del botón (similar al de referencia) */
+.uiverse .btn-text {
+  color: #ffffff;
+  transition: all 0.4s ease;
+  margin-left: 50px;
+}
+
+/* Contenedor circular */
+.Imagen.inicio {
+  position: relative;
+  width: 250px;                  /* Tamaño del contenedor */
+  height: 200px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;            /* Forma circular perfecta */
+  background: radial-gradient(circle, #1a1a2e 0%, #16213e 100%);
+}
+
+/* Imagen circular perfecta */
+.atom-nucleus {
+  width: 180px;                  /* Tamaño de la imagen (20px menos que el contenedor) */
+  height: 240px;
+  border-radius: 40%;            /* Circularidad garantizada */
+  object-fit: cover;             /* Ajuste de imagen sin distorsión */
+  object-position: center;       /* Centrado perfecto */
+  border: 2px solid #00F5FF;     /* Borde azul neón */
+  box-shadow: 
+    0 0 20px #00F5FF,           /* Sombra externa */
+    inset 0 0 10px rgba(0, 245, 255, 0.3); /* Sombra interna */
+  animation: pulse 3s infinite alternate;
+}
+
+/* Anillo sutil alrededor */
+.Imagen.inicio::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  border-radius: 70%;
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  animation: orbit 20s linear infinite;
+}
+
+/* Animación de pulsación */
+@keyframes pulse {
+  0% { 
+    transform: scale(1); 
+    box-shadow: 0 0 20px #00F5FF;
+  }
+  100% { 
+    transform: scale(1.03); 
+    box-shadow: 0 0 30px #00F5FF;
+  }
+}
+
+/* Rotación del anillo */
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Estilos específicos para el fotocheck en la sección contact */
+#contact .fotocheck-container {
+  position: relative;
+  width: 250px;
+  height: 320px;
+  margin: 250px auto;
+  margin-bottom: -20px; /* Reduce el espacio inferior */
+  padding-bottom: 10px; /* Ajusta el padding inferior interno */
+}
+
+#contact .fotocheck {
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+#contact .photo-frame {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #00F5FF;
+  margin: 30px auto 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+}
+
+#contact .photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+#contact .photo-frame:hover img {
+  transform: scale(1.05);
+}
+
+
+
+/* Efecto de neón para el título */
+#contact .header span {
+  text-shadow: 0 0 10px #00F5FF, 0 0 20px #00F5FF;
+}
+
+/* Contenedor principal */
+#contact .contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para el fotocheck (izquierda) */
+#contact .fotocheck-wrapper {
+  flex: 1;
+  max-width: 350px;
+  position: relative;
+}
+
+#contact .fotocheck-container {
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  width: 350px;  /* Aumenta el ancho (valor original: ~300px) */
+  height: 500px; /* Aumenta la altura (valor original: ~400px) */
+  margin-bottom: 10px; /* Reduce espacio inferior (valor original: 30-40px) */
+}
+
+#contact .fotocheck {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-left: -150px;
+  margin-top: 110px; /* Nuevo: sube el fotocheck 40px */
+}
+
+/* Ajusta también el contenedor padre para mantener la alineación */
+#contact .fotocheck-container {
+  top: 60px; /* Reducido de 80px/100px (sube la posición sticky) */
+  margin-top: 0; /* Elimina margen superior adicional */
+}
+
+#contact .photo-frame {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  border: 3px solid #00F5FF;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.5);
+}
+
+#contact .photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#contact .details {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+
+#contact .details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+/* Estilos para el formulario (derecha) */
+#contact .form-wrapper {
+  flex: 1;
+  max-width: 600px;
+}
+
+#contact .contact-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  margin-left: -110px;
+}
+
+#contact .form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+#contact .form-group input,
+#contact .form-group textarea {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #00F5FF;
+  color: white;
+  font-size: 1rem;
+}
+
+#contact .form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#contact .form-group label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+#contact .form-group input:focus + label,
+#contact .form-group textarea:focus + label,
+#contact .form-group input:valid + label,
+#contact .form-group textarea:valid + label {
+  top: -15px;
+  font-size: 0.8rem;
+  color: #00F5FF;
+}
+
+#contact .submit-btn {
+  background: linear-gradient(45deg, #00F5FF, #FF00E4);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#contact .submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 245, 255, 0.4);
+}
+#contact .submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  #contact .contact-container {
+    flex-direction: column;
+    align-items: center; /* Centra los elementos */
+  }
+  
+  #contact .fotocheck-wrapper {
+    max-width: 100%;
+    text-align: right; /* Mueve el título a la derecha */
+    padding-right: 20px; /* Añade espacio a la derecha del título */
+  }
+  
+  #contact .form-wrapper {
+    max-width: 100%;
+    transform: translateX(-15px); /* Mueve el formulario a la izquierda */
+  }
+  
+  #contact .fotocheck-container {
+    width: 320px;
+    height: 380px;
+    margin-left: 0;
+    position: relative;
+    top: auto;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fotocheck-container {
+    width: 300px;
+    height: 400px;
+  }
+  
+  #contact .form-wrapper {
+    transform: translateX(-10px); /* Ajuste más suave para móviles pequeños */
+    padding: 0 15px; /* Previene desbordamiento */
+  }
+  
+  #contact .fotocheck-wrapper {
+    padding-right: 15px; /* Ajuste para móviles pequeños */
+  }
+}
+#contact h1 {
+  transform: translate(-30px, 30px) !important; 
+  /* -30px = izquierda | 30px = abajo */
+  display: inline-block;
+  position: relative;
+}
+
+.hero-section {
+  margin-top: 80px; /* Aumenta este número para bajarlo más */
+  display: flex;    /* Opcional: por si quieres alinear imagen y texto lado a lado */
+  flex-direction: column; /* Mantiene uno arriba del otro */
+  align-items: center;    /* Los centra horizontalmente */
+  text-align: center;
+}
+
+/* =========================================
+   CONTENEDOR DE BOTONES MEJORADO
+   ========================================= */
+
+/* Contenedor principal de los botones */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Contenedor de los dos botones lado a lado */
+.btn-container {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  align-items: center; /* Alinea verticalmente */
+  gap: 40px; /* Espacio entre botones */
+  margin-top: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* =========================================
+   BOTÓN DE DESCARGA CV (EXISTENTE - MODIFICADO)
+   ========================================= */
+
+/* Botón de descarga CV - MÁS GRANDE */
+.label {
+  background-color: transparent;
+  border: 3px solid rgb(91, 91, 240); /* Borde más grueso */
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  width: 280px; /* ANCHO AUMENTADO (antes 160px) */
+  height: 85px; /* ALTURA AUMENTADA (nueva propiedad) */
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 5px;
+  position: relative;
+  margin-top: 0; /* Elimina margen superior para alinear */
+  margin-bottom: 0;
+}
+
+/* Texto del botón de descarga - LETRA MÁS GRANDE */
+.label .title {
+  font-size: 24px !important; /* LETRA MUCHO MÁS GRANDE (antes 17px) */
+  color: #fff;
+  transition: all 0.4s ease;
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.label .title:last-child {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 24px !important; /* Mismo tamaño grande */
+}
+
+/* Círculo interno más grande */
+.label .circle {
+  height: 65px !important; /* MÁS GRANDE (antes 45px) */
+  width: 65px !important; /* MÁS GRANDE (antes 45px) */
+  border-radius: 50%;
+  background-color: rgb(91, 91, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Icono SVG más grande */
+.label .circle .icon {
+  color: #fff;
+  width: 35px !important; /* MÁS GRANDE (antes 30px) */
+  height: 35px !important; /* MÁS GRANDE */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+/* =========================================
+   BOTÓN "CONTACTAME" NUEVO - AL LADO DEL DE DESCARGA
+   ========================================= */
+
+/* Botón Contactame - Mismo tamaño que el de descarga */
+.contact-btn {
+  background-color: transparent;
+  border: 3px solid #FF00E4; /* Color rosa neón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 280px; /* MISMO ANCHO que el botón de descarga */
+  height: 85px; /* MISMA ALTURA que el botón de descarga */
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 0 20px;
+  position: relative;
+  text-decoration: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  
+  /* Fondo con gradiente */
+  background: linear-gradient(45deg, rgba(255, 0, 228, 0.1), rgba(255, 0, 84, 0.1));
+}
+
+/* Texto del botón Contactame - LETRA MÁS GRANDE */
+.contact-btn-text {
+  font-size: 24px !important; /* MISMO TAMAÑO que el otro botón */
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Efectos hover para AMBOS botones */
+.label:hover, .contact-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto específico para botón de descarga */
+.label:hover {
+  border-color: #00F5FF;
+  background: rgba(0, 245, 255, 0.1);
+}
+
+/* Efecto específico para botón de contacto */
+.contact-btn:hover {
+  border-color: #00FF87;
+  background: linear-gradient(45deg, rgba(255, 0, 228, 0.2), rgba(255, 0, 84, 0.2));
+  box-shadow: 0 10px 25px rgba(255, 0, 228, 0.3);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .btn-container {
+    flex-direction: column; /* Apila verticalmente en móviles */
+    gap: 25px;
+  }
+  
+  .label, .contact-btn {
+    width: 280px; /* Mantiene el mismo ancho */
+    height: 80px; /* Ligeramente más pequeño en móviles */
+  }
+  
+  .label .title,
+  .contact-btn-text {
+    font-size: 22px !important; /* Ajuste para móviles */
+  }
+  
+  .label .circle {
+    height: 60px !important;
+    width: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .label, .contact-btn {
+    width: 260px;
+    height: 75px;
+  }
+  
+  .label .title,
+  .contact-btn-text {
+    font-size: 20px !important;
+  }
+  
+  .label .circle {
+    height: 55px !important;
+    width: 55px !important;
+  }
+}
+
+/* Ajuste para que se vea mejor en la sección home */
+#home .container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#home .btn-container {
+  margin-top: 30px;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL DE BOTONES - POSICIÓN CORREGIDA
+   ========================================= */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px !important; /* Ajustado para mejor espaciado */
+  margin-bottom: 20px !important;
+  position: relative;
+  padding: 0 !important;
+  top: 0; /* Eliminado el -20px que causaba problemas */
+}
+
+/* =========================================
+   CONTENEDOR DE LOS DOS BOTONES - FIXED
+   ========================================= */
+.btn-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 30px !important;
+  margin: 0 auto !important; /* Centrado perfecto */
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 620px !important; /* Ajustado para 2 botones + espacio */
+}
+
+/* =========================================
+   BOTÓN DE DESCARGA CV - CORREGIDO
+   ========================================= */
+.label {
+  background-color: transparent;
+  border: 3px solid #00FF87,;
+  border-radius: 50px;
+  width: 280px;
+  height: 85px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  margin: 0 !important;
+  overflow: hidden;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Cambiado de center a flex-start */
+  padding-left: 80px !important; /* Espacio para el círculo */
+  padding-right: 20px !important;
+   top: -110px;
+   left:-55px
+}
+
+/* Círculo a la izquierda - FIXED */
+.label .circle {
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 65px !important;
+  width: 65px !important;
+  border-radius: 50%;
+  background-color: rgb(91, 91, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* TEXTO DESCARGA CV - CENTRADO VISUALMENTE */
+.label .title {
+  font-size: 24px !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  width: 100% !important;
+  position: relative;
+  left: -10px; /* Compensa el padding-left */
+  top: -2px;
+}
+
+.label .title:last-child {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 24px !important;
+  width: auto !important;
+}
+
+/* =========================================
+   BOTÓN CONTÁCTAME - CORREGIDO
+   ========================================= */
+.uiverse {
+  background: linear-gradient(45deg, rgba(0, 255, 247, 0.1), rgba(255, 0, 84, 0.1));
+  color: #fff;
+  border-radius: 50px;
+  width: 280px !important;
+  height: 85px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid  #00F5FF !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  top:-265px;
+   right:-150px
+}
+
+/* Texto del botón CONTÁCTAME */
+.uiverse span:not(.tooltip) {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.uiverse a {
+  color: white !important;
+  text-decoration: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+}
+
+/* Tooltip */
+.uiverse .tooltip {
+  position: absolute;
+  top: -40px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #000;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.uiverse:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================================
+   EFECTOS HOVER
+   ========================================= */
+.label:hover, .uiverse:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.label:hover {
+  border-color: #00F5FF;
+  background: rgba(0, 245, 255, 0.1);
+}
+
+.uiverse:hover {
+  border-color: #00FF87;
+  background: linear-gradient(45deg, rgba(255, 0, 228, 0.2), rgba(255, 0, 84, 0.2));
+  box-shadow: 0 15px 25px rgba(255, 0, 228, 0.3);
+}
+
+/* =========================================
+   ANIMACIONES BOTÓN DESCARGA
+   ========================================= */
+.input:checked + .circle {
+  left: calc(100% - 75px) !important;
+}
+
+.input:checked + .circle .icon {
+  transform: rotate(180deg);
+}
+
+.input:checked + .circle ~ .title:first-child {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.input:checked + .circle ~ .title:last-child {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .btn-container {
+    flex-direction: row !important;
+    gap: 20px !important;
+    max-width: 540px !important;
+  }
+  
+  .label, .uiverse {
+    width: 250px !important;
+    height: 80px !important;
+  }
+  
+  .label {
+    padding-left: 70px !important;
+  }
+  
+  .label .circle {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .label .title,
+  .uiverse a {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn-container {
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+  
+  .label, .uiverse {
+    width: 280px !important;
+    height: 80px !important;
+  }
+  
+  .label {
+    padding-left: 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .label, .uiverse {
+    width: 260px !important;
+    height: 75px !important;
+  }
+  
+  .label .title,
+  .uiverse a {
+    font-size: 18px !important;
+  }
+}
+
+/* =========================================
+   AJUSTES PARA LA SECCIÓN HOME
+   ========================================= */
+#home .container {
+  margin-top: 40px; /* Espacio después del texto */
+}
+
+#home .info-box {
+  margin-bottom: 20px; /* Espacio antes de los botones */
+}
+
+#home .btn-container {
+  margin-top: 20px !important;
+}
